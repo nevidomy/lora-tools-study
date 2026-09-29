@@ -6,11 +6,12 @@ An agent with N tools normally carries all N schemas in every prompt. Question i
 
 Tool-calling agents usually carry every tool schema in the prompt. This work measures what that costs at different catalog sizes and whether a per-catalog LoRA adapter can replace it. On 64 synthetic MCP-style tools with nested 4/16/64-tool catalogs, two models (GPT-OSS-20B; Inkling-Small, 276B/12B-active), three held-out phrasings (natural, seen paraphrases, unseen paraphrases from a disjoint glossaries), three training seeds, and tool-clustered bootstrap intervals. Findings: 
 
-  * Full-catalog prompting degrades with catalog size — GPT-OSS-20B scores 0.890 with one schema in context and 0.583 with 64, on the same queries; most of the loss is the correct tool with a wrong argument; tool's position in the schema block matters but less then tool itself (7% position vs. 80.5% for tool identity). 
-  * A word-overlap top-4 retriever recovers most of it 0.845 with no adapter (natural phrasing; 0.431 on unseen paraphrases). 
-  * An adapter trained on 50 natural + 50 paraphrased examples per tool, with no schema in the prompt, scores 0.951 on natural phrasing and 0.736 on unseen paraphrases at 64 tools — +0.368 [+0.313, +0.423] and +0.491 [+0.440, +0.541] over the full catalog, +0.106 and +0.305 over retrieval — at 152 input tokens instead of 7,251, and stays stable from 4 to 64 tools at 100 examples per tool. 
-  * Given the same data, fine-tuning with the schema in context is still better (though difference is small: +0.011 / +0.051 with one D seed at 64) while paying the full prefix price.
-  * Adapter rank barely matters for natural phrasing: rank 1 (14M parameters) matches rank 32 within 0.01. It was shown before that adapter can beat a full-catalog promptin by Shemla et al. (2026); this work characterizes the gap against catalog size, retrieval, and matched with-schema fine-tuning.
+- Full-catalog prompting degrades with catalog size — GPT-OSS-20B scores 0.890 with one schema in context and 0.583 with 64, on the same queries; most of the loss is the correct tool with a wrong argument; tool's position in the schema block matters but less then tool itself (7% position vs. 80.5% for tool identity). 
+- A word-overlap top-4 retriever recovers most of it 0.845 with no adapter (natural phrasing; 0.431 on unseen paraphrases). 
+- An adapter trained on 50 natural + 50 paraphrased examples per tool, with no schema in the prompt, scores 0.951 on natural phrasing and 0.736 on unseen paraphrases at 64 tools — +0.368 [+0.313, +0.423] and +0.491 [+0.440, +0.541] over the full catalog, +0.106 and +0.305 over retrieval — at 152 input tokens instead of 7,251, and stays stable from 4 to 64 tools at 100 examples per tool. 
+- Given the same data, fine-tuning with the schema in context is still better (though difference is small: +0.011 / +0.051 with one D seed at 64) while paying the full prefix price.
+- Adapter rank barely matters for natural phrasing: rank 1 (14M parameters) matches rank 32 within 0.01. It was shown before that adapter can beat a full-catalog promptin by Shemla et al. (2026); this work characterizes the gap against catalog size, retrieval, and matched with-schema fine-tuning.
+
 
 
 ### Four options, side by side
@@ -50,6 +51,12 @@ with `--avoid-glossary`) → validate → `run_seed.sh` → `summarize.py`. Each
 `runs/` records model, renderer, schedule, and date.
 
 Total cost of the study: ~$242 ($205 Tinker, $37 OpenRouter).
+
+
+
+## License
+
+Code: MIT. Catalog, queries, glossaries and result rows (`tools/`, `queries*/`, `results/`): CC BY 4.0.
 
 ## Related
 
