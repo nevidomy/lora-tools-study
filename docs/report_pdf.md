@@ -357,7 +357,7 @@ The C–D trade-off, on the same training data: D's observed accuracy is higher 
 
 ## 6. AI assistance and author contributions
 
-This study was directed and executed by the author, who designed the arms and catalog-scaling protocol, ran and paid for all experiments, verified every reported number against per-response records, and made all decisions about scope and claims. An AI assistant (Claude, Anthropic and ChatGPT, OpenAI) drafted most of the pipeline scripts, evaluation harness, and analysis code, that the author reviewed and revised. An AI-based internal review process contributed corrections, text improveements and proposed the counterbalanced-order analysis, the retrieval baseline, the matched with-schema comparison and the tool-clustered intervals. The author is responsible for all claims and errors. Interaction records were retained.
+This study was directed and executed by the author, who designed the arms and catalog-scaling protocol, ran and paid for all experiments, verified every reported number against per-response records, and made all decisions about scope and claims. An AI assistant (Claude, Anthropic and ChatGPT, OpenAI) drafted most of the pipeline scripts, evaluation harness, and analysis code, that the author reviewed and revised. An AI-based internal review process contributed corrections, text improvements and proposed the counterbalanced-order analysis, the retrieval baseline, the matched with-schema comparison and the tool-clustered intervals. The author is responsible for all claims and errors. Interaction records were retained.
 
 
 ## Appendix A — the 8-seed grid at the pre-selection schedule
