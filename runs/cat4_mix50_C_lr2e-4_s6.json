@@ -1,0 +1,1308 @@
+{
+  "tag": "cat4_mix50_C_lr2e-4_s6",
+  "arm": "C",
+  "model": "openai/gpt-oss-20b",
+  "renderer": "gpt_oss_low_reasoning",
+  "rank": 32,
+  "prompt_version": "v1",
+  "lora_seed": 6,
+  "data_seed": 6,
+  "lr": 0.0002,
+  "decay": false,
+  "epochs": 3,
+  "batch_size": 16,
+  "warmup_steps": 7,
+  "total_steps": 75,
+  "reduction": "none",
+  "max_length": 2048,
+  "catalog": "tools/catalog_64.json",
+  "catalog_size": 4,
+  "queries": "queries_valid",
+  "examples_per_tool": 50,
+  "n_examples": 400,
+  "queries_strong": "queries_strong_valid",
+  "strong_per_tool": 50,
+  "n_natural": 200,
+  "tokens_total": 76565,
+  "tokens_target": 14855,
+  "checkpoint": "tinker://4e2ae205-4997-59ec-8b9c-e28ebfc3f91d:train:0/sampler_weights/cat4_mix50_C_lr2e-4_s6",
+  "losses": [
+    {
+      "step": 0,
+      "epoch": 0,
+      "lr": 2.857142857142857e-05,
+      "target_tokens": 570,
+      "loss_sum": 2843.497802734375,
+      "loss_per_token": 4.988592636376096,
+      "metrics": {
+        "e_max_violation:mean": 3.540207624435425,
+        "e_min_violation:mean": -0.9802820682525635,
+        "clock_cycle:unique": 6828169.0,
+        "loss:sum": 2843.497802734375,
+        "e_frac_oversubscribed:mean": 0.36328125,
+        "e_frac_with_tokens:mean": 0.92578125,
+        "e_max_violation:max": 5.646398067474365
+      }
+    },
+    {
+      "step": 1,
+      "epoch": 0,
+      "lr": 5.714285714285714e-05,
+      "target_tokens": 590,
+      "loss_sum": 2577.527099609375,
+      "loss_per_token": 4.368689999337923,
+      "metrics": {
+        "e_max_violation:mean": 3.544473648071289,
+        "e_min_violation:mean": -0.9820144176483154,
+        "clock_cycle:unique": 6828173.0,
+        "loss:sum": 2577.527099609375,
+        "e_frac_oversubscribed:mean": 0.359375,
+        "e_frac_with_tokens:mean": 0.92578125,
+        "e_max_violation:max": 5.671027183532715
+      }
+    },
+    {
+      "step": 2,
+      "epoch": 0,
+      "lr": 8.571428571428571e-05,
+      "target_tokens": 596,
+      "loss_sum": 2061.975830078125,
+      "loss_per_token": 3.4596909900639683,
+      "metrics": {
+        "e_max_violation:mean": 3.500277280807495,
+        "clock_cycle:unique": 6828175.0,
+        "e_min_violation:mean": -0.9801706075668335,
+        "loss:sum": 2061.975830078125,
+        "e_frac_with_tokens:mean": 0.9375,
+        "e_frac_oversubscribed:mean": 0.3619791865348816,
+        "e_max_violation:max": 5.604187488555908
+      }
+    },
+    {
+      "step": 3,
+      "epoch": 0,
+      "lr": 0.00011428571428571428,
+      "target_tokens": 610,
+      "loss_sum": 1671.3246459960938,
+      "loss_per_token": 2.7398764688460555,
+      "metrics": {
+        "e_max_violation:mean": 3.419952154159546,
+        "clock_cycle:unique": 6828177.0,
+        "e_min_violation:mean": -0.9783181548118591,
+        "e_max_violation:max": 5.741130352020264,
+        "e_frac_with_tokens:mean": 0.9388021230697632,
+        "e_frac_oversubscribed:mean": 0.3619791865348816,
+        "loss:sum": 1671.3246459960938
+      }
+    },
+    {
+      "step": 4,
+      "epoch": 0,
+      "lr": 0.00014285714285714287,
+      "target_tokens": 599,
+      "loss_sum": 1378.1265258789062,
+      "loss_per_token": 2.3007120632369054,
+      "metrics": {
+        "e_max_violation:mean": 3.304697036743164,
+        "clock_cycle:unique": 6828179.0,
+        "e_min_violation:mean": -0.9794988632202148,
+        "loss:sum": 1378.1265258789062,
+        "e_frac_oversubscribed:mean": 0.37890625,
+        "e_frac_with_tokens:mean": 0.94921875,
+        "e_max_violation:max": 5.664497375488281
+      }
+    },
+    {
+      "step": 5,
+      "epoch": 0,
+      "lr": 0.00017142857142857143,
+      "target_tokens": 606,
+      "loss_sum": 1121.6767578125,
+      "loss_per_token": 1.8509517455651816,
+      "metrics": {
+        "e_max_violation:mean": 3.185173511505127,
+        "e_min_violation:mean": -0.9761594533920288,
+        "clock_cycle:unique": 6828181.0,
+        "e_max_violation:max": 5.617897033691406,
+        "e_frac_with_tokens:mean": 0.9479166865348816,
+        "e_frac_oversubscribed:mean": 0.3854166865348816,
+        "loss:sum": 1121.6767578125
+      }
+    },
+    {
+      "step": 6,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 606,
+      "loss_sum": 960.6819763183594,
+      "loss_per_token": 1.5852837893042233,
+      "metrics": {
+        "e_max_violation:mean": 2.9868578910827637,
+        "clock_cycle:unique": 6828183.0,
+        "e_min_violation:mean": -0.9768654704093933,
+        "e_max_violation:max": 5.506353855133057,
+        "e_frac_with_tokens:mean": 0.9557291865348816,
+        "loss:sum": 960.6819763183594,
+        "e_frac_oversubscribed:mean": 0.4075520932674408
+      }
+    },
+    {
+      "step": 7,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 557,
+      "loss_sum": 722.9491882324219,
+      "loss_per_token": 1.2979339106506675,
+      "metrics": {
+        "e_max_violation:mean": 2.9555110931396484,
+        "clock_cycle:unique": 6828185.0,
+        "e_min_violation:mean": -0.9800912737846375,
+        "e_max_violation:max": 5.547881126403809,
+        "e_frac_oversubscribed:mean": 0.41015625,
+        "loss:sum": 722.9491882324219,
+        "e_frac_with_tokens:mean": 0.953125
+      }
+    },
+    {
+      "step": 8,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 639,
+      "loss_sum": 851.47900390625,
+      "loss_per_token": 1.332518002983177,
+      "metrics": {
+        "e_max_violation:mean": 2.8912551403045654,
+        "clock_cycle:unique": 6828187.0,
+        "e_min_violation:mean": -0.975583553314209,
+        "e_max_violation:max": 5.234269142150879,
+        "e_frac_with_tokens:mean": 0.9544271230697632,
+        "e_frac_oversubscribed:mean": 0.421875,
+        "loss:sum": 851.47900390625
+      }
+    },
+    {
+      "step": 9,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 586,
+      "loss_sum": 640.4820556640625,
+      "loss_per_token": 1.0929727912356015,
+      "metrics": {
+        "e_max_violation:mean": 2.8981876373291016,
+        "e_min_violation:mean": -0.9782537221908569,
+        "clock_cycle:unique": 6828189.0,
+        "loss:sum": 640.4820556640625,
+        "e_frac_with_tokens:mean": 0.95703125,
+        "e_max_violation:max": 5.11795711517334,
+        "e_frac_oversubscribed:mean": 0.4322916865348816
+      }
+    },
+    {
+      "step": 10,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 585,
+      "loss_sum": 459.3515930175781,
+      "loss_per_token": 0.7852163983206464,
+      "metrics": {
+        "e_max_violation:mean": 2.87709379196167,
+        "clock_cycle:unique": 6828191.0,
+        "e_min_violation:mean": -0.9759290218353271,
+        "loss:sum": 459.3515930175781,
+        "e_frac_oversubscribed:mean": 0.4401041865348816,
+        "e_max_violation:max": 5.195008277893066,
+        "e_frac_with_tokens:mean": 0.9466146230697632
+      }
+    },
+    {
+      "step": 11,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 599,
+      "loss_sum": 371.3614959716797,
+      "loss_per_token": 0.619969108466911,
+      "metrics": {
+        "e_max_violation:mean": 2.8401083946228027,
+        "e_min_violation:mean": -0.9770190119743347,
+        "clock_cycle:unique": 6828194.0,
+        "e_max_violation:max": 5.103415012359619,
+        "e_frac_oversubscribed:mean": 0.4427083432674408,
+        "e_frac_with_tokens:mean": 0.9466146230697632,
+        "loss:sum": 371.3614959716797
+      }
+    },
+    {
+      "step": 12,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 605,
+      "loss_sum": 380.70163345336914,
+      "loss_per_token": 0.6292588982700317,
+      "metrics": {
+        "e_max_violation:mean": 2.8008675575256348,
+        "clock_cycle:unique": 6828196.0,
+        "e_min_violation:mean": -0.9781030416488647,
+        "e_max_violation:max": 4.942113876342773,
+        "e_frac_with_tokens:mean": 0.9518229365348816,
+        "e_frac_oversubscribed:mean": 0.4388020932674408,
+        "loss:sum": 380.70163345336914
+      }
+    },
+    {
+      "step": 13,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 578,
+      "loss_sum": 163.0000991821289,
+      "loss_per_token": 0.28200709201060364,
+      "metrics": {
+        "e_max_violation:mean": 2.8080642223358154,
+        "e_min_violation:mean": -0.9773408770561218,
+        "clock_cycle:unique": 6828198.0,
+        "loss:sum": 163.0000991821289,
+        "e_frac_with_tokens:mean": 0.94921875,
+        "e_max_violation:max": 4.998000621795654,
+        "e_frac_oversubscribed:mean": 0.4453125
+      }
+    },
+    {
+      "step": 14,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 598,
+      "loss_sum": 164.47672653198242,
+      "loss_per_token": 0.275044693197295,
+      "metrics": {
+        "e_max_violation:mean": 2.771867275238037,
+        "clock_cycle:unique": 6828200.0,
+        "e_min_violation:mean": -0.9793491363525391,
+        "loss:sum": 164.47672653198242,
+        "e_frac_with_tokens:mean": 0.9505208730697632,
+        "e_max_violation:max": 4.913720607757568,
+        "e_frac_oversubscribed:mean": 0.4466145932674408
+      }
+    },
+    {
+      "step": 15,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 567,
+      "loss_sum": 107.40490531921387,
+      "loss_per_token": 0.18942664077462762,
+      "metrics": {
+        "e_max_violation:mean": 2.8297066688537598,
+        "e_min_violation:mean": -0.9806941747665405,
+        "clock_cycle:unique": 6828202.0,
+        "loss:sum": 107.40490531921387,
+        "e_frac_oversubscribed:mean": 0.4427083432674408,
+        "e_max_violation:max": 4.983260631561279,
+        "e_frac_with_tokens:mean": 0.9505208730697632
+      }
+    },
+    {
+      "step": 16,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 593,
+      "loss_sum": 100.56947708129883,
+      "loss_per_token": 0.1695943964271481,
+      "metrics": {
+        "e_max_violation:mean": 2.77128267288208,
+        "e_min_violation:mean": -0.9810581207275391,
+        "clock_cycle:unique": 6828205.0,
+        "loss:sum": 100.56947708129883,
+        "e_frac_oversubscribed:mean": 0.4440104365348816,
+        "e_frac_with_tokens:mean": 0.9505208730697632,
+        "e_max_violation:max": 4.807969093322754
+      }
+    },
+    {
+      "step": 17,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 602,
+      "loss_sum": 93.6359634399414,
+      "loss_per_token": 0.15554146750820833,
+      "metrics": {
+        "e_max_violation:mean": 2.7385597229003906,
+        "clock_cycle:unique": 6828207.0,
+        "e_min_violation:mean": -0.979397177696228,
+        "loss:sum": 93.6359634399414,
+        "e_frac_oversubscribed:mean": 0.4401041865348816,
+        "e_max_violation:max": 4.657774925231934,
+        "e_frac_with_tokens:mean": 0.9557291865348816
+      }
+    },
+    {
+      "step": 18,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 614,
+      "loss_sum": 88.1519546508789,
+      "loss_per_token": 0.1435699587147865,
+      "metrics": {
+        "e_max_violation:mean": 2.770193099975586,
+        "e_min_violation:mean": -0.9800496101379395,
+        "clock_cycle:unique": 6828210.0,
+        "loss:sum": 88.1519546508789,
+        "e_frac_with_tokens:mean": 0.9557291865348816,
+        "e_max_violation:max": 4.5723066329956055,
+        "e_frac_oversubscribed:mean": 0.4453125
+      }
+    },
+    {
+      "step": 19,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 586,
+      "loss_sum": 74.82439041137695,
+      "loss_per_token": 0.12768667305695725,
+      "metrics": {
+        "e_max_violation:mean": 2.8204874992370605,
+        "clock_cycle:unique": 6828214.0,
+        "e_min_violation:mean": -0.9806747436523438,
+        "loss:sum": 74.82439041137695,
+        "e_frac_with_tokens:mean": 0.9466146230697632,
+        "e_max_violation:max": 4.772118091583252,
+        "e_frac_oversubscribed:mean": 0.4401041865348816
+      }
+    },
+    {
+      "step": 20,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 562,
+      "loss_sum": 24.082348346710205,
+      "loss_per_token": 0.042851153641833103,
+      "metrics": {
+        "e_max_violation:mean": 2.822719097137451,
+        "clock_cycle:unique": 6828216.0,
+        "e_min_violation:mean": -0.9836269617080688,
+        "e_max_violation:max": 4.785907745361328,
+        "e_frac_with_tokens:mean": 0.953125,
+        "e_frac_oversubscribed:mean": 0.4361979365348816,
+        "loss:sum": 24.082348346710205
+      }
+    },
+    {
+      "step": 21,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 634,
+      "loss_sum": 15.31039810180664,
+      "loss_per_token": 0.024148892905057794,
+      "metrics": {
+        "e_max_violation:mean": 2.7451741695404053,
+        "clock_cycle:unique": 6828218.0,
+        "e_min_violation:mean": -0.9811279773712158,
+        "e_max_violation:max": 4.621481895446777,
+        "e_frac_oversubscribed:mean": 0.4427083432674408,
+        "e_frac_with_tokens:mean": 0.9479166865348816,
+        "loss:sum": 15.31039810180664
+      }
+    },
+    {
+      "step": 22,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 594,
+      "loss_sum": 33.26511478424072,
+      "loss_per_token": 0.056001876741146,
+      "metrics": {
+        "e_max_violation:mean": 2.7318058013916016,
+        "clock_cycle:unique": 6828221.0,
+        "e_min_violation:mean": -0.9823240637779236,
+        "loss:sum": 33.26511478424072,
+        "e_frac_oversubscribed:mean": 0.4466145932674408,
+        "e_frac_with_tokens:mean": 0.9453125,
+        "e_max_violation:max": 4.433715343475342
+      }
+    },
+    {
+      "step": 23,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 600,
+      "loss_sum": 45.370028495788574,
+      "loss_per_token": 0.07561671415964763,
+      "metrics": {
+        "e_max_violation:mean": 2.7824225425720215,
+        "clock_cycle:unique": 6828223.0,
+        "e_min_violation:mean": -0.9836012721061707,
+        "e_max_violation:max": 4.566559791564941,
+        "e_frac_oversubscribed:mean": 0.4440104365348816,
+        "loss:sum": 45.370028495788574,
+        "e_frac_with_tokens:mean": 0.94921875
+      }
+    },
+    {
+      "step": 24,
+      "epoch": 0,
+      "lr": 0.0002,
+      "target_tokens": 579,
+      "loss_sum": 18.225873947143555,
+      "loss_per_token": 0.03147819334567108,
+      "metrics": {
+        "e_max_violation:mean": 2.766951322555542,
+        "clock_cycle:unique": 6828225.0,
+        "e_min_violation:mean": -0.981846034526825,
+        "loss:sum": 18.225873947143555,
+        "e_frac_with_tokens:mean": 0.9544271230697632,
+        "e_frac_oversubscribed:mean": 0.4361979365348816,
+        "e_max_violation:max": 4.451443672180176
+      }
+    },
+    {
+      "step": 25,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 585,
+      "loss_sum": 8.633542358875275,
+      "loss_per_token": 0.01475819206645346,
+      "metrics": {
+        "e_max_violation:mean": 2.7697677612304688,
+        "clock_cycle:unique": 6828227.0,
+        "e_min_violation:mean": -0.9823920726776123,
+        "loss:sum": 8.633542358875275,
+        "e_frac_oversubscribed:mean": 0.4348958432674408,
+        "e_max_violation:max": 4.56013298034668,
+        "e_frac_with_tokens:mean": 0.953125
+      }
+    },
+    {
+      "step": 26,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 555,
+      "loss_sum": 14.371974050998688,
+      "loss_per_token": 0.025895448740538177,
+      "metrics": {
+        "e_max_violation:mean": 2.7993037700653076,
+        "clock_cycle:unique": 6828229.0,
+        "e_min_violation:mean": -0.9825921058654785,
+        "loss:sum": 14.371974050998688,
+        "e_frac_with_tokens:mean": 0.953125,
+        "e_max_violation:max": 4.579514503479004,
+        "e_frac_oversubscribed:mean": 0.4375
+      }
+    },
+    {
+      "step": 27,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 630,
+      "loss_sum": 24.95647221803665,
+      "loss_per_token": 0.03961344796513754,
+      "metrics": {
+        "e_max_violation:mean": 2.764237880706787,
+        "clock_cycle:unique": 6828231.0,
+        "e_min_violation:mean": -0.9786827564239502,
+        "loss:sum": 24.95647221803665,
+        "e_frac_with_tokens:mean": 0.9505208730697632,
+        "e_frac_oversubscribed:mean": 0.4375,
+        "e_max_violation:max": 4.406299591064453
+      }
+    },
+    {
+      "step": 28,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 626,
+      "loss_sum": 7.6045578718185425,
+      "loss_per_token": 0.012147856025269237,
+      "metrics": {
+        "e_max_violation:mean": 2.7168140411376953,
+        "e_min_violation:mean": -0.9810366034507751,
+        "clock_cycle:unique": 6828233.0,
+        "loss:sum": 7.6045578718185425,
+        "e_frac_with_tokens:mean": 0.953125,
+        "e_frac_oversubscribed:mean": 0.4388020932674408,
+        "e_max_violation:max": 4.309734344482422
+      }
+    },
+    {
+      "step": 29,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 568,
+      "loss_sum": 8.110462546348572,
+      "loss_per_token": 0.014278983356247485,
+      "metrics": {
+        "e_max_violation:mean": 2.7473456859588623,
+        "clock_cycle:unique": 6828235.0,
+        "e_min_violation:mean": -0.9810618758201599,
+        "e_max_violation:max": 4.383251667022705,
+        "e_frac_with_tokens:mean": 0.9518229365348816,
+        "loss:sum": 8.110462546348572,
+        "e_frac_oversubscribed:mean": 0.4401041865348816
+      }
+    },
+    {
+      "step": 30,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 635,
+      "loss_sum": 9.02395984530449,
+      "loss_per_token": 0.014210960386306282,
+      "metrics": {
+        "e_max_violation:mean": 2.7448387145996094,
+        "e_min_violation:mean": -0.9782795906066895,
+        "clock_cycle:unique": 6828237.0,
+        "loss:sum": 9.02395984530449,
+        "e_frac_oversubscribed:mean": 0.4375,
+        "e_frac_with_tokens:mean": 0.9505208730697632,
+        "e_max_violation:max": 4.269677639007568
+      }
+    },
+    {
+      "step": 31,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 608,
+      "loss_sum": 17.632706865668297,
+      "loss_per_token": 0.02900116260800707,
+      "metrics": {
+        "e_max_violation:mean": 2.757188320159912,
+        "clock_cycle:unique": 6828239.0,
+        "e_min_violation:mean": -0.9779162406921387,
+        "loss:sum": 17.632706865668297,
+        "e_frac_oversubscribed:mean": 0.43359375,
+        "e_max_violation:max": 4.294850826263428,
+        "e_frac_with_tokens:mean": 0.9544271230697632
+      }
+    },
+    {
+      "step": 32,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 571,
+      "loss_sum": 6.959301128983498,
+      "loss_per_token": 0.012187917914156738,
+      "metrics": {
+        "e_max_violation:mean": 2.781719923019409,
+        "clock_cycle:unique": 6828241.0,
+        "e_min_violation:mean": -0.9803271293640137,
+        "loss:sum": 6.959301128983498,
+        "e_frac_with_tokens:mean": 0.9544271230697632,
+        "e_frac_oversubscribed:mean": 0.4322916865348816,
+        "e_max_violation:max": 4.416445732116699
+      }
+    },
+    {
+      "step": 33,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 574,
+      "loss_sum": 8.310314536094666,
+      "loss_per_token": 0.014477899888666665,
+      "metrics": {
+        "e_max_violation:mean": 2.8667335510253906,
+        "e_min_violation:mean": -0.9789227247238159,
+        "clock_cycle:unique": 6828243.0,
+        "loss:sum": 8.310314536094666,
+        "e_frac_with_tokens:mean": 0.9544271230697632,
+        "e_max_violation:max": 4.6982269287109375,
+        "e_frac_oversubscribed:mean": 0.4283854365348816
+      }
+    },
+    {
+      "step": 34,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 603,
+      "loss_sum": 3.456815779209137,
+      "loss_per_token": 0.005732696151258934,
+      "metrics": {
+        "e_max_violation:mean": 2.857377052307129,
+        "clock_cycle:unique": 6828245.0,
+        "e_min_violation:mean": -0.9796721339225769,
+        "e_max_violation:max": 4.555409908294678,
+        "e_frac_with_tokens:mean": 0.9518229365348816,
+        "loss:sum": 3.456815779209137,
+        "e_frac_oversubscribed:mean": 0.4375
+      }
+    },
+    {
+      "step": 35,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 563,
+      "loss_sum": 1.9403707310557365,
+      "loss_per_token": 0.0034464844246105443,
+      "metrics": {
+        "e_max_violation:mean": 2.8704700469970703,
+        "e_min_violation:mean": -0.9808725118637085,
+        "clock_cycle:unique": 6828247.0,
+        "loss:sum": 1.9403707310557365,
+        "e_frac_with_tokens:mean": 0.95703125,
+        "e_frac_oversubscribed:mean": 0.42578125,
+        "e_max_violation:max": 4.557047367095947
+      }
+    },
+    {
+      "step": 36,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 618,
+      "loss_sum": 9.30403745174408,
+      "loss_per_token": 0.01505507678275741,
+      "metrics": {
+        "e_max_violation:mean": 2.8182990550994873,
+        "e_min_violation:mean": -0.9807775020599365,
+        "clock_cycle:unique": 6828249.0,
+        "loss:sum": 9.30403745174408,
+        "e_frac_with_tokens:mean": 0.9518229365348816,
+        "e_max_violation:max": 4.51030969619751,
+        "e_frac_oversubscribed:mean": 0.4244791865348816
+      }
+    },
+    {
+      "step": 37,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 582,
+      "loss_sum": 2.113962948322296,
+      "loss_per_token": 0.0036322387428218148,
+      "metrics": {
+        "e_max_violation:mean": 2.8748621940612793,
+        "e_min_violation:mean": -0.9794566035270691,
+        "clock_cycle:unique": 6828251.0,
+        "loss:sum": 2.113962948322296,
+        "e_frac_with_tokens:mean": 0.953125,
+        "e_max_violation:max": 4.616965293884277,
+        "e_frac_oversubscribed:mean": 0.4270833432674408
+      }
+    },
+    {
+      "step": 38,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 596,
+      "loss_sum": 2.8601520508527756,
+      "loss_per_token": 0.004798912837001301,
+      "metrics": {
+        "e_max_violation:mean": 2.8595519065856934,
+        "clock_cycle:unique": 6828253.0,
+        "e_min_violation:mean": -0.9795474410057068,
+        "e_max_violation:max": 4.566579818725586,
+        "e_frac_with_tokens:mean": 0.9622396230697632,
+        "loss:sum": 2.8601520508527756,
+        "e_frac_oversubscribed:mean": 0.4270833432674408
+      }
+    },
+    {
+      "step": 39,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 627,
+      "loss_sum": 1.6170429065823555,
+      "loss_per_token": 0.0025790157999718588,
+      "metrics": {
+        "e_max_violation:mean": 2.8555877208709717,
+        "clock_cycle:unique": 6828254.0,
+        "e_min_violation:mean": -0.9785537719726562,
+        "loss:sum": 1.6170429065823555,
+        "e_frac_oversubscribed:mean": 0.4283854365348816,
+        "e_max_violation:max": 4.579049587249756,
+        "e_frac_with_tokens:mean": 0.9544271230697632
+      }
+    },
+    {
+      "step": 40,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 601,
+      "loss_sum": 2.1698771100491285,
+      "loss_per_token": 0.0036104444426774186,
+      "metrics": {
+        "e_max_violation:mean": 2.896249294281006,
+        "e_min_violation:mean": -0.9799156188964844,
+        "clock_cycle:unique": 6828257.0,
+        "loss:sum": 2.1698771100491285,
+        "e_frac_oversubscribed:mean": 0.42578125,
+        "e_max_violation:max": 4.60585880279541,
+        "e_frac_with_tokens:mean": 0.953125
+      }
+    },
+    {
+      "step": 41,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 579,
+      "loss_sum": 6.515114142559469,
+      "loss_per_token": 0.01125235603205435,
+      "metrics": {
+        "e_max_violation:mean": 2.9143333435058594,
+        "clock_cycle:unique": 6828259.0,
+        "e_min_violation:mean": -0.980555534362793,
+        "e_max_violation:max": 4.634666442871094,
+        "e_frac_oversubscribed:mean": 0.421875,
+        "e_frac_with_tokens:mean": 0.9479166865348816,
+        "loss:sum": 6.515114142559469
+      }
+    },
+    {
+      "step": 42,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 583,
+      "loss_sum": 5.523850260768086,
+      "loss_per_token": 0.009474871802346631,
+      "metrics": {
+        "e_max_violation:mean": 2.882546901702881,
+        "e_min_violation:mean": -0.9810843467712402,
+        "clock_cycle:unique": 6828261.0,
+        "loss:sum": 5.523850260768086,
+        "e_frac_with_tokens:mean": 0.9518229365348816,
+        "e_frac_oversubscribed:mean": 0.4361979365348816,
+        "e_max_violation:max": 4.5612006187438965
+      }
+    },
+    {
+      "step": 43,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 595,
+      "loss_sum": 7.127878665924072,
+      "loss_per_token": 0.011979628009956424,
+      "metrics": {
+        "e_max_violation:mean": 2.872897148132324,
+        "clock_cycle:unique": 6828263.0,
+        "e_min_violation:mean": -0.9797026515007019,
+        "loss:sum": 7.127878665924072,
+        "e_frac_oversubscribed:mean": 0.4348958432674408,
+        "e_max_violation:max": 4.587756633758545,
+        "e_frac_with_tokens:mean": 0.953125
+      }
+    },
+    {
+      "step": 44,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 583,
+      "loss_sum": 3.9381388635374606,
+      "loss_per_token": 0.006754955169017943,
+      "metrics": {
+        "e_max_violation:mean": 2.874824047088623,
+        "e_min_violation:mean": -0.9799847602844238,
+        "clock_cycle:unique": 6828265.0,
+        "loss:sum": 3.9381388635374606,
+        "e_frac_with_tokens:mean": 0.9557291865348816,
+        "e_frac_oversubscribed:mean": 0.4309895932674408,
+        "e_max_violation:max": 4.600778579711914
+      }
+    },
+    {
+      "step": 45,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 566,
+      "loss_sum": 10.0401739529334,
+      "loss_per_token": 0.017738823238398236,
+      "metrics": {
+        "e_max_violation:mean": 2.92219614982605,
+        "e_min_violation:mean": -0.9806894063949585,
+        "clock_cycle:unique": 6828267.0,
+        "loss:sum": 10.0401739529334,
+        "e_frac_oversubscribed:mean": 0.4361979365348816,
+        "e_frac_with_tokens:mean": 0.9557291865348816,
+        "e_max_violation:max": 4.531828880310059
+      }
+    },
+    {
+      "step": 46,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 600,
+      "loss_sum": 7.5976769626140594,
+      "loss_per_token": 0.012662794937690099,
+      "metrics": {
+        "e_max_violation:mean": 2.8892886638641357,
+        "clock_cycle:unique": 6828269.0,
+        "e_min_violation:mean": -0.9789692163467407,
+        "e_max_violation:max": 4.5599870681762695,
+        "e_frac_oversubscribed:mean": 0.4270833432674408,
+        "loss:sum": 7.5976769626140594,
+        "e_frac_with_tokens:mean": 0.953125
+      }
+    },
+    {
+      "step": 47,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 604,
+      "loss_sum": 4.348934710025787,
+      "loss_per_token": 0.007200223029844019,
+      "metrics": {
+        "e_max_violation:mean": 2.903066396713257,
+        "clock_cycle:unique": 6828271.0,
+        "e_min_violation:mean": -0.9786790609359741,
+        "e_max_violation:max": 4.597098350524902,
+        "e_frac_oversubscribed:mean": 0.4322916865348816,
+        "loss:sum": 4.348934710025787,
+        "e_frac_with_tokens:mean": 0.9544271230697632
+      }
+    },
+    {
+      "step": 48,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 636,
+      "loss_sum": 1.4642701111733913,
+      "loss_per_token": 0.002302311495555647,
+      "metrics": {
+        "e_max_violation:mean": 2.847222089767456,
+        "e_min_violation:mean": -0.9780982732772827,
+        "clock_cycle:unique": 6828272.0,
+        "e_max_violation:max": 4.528205394744873,
+        "e_frac_with_tokens:mean": 0.953125,
+        "loss:sum": 1.4642701111733913,
+        "e_frac_oversubscribed:mean": 0.4309895932674408
+      }
+    },
+    {
+      "step": 49,
+      "epoch": 1,
+      "lr": 0.0002,
+      "target_tokens": 567,
+      "loss_sum": 0.3057333528995514,
+      "loss_per_token": 0.0005392122626094381,
+      "metrics": {
+        "e_max_violation:mean": 2.8741679191589355,
+        "e_min_violation:mean": -0.9802485704421997,
+        "clock_cycle:unique": 6828275.0,
+        "loss:sum": 0.3057333528995514,
+        "e_frac_with_tokens:mean": 0.953125,
+        "e_max_violation:max": 4.5605854988098145,
+        "e_frac_oversubscribed:mean": 0.4296875
+      }
+    },
+    {
+      "step": 50,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 576,
+      "loss_sum": 0.6301279962062836,
+      "loss_per_token": 0.001093972215635909,
+      "metrics": {
+        "e_max_violation:mean": 2.8856987953186035,
+        "clock_cycle:unique": 6828277.0,
+        "e_min_violation:mean": -0.979978084564209,
+        "loss:sum": 0.6301279962062836,
+        "e_frac_oversubscribed:mean": 0.42578125,
+        "e_max_violation:max": 4.697690010070801,
+        "e_frac_with_tokens:mean": 0.9544271230697632
+      }
+    },
+    {
+      "step": 51,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 591,
+      "loss_sum": 0.6882289201021194,
+      "loss_per_token": 0.0011645159392590853,
+      "metrics": {
+        "e_max_violation:mean": 2.840463161468506,
+        "clock_cycle:unique": 6828279.0,
+        "e_min_violation:mean": -0.9786641001701355,
+        "loss:sum": 0.6882289201021194,
+        "e_frac_with_tokens:mean": 0.9544271230697632,
+        "e_max_violation:max": 4.604374408721924,
+        "e_frac_oversubscribed:mean": 0.4361979365348816
+      }
+    },
+    {
+      "step": 52,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 591,
+      "loss_sum": 3.361643299460411,
+      "loss_per_token": 0.00568805972835941,
+      "metrics": {
+        "e_max_violation:mean": 2.918621778488159,
+        "e_min_violation:mean": -0.9800683259963989,
+        "clock_cycle:unique": 6828281.0,
+        "e_max_violation:max": 4.856624126434326,
+        "e_frac_with_tokens:mean": 0.9518229365348816,
+        "e_frac_oversubscribed:mean": 0.4231770932674408,
+        "loss:sum": 3.361643299460411
+      }
+    },
+    {
+      "step": 53,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 567,
+      "loss_sum": 1.8199377655982971,
+      "loss_per_token": 0.0032097667823603126,
+      "metrics": {
+        "e_max_violation:mean": 2.8787078857421875,
+        "clock_cycle:unique": 6828283.0,
+        "e_min_violation:mean": -0.9804829955101013,
+        "e_max_violation:max": 4.753225326538086,
+        "e_frac_oversubscribed:mean": 0.4309895932674408,
+        "loss:sum": 1.8199377655982971,
+        "e_frac_with_tokens:mean": 0.9557291865348816
+      }
+    },
+    {
+      "step": 54,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 591,
+      "loss_sum": 2.5917729288339615,
+      "loss_per_token": 0.004385402586859495,
+      "metrics": {
+        "e_max_violation:mean": 2.879880905151367,
+        "clock_cycle:unique": 6828285.0,
+        "e_min_violation:mean": -0.9797043800354004,
+        "loss:sum": 2.5917729288339615,
+        "e_frac_oversubscribed:mean": 0.4270833432674408,
+        "e_frac_with_tokens:mean": 0.9505208730697632,
+        "e_max_violation:max": 4.773659706115723
+      }
+    },
+    {
+      "step": 55,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 593,
+      "loss_sum": 1.336606740951538,
+      "loss_per_token": 0.0022539742680464385,
+      "metrics": {
+        "e_max_violation:mean": 2.859314441680908,
+        "e_min_violation:mean": -0.9798404574394226,
+        "clock_cycle:unique": 6828288.0,
+        "loss:sum": 1.336606740951538,
+        "e_frac_oversubscribed:mean": 0.4375,
+        "e_max_violation:max": 4.725743770599365,
+        "e_frac_with_tokens:mean": 0.9596354365348816
+      }
+    },
+    {
+      "step": 56,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 586,
+      "loss_sum": 6.582392852753401,
+      "loss_per_token": 0.011232752308452902,
+      "metrics": {
+        "e_max_violation:mean": 2.9397048950195312,
+        "clock_cycle:unique": 6828290.0,
+        "e_min_violation:mean": -0.9800485372543335,
+        "loss:sum": 6.582392852753401,
+        "e_frac_with_tokens:mean": 0.9518229365348816,
+        "e_max_violation:max": 4.91534423828125,
+        "e_frac_oversubscribed:mean": 0.4270833432674408
+      }
+    },
+    {
+      "step": 57,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 616,
+      "loss_sum": 0.43248489685356617,
+      "loss_per_token": 0.0007020858715155295,
+      "metrics": {
+        "e_max_violation:mean": 2.8526711463928223,
+        "e_min_violation:mean": -0.9792734980583191,
+        "clock_cycle:unique": 6828292.0,
+        "e_max_violation:max": 4.776923179626465,
+        "e_frac_oversubscribed:mean": 0.4361979365348816,
+        "e_frac_with_tokens:mean": 0.953125,
+        "loss:sum": 0.43248489685356617
+      }
+    },
+    {
+      "step": 58,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 608,
+      "loss_sum": 0.39191098138689995,
+      "loss_per_token": 0.0006445904299126644,
+      "metrics": {
+        "e_max_violation:mean": 2.9059410095214844,
+        "e_min_violation:mean": -0.9778429865837097,
+        "clock_cycle:unique": 6828294.0,
+        "loss:sum": 0.39191098138689995,
+        "e_frac_oversubscribed:mean": 0.4296875,
+        "e_max_violation:max": 4.909416675567627,
+        "e_frac_with_tokens:mean": 0.9518229365348816
+      }
+    },
+    {
+      "step": 59,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 578,
+      "loss_sum": 0.26187141239643097,
+      "loss_per_token": 0.00045306472732946536,
+      "metrics": {
+        "e_max_violation:mean": 2.8768811225891113,
+        "clock_cycle:unique": 6828296.0,
+        "e_min_violation:mean": -0.980010986328125,
+        "e_max_violation:max": 4.7542009353637695,
+        "e_frac_oversubscribed:mean": 0.4375,
+        "e_frac_with_tokens:mean": 0.9505208730697632,
+        "loss:sum": 0.26187141239643097
+      }
+    },
+    {
+      "step": 60,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 614,
+      "loss_sum": 0.4326903596520424,
+      "loss_per_token": 0.0007047074261433915,
+      "metrics": {
+        "e_max_violation:mean": 2.932326078414917,
+        "clock_cycle:unique": 6828298.0,
+        "e_min_violation:mean": -0.9764565229415894,
+        "loss:sum": 0.4326903596520424,
+        "e_frac_with_tokens:mean": 0.9544271230697632,
+        "e_frac_oversubscribed:mean": 0.4309895932674408,
+        "e_max_violation:max": 4.944809913635254
+      }
+    },
+    {
+      "step": 61,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 575,
+      "loss_sum": 1.2431646883487701,
+      "loss_per_token": 0.002162025544954383,
+      "metrics": {
+        "e_max_violation:mean": 2.9424643516540527,
+        "clock_cycle:unique": 6828300.0,
+        "e_min_violation:mean": -0.9786579012870789,
+        "e_max_violation:max": 4.924752712249756,
+        "e_frac_oversubscribed:mean": 0.43359375,
+        "e_frac_with_tokens:mean": 0.9479166865348816,
+        "loss:sum": 1.2431646883487701
+      }
+    },
+    {
+      "step": 62,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 549,
+      "loss_sum": 0.24090254213660955,
+      "loss_per_token": 0.0004388024446932779,
+      "metrics": {
+        "e_max_violation:mean": 2.9714508056640625,
+        "e_min_violation:mean": -0.9785881042480469,
+        "clock_cycle:unique": 6828302.0,
+        "e_max_violation:max": 5.006021976470947,
+        "e_frac_with_tokens:mean": 0.9609375,
+        "loss:sum": 0.24090254213660955,
+        "e_frac_oversubscribed:mean": 0.4283854365348816
+      }
+    },
+    {
+      "step": 63,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 584,
+      "loss_sum": 8.751355469226837,
+      "loss_per_token": 0.01498519772127883,
+      "metrics": {
+        "e_max_violation:mean": 2.9991049766540527,
+        "e_min_violation:mean": -0.9771658778190613,
+        "clock_cycle:unique": 6828303.0,
+        "loss:sum": 8.751355469226837,
+        "e_frac_with_tokens:mean": 0.9440104365348816,
+        "e_frac_oversubscribed:mean": 0.4231770932674408,
+        "e_max_violation:max": 5.108798027038574
+      }
+    },
+    {
+      "step": 64,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 612,
+      "loss_sum": 0.12087131664156914,
+      "loss_per_token": 0.00019750215137511297,
+      "metrics": {
+        "e_max_violation:mean": 2.9446990489959717,
+        "clock_cycle:unique": 6828306.0,
+        "e_min_violation:mean": -0.9761125445365906,
+        "loss:sum": 0.12087131664156914,
+        "e_frac_with_tokens:mean": 0.9518229365348816,
+        "e_frac_oversubscribed:mean": 0.42578125,
+        "e_max_violation:max": 4.924083709716797
+      }
+    },
+    {
+      "step": 65,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 575,
+      "loss_sum": 0.4532819539308548,
+      "loss_per_token": 0.0007883164416188779,
+      "metrics": {
+        "e_max_violation:mean": 2.9639129638671875,
+        "e_min_violation:mean": -0.9793471097946167,
+        "clock_cycle:unique": 6828308.0,
+        "loss:sum": 0.4532819539308548,
+        "e_frac_oversubscribed:mean": 0.4270833432674408,
+        "e_max_violation:max": 5.0253167152404785,
+        "e_frac_with_tokens:mean": 0.9505208730697632
+      }
+    },
+    {
+      "step": 66,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 576,
+      "loss_sum": 0.11185149848461151,
+      "loss_per_token": 0.00019418662931356166,
+      "metrics": {
+        "e_max_violation:mean": 2.947993040084839,
+        "e_min_violation:mean": -0.9797072410583496,
+        "clock_cycle:unique": 6828310.0,
+        "loss:sum": 0.11185149848461151,
+        "e_frac_oversubscribed:mean": 0.4283854365348816,
+        "e_frac_with_tokens:mean": 0.9505208730697632,
+        "e_max_violation:max": 4.98802375793457
+      }
+    },
+    {
+      "step": 67,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 617,
+      "loss_sum": 0.09084904193878174,
+      "loss_per_token": 0.00014724317980353605,
+      "metrics": {
+        "e_max_violation:mean": 2.9360969066619873,
+        "clock_cycle:unique": 6828312.0,
+        "e_min_violation:mean": -0.9757125377655029,
+        "e_max_violation:max": 4.922280311584473,
+        "e_frac_with_tokens:mean": 0.9466146230697632,
+        "e_frac_oversubscribed:mean": 0.42578125,
+        "loss:sum": 0.09084904193878174
+      }
+    },
+    {
+      "step": 68,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 596,
+      "loss_sum": 0.8208475112915039,
+      "loss_per_token": 0.0013772609249857448,
+      "metrics": {
+        "e_max_violation:mean": 2.942547559738159,
+        "e_min_violation:mean": -0.9757182002067566,
+        "clock_cycle:unique": 6828314.0,
+        "loss:sum": 0.8208475112915039,
+        "e_frac_oversubscribed:mean": 0.4309895932674408,
+        "e_max_violation:max": 4.92390251159668,
+        "e_frac_with_tokens:mean": 0.94921875
+      }
+    },
+    {
+      "step": 69,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 626,
+      "loss_sum": 0.09695977065712214,
+      "loss_per_token": 0.00015488781255131333,
+      "metrics": {
+        "e_max_violation:mean": 2.9343485832214355,
+        "e_min_violation:mean": -0.9745168089866638,
+        "clock_cycle:unique": 6828316.0,
+        "e_max_violation:max": 4.911241054534912,
+        "e_frac_oversubscribed:mean": 0.4322916865348816,
+        "loss:sum": 0.09695977065712214,
+        "e_frac_with_tokens:mean": 0.9479166865348816
+      }
+    },
+    {
+      "step": 70,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 626,
+      "loss_sum": 0.251198947429657,
+      "loss_per_token": 0.0004012762738492923,
+      "metrics": {
+        "e_max_violation:mean": 2.9616734981536865,
+        "clock_cycle:unique": 6828318.0,
+        "e_min_violation:mean": -0.9752520322799683,
+        "e_max_violation:max": 5.01314115524292,
+        "e_frac_with_tokens:mean": 0.9479166865348816,
+        "loss:sum": 0.251198947429657,
+        "e_frac_oversubscribed:mean": 0.4348958432674408
+      }
+    },
+    {
+      "step": 71,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 593,
+      "loss_sum": 0.1128096804022789,
+      "loss_per_token": 0.00019023554873908753,
+      "metrics": {
+        "e_max_violation:mean": 2.942949056625366,
+        "e_min_violation:mean": -0.9776226878166199,
+        "clock_cycle:unique": 6828320.0,
+        "e_max_violation:max": 4.958125591278076,
+        "e_frac_with_tokens:mean": 0.9505208730697632,
+        "e_frac_oversubscribed:mean": 0.4270833432674408,
+        "loss:sum": 0.1128096804022789
+      }
+    },
+    {
+      "step": 72,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 614,
+      "loss_sum": 0.3284061513841152,
+      "loss_per_token": 0.000534863438736344,
+      "metrics": {
+        "e_max_violation:mean": 2.9065027236938477,
+        "clock_cycle:unique": 6828322.0,
+        "e_min_violation:mean": -0.9765987396240234,
+        "loss:sum": 0.3284061513841152,
+        "e_frac_with_tokens:mean": 0.9518229365348816,
+        "e_frac_oversubscribed:mean": 0.4309895932674408,
+        "e_max_violation:max": 4.903591156005859
+      }
+    },
+    {
+      "step": 73,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 588,
+      "loss_sum": 0.28177105635404587,
+      "loss_per_token": 0.000479202476792595,
+      "metrics": {
+        "e_max_violation:mean": 2.9460558891296387,
+        "clock_cycle:unique": 6828324.0,
+        "e_min_violation:mean": -0.9759393930435181,
+        "loss:sum": 0.28177105635404587,
+        "e_frac_with_tokens:mean": 0.9466146230697632,
+        "e_frac_oversubscribed:mean": 0.4231770932674408,
+        "e_max_violation:max": 4.945945739746094
+      }
+    },
+    {
+      "step": 74,
+      "epoch": 2,
+      "lr": 0.0002,
+      "target_tokens": 613,
+      "loss_sum": 0.6604514271020889,
+      "loss_per_token": 0.0010774085270833424,
+      "metrics": {
+        "e_max_violation:mean": 2.881099224090576,
+        "e_min_violation:mean": -0.9774965047836304,
+        "clock_cycle:unique": 6828326.0,
+        "e_max_violation:max": 4.777344703674316,
+        "e_frac_with_tokens:mean": 0.9557291865348816,
+        "e_frac_oversubscribed:mean": 0.4283854365348816,
+        "loss:sum": 0.6604514271020889
+      }
+    }
+  ],
+  "seconds": 280.5,
+  "finished_at": "2026-09-10T09:41:06Z"
+}

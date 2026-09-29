@@ -1,0 +1,5273 @@
+{
+  "meta": {
+    "seed": 0,
+    "provider": "openrouter",
+    "model": "x-ai/grok-4.3",
+    "temperature": 0.8,
+    "n_attempted": 80,
+    "n_valid": 64,
+    "type_mix": [
+      [
+        "enum",
+        0.4
+      ],
+      [
+        "bool",
+        0.2
+      ],
+      [
+        "int",
+        0.2
+      ],
+      [
+        "string",
+        0.2
+      ]
+    ],
+    "p_required": 0.7,
+    "param_count_range": [
+      2,
+      5
+    ],
+    "enum_values_range": [
+      3,
+      6
+    ],
+    "nested": true,
+    "catalogs": {
+      "catalog_1": [
+        "set_dome_configuration"
+      ],
+      "catalog_4": [
+        "set_dome_configuration",
+        "report_cave_hazard",
+        "flag_starter_contamination",
+        "update_temper_stage"
+      ],
+      "catalog_16": [
+        "set_dome_configuration",
+        "report_cave_hazard",
+        "flag_starter_contamination",
+        "update_temper_stage",
+        "query_herbarium_records",
+        "adjust_mist_net_tension",
+        "archive_saffron_batch",
+        "cancel_fire_watch",
+        "calibrate_furnace_thermocouple",
+        "calibrate_quarantine_sensors",
+        "inspect_bell_mechanism",
+        "report_coral_condition",
+        "flag_launch_anomaly",
+        "flag_individual_recall",
+        "schedule_reservoir_maintenance",
+        "calibrate_berth_scheduling_model"
+      ],
+      "catalog_64": [
+        "set_dome_configuration",
+        "report_cave_hazard",
+        "flag_starter_contamination",
+        "update_temper_stage",
+        "query_herbarium_records",
+        "adjust_mist_net_tension",
+        "archive_saffron_batch",
+        "cancel_fire_watch",
+        "calibrate_furnace_thermocouple",
+        "calibrate_quarantine_sensors",
+        "inspect_bell_mechanism",
+        "report_coral_condition",
+        "flag_launch_anomaly",
+        "flag_individual_recall",
+        "schedule_reservoir_maintenance",
+        "calibrate_berth_scheduling_model",
+        "cancel_mews_cleaning",
+        "query_track_status",
+        "schedule_spawn_inoculation",
+        "cancel_fossil_excavation",
+        "list_winding_trains",
+        "log_cheese_cave_entry",
+        "allocate_room_to_team",
+        "query_solar_array_yield",
+        "adjust_dog_harness",
+        "set_buoy_telemetry_mode",
+        "assign_show_to_dome",
+        "create_reef_survey_plan",
+        "reserve_bell_mold",
+        "inspect_lift_mechanisms",
+        "flag_mortality_event",
+        "allocate_printing_materials",
+        "create_wheel_thrown_vessel",
+        "inspect_swell_break_alignment",
+        "inspect_roost_call_patterns",
+        "log_wither_progress",
+        "query_koi_pond_chemistry",
+        "assign_graft_technique",
+        "set_tattoo_appointment",
+        "calibrate_firing_schedule",
+        "assign_sail_maintenance_crew",
+        "archive_sugar_bush_records",
+        "set_ice_pebble_pattern",
+        "create_shoot_training_plan",
+        "adjust_press_tension",
+        "list_seismic_events",
+        "report_seed_contamination",
+        "query_brazing_filler_choice",
+        "report_contest_qso",
+        "schedule_pitch_rolling",
+        "cancel_collimation_session",
+        "create_locomotive_work_order",
+        "schedule_bonsai_defoliation",
+        "update_pipe_condition",
+        "adjust_typebar_strike",
+        "calibrate_propane_regulator",
+        "calibrate_cask_hygrometer",
+        "report_glaze_defects",
+        "allocate_press_runs",
+        "create_dry_stone_wall",
+        "update_harpsichord_tuning",
+        "create_alpaca_shearing_session",
+        "query_obscura_tour_options",
+        "list_tower_components"
+      ]
+    },
+    "generated_at": "2026-09-07T22:16:18Z",
+    "total_closed_vocab": {
+      "catalog_1": 20,
+      "catalog_4": 55,
+      "catalog_16": 177,
+      "catalog_64": 732
+    }
+  },
+  "tools": [
+    {
+      "tool_id": 0,
+      "skeleton": {
+        "tool_id": 0,
+        "domain": "observatory dome operations",
+        "verb": "set",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "7f112fa489",
+      "mcp": {
+        "name": "set_dome_configuration",
+        "description": "Call this to establish the dome's configuration prior to observation sessions.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "target_sector": {
+              "type": "string",
+              "description": "Primary sector for dome alignment.",
+              "enum": [
+                "zenith",
+                "meridian",
+                "horizon_north",
+                "horizon_east",
+                "horizon_south",
+                "horizon_west"
+              ]
+            },
+            "shutter_mode": {
+              "type": "string",
+              "description": "Shutter status during operations.",
+              "enum": [
+                "open_observation",
+                "closed_daytime",
+                "ventilation",
+                "maintenance_access",
+                "storm_lock"
+              ]
+            },
+            "sync_protocol": {
+              "type": "string",
+              "description": "Tracking mode for telescope sync.",
+              "enum": [
+                "sidereal_tracking",
+                "solar_tracking",
+                "lunar_tracking",
+                "manual_adjust",
+                "calibration"
+              ]
+            }
+          },
+          "required": [
+            "target_sector",
+            "shutter_mode",
+            "sync_protocol"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"set_dome_configuration\",\"description\":\"Call this to establish the dome's configuration prior to observation sessions.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"target_sector\":{\"type\":\"string\",\"description\":\"Primary sector for dome alignment.\",\"enum\":[\"zenith\",\"meridian\",\"horizon_north\",\"horizon_east\",\"horizon_south\",\"horizon_west\"]},\"shutter_mode\":{\"type\":\"string\",\"description\":\"Shutter status during operations.\",\"enum\":[\"open_observation\",\"closed_daytime\",\"ventilation\",\"maintenance_access\",\"storm_lock\"]},\"sync_protocol\":{\"type\":\"string\",\"description\":\"Tracking mode for telescope sync.\",\"enum\":[\"sidereal_tracking\",\"solar_tracking\",\"lunar_tracking\",\"manual_adjust\",\"calibration\"]}},\"required\":[\"target_sector\",\"shutter_mode\",\"sync_protocol\"],\"additionalProperties\":false}}",
+      "closed_vocab": 20,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "63c7a5597606",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 580,
+        "completion_tokens": 1313,
+        "raw_sha1": "2cdafc29759e"
+      },
+      "attempts": 1,
+      "catalog_index": 0
+    },
+    {
+      "tool_id": 1,
+      "skeleton": {
+        "tool_id": 1,
+        "domain": "cave rescue logistics",
+        "verb": "report",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "string",
+            "required": false
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "5021af8abb",
+      "mcp": {
+        "name": "report_cave_hazard",
+        "description": "When rescuers encounter an unexpected hazard while navigating or operating in the cave system.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "cave_section": {
+              "type": "string",
+              "description": "Specific section of the cave where hazard is located"
+            },
+            "reporter_id": {
+              "type": "string",
+              "description": "Unique identifier of the team member reporting"
+            },
+            "hazard_type": {
+              "type": "string",
+              "description": "Type of hazard reported",
+              "enum": [
+                "rockfall",
+                "flooding",
+                "low_oxygen",
+                "passage_collapse",
+                "toxic_gas"
+              ]
+            }
+          },
+          "required": [
+            "reporter_id",
+            "hazard_type"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"report_cave_hazard\",\"description\":\"When rescuers encounter an unexpected hazard while navigating or operating in the cave system.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"cave_section\":{\"type\":\"string\",\"description\":\"Specific section of the cave where hazard is located\"},\"reporter_id\":{\"type\":\"string\",\"description\":\"Unique identifier of the team member reporting\"},\"hazard_type\":{\"type\":\"string\",\"description\":\"Type of hazard reported\",\"enum\":[\"rockfall\",\"flooding\",\"low_oxygen\",\"passage_collapse\",\"toxic_gas\"]}},\"required\":[\"reporter_id\",\"hazard_type\"],\"additionalProperties\":false}}",
+      "closed_vocab": 9,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "d9336164a303",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 562,
+        "completion_tokens": 1030,
+        "raw_sha1": "df83d6b23212"
+      },
+      "attempts": 1,
+      "catalog_index": 1
+    },
+    {
+      "tool_id": 2,
+      "skeleton": {
+        "tool_id": 2,
+        "domain": "sourdough starter maintenance",
+        "verb": "flag",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "bool",
+            "required": false
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "int",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "145a966234",
+      "mcp": {
+        "name": "flag_starter_contamination",
+        "description": "Call when the sourdough starter displays visible or olfactory signs of spoilage during inspection.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "perform_discard": {
+              "type": "boolean",
+              "description": "Whether starter portion should be discarded immediately"
+            },
+            "observed_symptom": {
+              "type": "string",
+              "description": "Specific visible or smell indicator noted",
+              "enum": [
+                "surface_hooch",
+                "pink_discoloration",
+                "foul_odor",
+                "mold_spots",
+                "slow_rise"
+              ]
+            },
+            "maintenance_type": {
+              "type": "string",
+              "description": "Current feeding or storage routine in use",
+              "enum": [
+                "daily_feed",
+                "fridge_storage",
+                "room_care",
+                "bulk_refresh"
+              ]
+            },
+            "observation_day": {
+              "type": "integer",
+              "description": "Day count since last full starter refresh"
+            }
+          },
+          "required": [
+            "observed_symptom",
+            "maintenance_type",
+            "observation_day"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"flag_starter_contamination\",\"description\":\"Call when the sourdough starter displays visible or olfactory signs of spoilage during inspection.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"perform_discard\":{\"type\":\"boolean\",\"description\":\"Whether starter portion should be discarded immediately\"},\"observed_symptom\":{\"type\":\"string\",\"description\":\"Specific visible or smell indicator noted\",\"enum\":[\"surface_hooch\",\"pink_discoloration\",\"foul_odor\",\"mold_spots\",\"slow_rise\"]},\"maintenance_type\":{\"type\":\"string\",\"description\":\"Current feeding or storage routine in use\",\"enum\":[\"daily_feed\",\"fridge_storage\",\"room_care\",\"bulk_refresh\"]},\"observation_day\":{\"type\":\"integer\",\"description\":\"Day count since last full starter refresh\"}},\"required\":[\"observed_symptom\",\"maintenance_type\",\"observation_day\"],\"additionalProperties\":false}}",
+      "closed_vocab": 14,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "3a9c521c1d94",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 581,
+        "completion_tokens": 1390,
+        "raw_sha1": "74ad9eac6e3e"
+      },
+      "attempts": 1,
+      "catalog_index": 2
+    },
+    {
+      "tool_id": 3,
+      "skeleton": {
+        "tool_id": 3,
+        "domain": "chocolate tempering",
+        "verb": "update",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "9aed2c1481",
+      "mcp": {
+        "name": "update_temper_stage",
+        "description": "Call this when adjusting chocolate crystal development for specific types and phases.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "chocolate_type": {
+              "type": "string",
+              "description": "Variety of chocolate under tempering",
+              "enum": [
+                "dark_couverture",
+                "milk_chocolate",
+                "white_chocolate",
+                "ruby_couverture"
+              ]
+            },
+            "temper_phase": {
+              "type": "string",
+              "description": "Current stage of the tempering process",
+              "enum": [
+                "initial_melt",
+                "cooling_down",
+                "reheat_phase",
+                "working_temp",
+                "crystallization"
+              ]
+            }
+          },
+          "required": [
+            "chocolate_type",
+            "temper_phase"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"update_temper_stage\",\"description\":\"Call this when adjusting chocolate crystal development for specific types and phases.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"chocolate_type\":{\"type\":\"string\",\"description\":\"Variety of chocolate under tempering\",\"enum\":[\"dark_couverture\",\"milk_chocolate\",\"white_chocolate\",\"ruby_couverture\"]},\"temper_phase\":{\"type\":\"string\",\"description\":\"Current stage of the tempering process\",\"enum\":[\"initial_melt\",\"cooling_down\",\"reheat_phase\",\"working_temp\",\"crystallization\"]}},\"required\":[\"chocolate_type\",\"temper_phase\"],\"additionalProperties\":false}}",
+      "closed_vocab": 12,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "f50f4ec50c5c",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 561,
+        "completion_tokens": 997,
+        "raw_sha1": "b7bc623f3e14"
+      },
+      "attempts": 1,
+      "catalog_index": 3
+    },
+    {
+      "tool_id": 4,
+      "skeleton": {
+        "tool_id": 4,
+        "domain": "herbarium specimen cataloging",
+        "verb": "query",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "int",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "8b37dcf2c3",
+      "mcp": {
+        "name": "query_herbarium_records",
+        "description": "Call this tool to search the catalog for preserved plant specimens by their type and origin.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "plant_division": {
+              "type": "string",
+              "description": "The major plant group of the specimen.",
+              "enum": [
+                "angiosperm",
+                "gymnosperm",
+                "pteridophyte",
+                "bryophyte",
+                "lichen",
+                "algae"
+              ]
+            },
+            "biogeographic_realm": {
+              "type": "string",
+              "description": "The ecological zone where the plant was collected.",
+              "enum": [
+                "nearctic",
+                "palearctic",
+                "neotropical",
+                "afrotropic",
+                "indomalayan",
+                "australasian"
+              ]
+            },
+            "record_limit": {
+              "type": "integer",
+              "description": "Maximum number of matching records to return."
+            }
+          },
+          "required": [
+            "plant_division",
+            "biogeographic_realm",
+            "record_limit"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"query_herbarium_records\",\"description\":\"Call this tool to search the catalog for preserved plant specimens by their type and origin.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"plant_division\":{\"type\":\"string\",\"description\":\"The major plant group of the specimen.\",\"enum\":[\"angiosperm\",\"gymnosperm\",\"pteridophyte\",\"bryophyte\",\"lichen\",\"algae\"]},\"biogeographic_realm\":{\"type\":\"string\",\"description\":\"The ecological zone where the plant was collected.\",\"enum\":[\"nearctic\",\"palearctic\",\"neotropical\",\"afrotropic\",\"indomalayan\",\"australasian\"]},\"record_limit\":{\"type\":\"integer\",\"description\":\"Maximum number of matching records to return.\"}},\"required\":[\"plant_division\",\"biogeographic_realm\",\"record_limit\"],\"additionalProperties\":false}}",
+      "closed_vocab": 16,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "f17551db5ece",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 572,
+        "completion_tokens": 1334,
+        "raw_sha1": "df516bda2460"
+      },
+      "attempts": 1,
+      "catalog_index": 4
+    },
+    {
+      "tool_id": 5,
+      "skeleton": {
+        "tool_id": 5,
+        "domain": "bird banding station",
+        "verb": "adjust",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "0a27fbce63",
+      "mcp": {
+        "name": "adjust_mist_net_tension",
+        "description": "Call this when mist net tension requires adjustment for safe bird capture operations.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "station_component": {
+              "type": "string",
+              "description": "Component needing adjustment at banding station",
+              "enum": [
+                "mist_net",
+                "potter_trap",
+                "leg_band",
+                "weighing_scale",
+                "wing_rule"
+              ]
+            },
+            "adjustment_value": {
+              "type": "string",
+              "description": "New tension or position setting to apply"
+            }
+          },
+          "required": [
+            "station_component",
+            "adjustment_value"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"adjust_mist_net_tension\",\"description\":\"Call this when mist net tension requires adjustment for safe bird capture operations.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"station_component\":{\"type\":\"string\",\"description\":\"Component needing adjustment at banding station\",\"enum\":[\"mist_net\",\"potter_trap\",\"leg_band\",\"weighing_scale\",\"wing_rule\"]},\"adjustment_value\":{\"type\":\"string\",\"description\":\"New tension or position setting to apply\"}},\"required\":[\"station_component\",\"adjustment_value\"],\"additionalProperties\":false}}",
+      "closed_vocab": 8,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "b2f5d8c91eb5",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 552,
+        "completion_tokens": 1041,
+        "raw_sha1": "0ac561f169aa"
+      },
+      "attempts": 1,
+      "catalog_index": 5
+    },
+    {
+      "tool_id": 6,
+      "skeleton": {
+        "tool_id": 6,
+        "domain": "saffron harvest",
+        "verb": "archive",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "int",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "c80c3a0b70",
+      "mcp": {
+        "name": "archive_saffron_batch",
+        "description": "Call this when storing completed saffron harvest batch details into permanent records.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "data_type": {
+              "type": "string",
+              "description": "Category of saffron harvest data being archived.",
+              "enum": [
+                "stigma_extraction",
+                "drying_cycle",
+                "grade_sorting",
+                "thread_count"
+              ]
+            },
+            "batch_number": {
+              "type": "integer",
+              "description": "Unique numeric identifier of the harvest batch."
+            }
+          },
+          "required": [
+            "data_type",
+            "batch_number"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"archive_saffron_batch\",\"description\":\"Call this when storing completed saffron harvest batch details into permanent records.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"data_type\":{\"type\":\"string\",\"description\":\"Category of saffron harvest data being archived.\",\"enum\":[\"stigma_extraction\",\"drying_cycle\",\"grade_sorting\",\"thread_count\"]},\"batch_number\":{\"type\":\"integer\",\"description\":\"Unique numeric identifier of the harvest batch.\"}},\"required\":[\"data_type\",\"batch_number\"],\"additionalProperties\":false}}",
+      "closed_vocab": 7,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "6f07bf13176b",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 550,
+        "completion_tokens": 1305,
+        "raw_sha1": "a25d2a8039b4"
+      },
+      "attempts": 1,
+      "catalog_index": 6
+    },
+    {
+      "tool_id": 7,
+      "skeleton": {
+        "tool_id": 7,
+        "domain": "wildfire lookout tower",
+        "verb": "cancel",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "a3aa920c2e",
+      "mcp": {
+        "name": "cancel_fire_watch",
+        "description": "Call when the lookout tower must end active wildfire monitoring due to changing conditions.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "watch_type": {
+              "type": "string",
+              "description": "Category of monitoring activity to terminate.",
+              "enum": [
+                "crown_fire",
+                "surface_fire",
+                "spot_fire",
+                "back_burn",
+                "mop_up"
+              ]
+            },
+            "tower_code": {
+              "type": "string",
+              "description": "Unique code identifying the lookout tower."
+            }
+          },
+          "required": [
+            "watch_type",
+            "tower_code"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"cancel_fire_watch\",\"description\":\"Call when the lookout tower must end active wildfire monitoring due to changing conditions.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"watch_type\":{\"type\":\"string\",\"description\":\"Category of monitoring activity to terminate.\",\"enum\":[\"crown_fire\",\"surface_fire\",\"spot_fire\",\"back_burn\",\"mop_up\"]},\"tower_code\":{\"type\":\"string\",\"description\":\"Unique code identifying the lookout tower.\"}},\"required\":[\"watch_type\",\"tower_code\"],\"additionalProperties\":false}}",
+      "closed_vocab": 8,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "62f89e67eb0e",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 552,
+        "completion_tokens": 889,
+        "raw_sha1": "78cdcce734bd"
+      },
+      "attempts": 1,
+      "catalog_index": 7
+    },
+    {
+      "tool_id": 8,
+      "skeleton": {
+        "tool_id": 8,
+        "domain": "glassblowing furnace",
+        "verb": "calibrate",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": false
+          },
+          {
+            "slot": "p2",
+            "type": "int",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "df0dbe65ff",
+      "mcp": {
+        "name": "calibrate_furnace_thermocouple",
+        "description": "Call this when the glassblowing furnace requires sensor adjustment prior to starting a new batch.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "component": {
+              "type": "string",
+              "description": "The furnace part needing calibration.",
+              "enum": [
+                "crucible",
+                "glory_hole",
+                "annealer",
+                "forehearth",
+                "lehr"
+              ]
+            },
+            "offset_degrees": {
+              "type": "integer",
+              "description": "Integer temperature adjustment value."
+            }
+          },
+          "required": [
+            "offset_degrees"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"calibrate_furnace_thermocouple\",\"description\":\"Call this when the glassblowing furnace requires sensor adjustment prior to starting a new batch.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"component\":{\"type\":\"string\",\"description\":\"The furnace part needing calibration.\",\"enum\":[\"crucible\",\"glory_hole\",\"annealer\",\"forehearth\",\"lehr\"]},\"offset_degrees\":{\"type\":\"integer\",\"description\":\"Integer temperature adjustment value.\"}},\"required\":[\"offset_degrees\"],\"additionalProperties\":false}}",
+      "closed_vocab": 8,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "21d3c51ddc13",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 553,
+        "completion_tokens": 1080,
+        "raw_sha1": "a28b58583081"
+      },
+      "attempts": 1,
+      "catalog_index": 8
+    },
+    {
+      "tool_id": 9,
+      "skeleton": {
+        "tool_id": 9,
+        "domain": "aquarium quarantine tanks",
+        "verb": "calibrate",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "3cc2108228",
+      "mcp": {
+        "name": "calibrate_quarantine_sensors",
+        "description": "Call this when adjusting monitoring devices before introducing fish to quarantine tanks.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "tank_id": {
+              "type": "string",
+              "description": "Unique identifier for the quarantine tank."
+            },
+            "device_type": {
+              "type": "string",
+              "description": "Type of sensor to calibrate in the tank.",
+              "enum": [
+                "ph_probe",
+                "temperature_gauge",
+                "salinity_refractometer",
+                "ammonia_detector"
+              ]
+            }
+          },
+          "required": [
+            "tank_id",
+            "device_type"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"calibrate_quarantine_sensors\",\"description\":\"Call this when adjusting monitoring devices before introducing fish to quarantine tanks.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"tank_id\":{\"type\":\"string\",\"description\":\"Unique identifier for the quarantine tank.\"},\"device_type\":{\"type\":\"string\",\"description\":\"Type of sensor to calibrate in the tank.\",\"enum\":[\"ph_probe\",\"temperature_gauge\",\"salinity_refractometer\",\"ammonia_detector\"]}},\"required\":[\"tank_id\",\"device_type\"],\"additionalProperties\":false}}",
+      "closed_vocab": 7,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "a5c3d56709a6",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 553,
+        "completion_tokens": 915,
+        "raw_sha1": "830888c04388"
+      },
+      "attempts": 1,
+      "catalog_index": 9
+    },
+    {
+      "tool_id": 10,
+      "skeleton": {
+        "tool_id": 10,
+        "domain": "carillon concerts",
+        "verb": "inspect",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "bool",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "9b66c23a27",
+      "mcp": {
+        "name": "inspect_bell_mechanism",
+        "description": "Call this tool when assessing carillon components prior to scheduling a concert.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "target_component": {
+              "type": "string",
+              "description": "Component of the carillon to inspect.",
+              "enum": [
+                "clavier",
+                "bourdon",
+                "pedals",
+                "mechanism",
+                "transmission"
+              ]
+            },
+            "check_safety": {
+              "type": "boolean",
+              "description": "Whether to verify safety standards."
+            },
+            "log_findings": {
+              "type": "boolean",
+              "description": "Whether to record inspection results."
+            }
+          },
+          "required": [
+            "target_component",
+            "check_safety",
+            "log_findings"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"inspect_bell_mechanism\",\"description\":\"Call this tool when assessing carillon components prior to scheduling a concert.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"target_component\":{\"type\":\"string\",\"description\":\"Component of the carillon to inspect.\",\"enum\":[\"clavier\",\"bourdon\",\"pedals\",\"mechanism\",\"transmission\"]},\"check_safety\":{\"type\":\"boolean\",\"description\":\"Whether to verify safety standards.\"},\"log_findings\":{\"type\":\"boolean\",\"description\":\"Whether to record inspection results.\"}},\"required\":[\"target_component\",\"check_safety\",\"log_findings\"],\"additionalProperties\":false}}",
+      "closed_vocab": 9,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "01ec14a8b470",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 562,
+        "completion_tokens": 1090,
+        "raw_sha1": "4aefbadb8090"
+      },
+      "attempts": 1,
+      "catalog_index": 10
+    },
+    {
+      "tool_id": 11,
+      "skeleton": {
+        "tool_id": 11,
+        "domain": "coral nursery",
+        "verb": "report",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "int",
+            "required": false
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "int",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "09bdd788c2",
+      "mcp": {
+        "name": "report_coral_condition",
+        "description": "Call when monitoring reveals changes in coral fragments within the nursery tanks.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "sample_size": {
+              "type": "integer",
+              "description": "Number of corals examined in this observation"
+            },
+            "stress_indicator": {
+              "type": "string",
+              "description": "Type of observed coral stress",
+              "enum": [
+                "thermal_bleaching",
+                "tissue_necrosis",
+                "predator_damage",
+                "sediment_stress",
+                "competition_overgrowth"
+              ]
+            },
+            "affected_count": {
+              "type": "integer",
+              "description": "Number of corals showing the stress indicator"
+            }
+          },
+          "required": [
+            "stress_indicator",
+            "affected_count"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"report_coral_condition\",\"description\":\"Call when monitoring reveals changes in coral fragments within the nursery tanks.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"sample_size\":{\"type\":\"integer\",\"description\":\"Number of corals examined in this observation\"},\"stress_indicator\":{\"type\":\"string\",\"description\":\"Type of observed coral stress\",\"enum\":[\"thermal_bleaching\",\"tissue_necrosis\",\"predator_damage\",\"sediment_stress\",\"competition_overgrowth\"]},\"affected_count\":{\"type\":\"integer\",\"description\":\"Number of corals showing the stress indicator\"}},\"required\":[\"stress_indicator\",\"affected_count\"],\"additionalProperties\":false}}",
+      "closed_vocab": 9,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "6f5faeb877ff",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 559,
+        "completion_tokens": 1400,
+        "raw_sha1": "6776a9d66cb9"
+      },
+      "attempts": 1,
+      "catalog_index": 11
+    },
+    {
+      "tool_id": 12,
+      "skeleton": {
+        "tool_id": 12,
+        "domain": "weather balloon launches",
+        "verb": "flag",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": false
+          },
+          {
+            "slot": "p3",
+            "type": "int",
+            "required": false
+          },
+          {
+            "slot": "p4",
+            "type": "enum",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "12363ce8c3",
+      "mcp": {
+        "name": "flag_launch_anomaly",
+        "description": "Call this when detecting issues during weather balloon ascent or launch preparations.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "issue_type": {
+              "type": "string",
+              "description": "Category of weather balloon launch problem detected",
+              "enum": [
+                "jet_stream",
+                "payload_shift",
+                "burst_failure",
+                "gps_loss",
+                "wind_shear"
+              ]
+            },
+            "location": {
+              "type": "string",
+              "description": "Specific site or coordinates of the launch"
+            },
+            "altitude": {
+              "type": "integer",
+              "description": "Height in meters at time of flagging"
+            },
+            "balloon_type": {
+              "type": "string",
+              "description": "Material or design of the balloon",
+              "enum": [
+                "latex",
+                "zero_pressure",
+                "super_pressure",
+                "tetroon"
+              ]
+            }
+          },
+          "required": [
+            "issue_type"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"flag_launch_anomaly\",\"description\":\"Call this when detecting issues during weather balloon ascent or launch preparations.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"issue_type\":{\"type\":\"string\",\"description\":\"Category of weather balloon launch problem detected\",\"enum\":[\"jet_stream\",\"payload_shift\",\"burst_failure\",\"gps_loss\",\"wind_shear\"]},\"location\":{\"type\":\"string\",\"description\":\"Specific site or coordinates of the launch\"},\"altitude\":{\"type\":\"integer\",\"description\":\"Height in meters at time of flagging\"},\"balloon_type\":{\"type\":\"string\",\"description\":\"Material or design of the balloon\",\"enum\":[\"latex\",\"zero_pressure\",\"super_pressure\",\"tetroon\"]}},\"required\":[\"issue_type\"],\"additionalProperties\":false}}",
+      "closed_vocab": 14,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "18ecc5f33664",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 580,
+        "completion_tokens": 1069,
+        "raw_sha1": "e4733caa545f"
+      },
+      "attempts": 1,
+      "catalog_index": 12
+    },
+    {
+      "tool_id": 13,
+      "skeleton": {
+        "tool_id": 13,
+        "domain": "sailing regatta race committee",
+        "verb": "flag",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p5",
+            "type": "int",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "4a824f7057",
+      "mcp": {
+        "name": "flag_individual_recall",
+        "description": "Call this when a boat crosses the line early in the start sequence.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "sail_number": {
+              "type": "string",
+              "description": "Sail number of the offending boat"
+            },
+            "recall_type": {
+              "type": "string",
+              "description": "Type of recall flag to hoist",
+              "enum": [
+                "individual_recall",
+                "general_recall",
+                "black_flag",
+                "z_flag",
+                "u_flag"
+              ]
+            },
+            "is_repeated": {
+              "type": "boolean",
+              "description": "Whether the signal must be repeated"
+            },
+            "fleet_class": {
+              "type": "string",
+              "description": "Fleet or class the signal applies to",
+              "enum": [
+                "keelboat",
+                "dinghy",
+                "multihull",
+                "catamaran"
+              ]
+            },
+            "delay_seconds": {
+              "type": "integer",
+              "description": "Optional seconds to delay flag raise"
+            }
+          },
+          "required": [
+            "sail_number",
+            "recall_type",
+            "is_repeated",
+            "fleet_class"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"flag_individual_recall\",\"description\":\"Call this when a boat crosses the line early in the start sequence.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"sail_number\":{\"type\":\"string\",\"description\":\"Sail number of the offending boat\"},\"recall_type\":{\"type\":\"string\",\"description\":\"Type of recall flag to hoist\",\"enum\":[\"individual_recall\",\"general_recall\",\"black_flag\",\"z_flag\",\"u_flag\"]},\"is_repeated\":{\"type\":\"boolean\",\"description\":\"Whether the signal must be repeated\"},\"fleet_class\":{\"type\":\"string\",\"description\":\"Fleet or class the signal applies to\",\"enum\":[\"keelboat\",\"dinghy\",\"multihull\",\"catamaran\"]},\"delay_seconds\":{\"type\":\"integer\",\"description\":\"Optional seconds to delay flag raise\"}},\"required\":[\"sail_number\",\"recall_type\",\"is_repeated\",\"fleet_class\"],\"additionalProperties\":false}}",
+      "closed_vocab": 15,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "2bbc29f6d93a",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 592,
+        "completion_tokens": 1362,
+        "raw_sha1": "48a7645757a3"
+      },
+      "attempts": 1,
+      "catalog_index": 13
+    },
+    {
+      "tool_id": 14,
+      "skeleton": {
+        "tool_id": 14,
+        "domain": "hydroponic greenhouse",
+        "verb": "schedule",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "int",
+            "required": false
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "bde4dfaf76",
+      "mcp": {
+        "name": "schedule_reservoir_maintenance",
+        "description": "Call when the agent must plan a future reservoir nutrient change in the hydroponic greenhouse.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "interval_days": {
+              "type": "integer",
+              "description": "number of days between scheduled maintenances"
+            },
+            "maintenance_type": {
+              "type": "string",
+              "description": "type of reservoir maintenance to schedule",
+              "enum": [
+                "full_flush",
+                "partial_topoff",
+                "ph_adjust",
+                "ec_balance"
+              ]
+            },
+            "target_date": {
+              "type": "string",
+              "description": "date when the maintenance should occur"
+            },
+            "solution_formula": {
+              "type": "string",
+              "description": "nutrient solution recipe to apply"
+            }
+          },
+          "required": [
+            "maintenance_type",
+            "target_date",
+            "solution_formula"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"schedule_reservoir_maintenance\",\"description\":\"Call when the agent must plan a future reservoir nutrient change in the hydroponic greenhouse.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"interval_days\":{\"type\":\"integer\",\"description\":\"number of days between scheduled maintenances\"},\"maintenance_type\":{\"type\":\"string\",\"description\":\"type of reservoir maintenance to schedule\",\"enum\":[\"full_flush\",\"partial_topoff\",\"ph_adjust\",\"ec_balance\"]},\"target_date\":{\"type\":\"string\",\"description\":\"date when the maintenance should occur\"},\"solution_formula\":{\"type\":\"string\",\"description\":\"nutrient solution recipe to apply\"}},\"required\":[\"maintenance_type\",\"target_date\",\"solution_formula\"],\"additionalProperties\":false}}",
+      "closed_vocab": 9,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "a740708c101a",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 572,
+        "completion_tokens": 1205,
+        "raw_sha1": "c55d3c25b2f7"
+      },
+      "attempts": 1,
+      "catalog_index": 14
+    },
+    {
+      "tool_id": 15,
+      "skeleton": {
+        "tool_id": 15,
+        "domain": "ferry berth scheduling",
+        "verb": "calibrate",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "int",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": false
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "2ded851b33",
+      "mcp": {
+        "name": "calibrate_berth_scheduling_model",
+        "description": "Call this when tide or traffic shifts require adjusting ferry berth assignment parameters.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "berth_id": {
+              "type": "integer",
+              "description": "Numeric identifier of the ferry berth to adjust"
+            },
+            "calibration_type": {
+              "type": "string",
+              "description": "Environmental factor to model in the schedule",
+              "enum": [
+                "tide_influence",
+                "wind_effect",
+                "current_drift",
+                "seasonal_variation"
+              ]
+            },
+            "vessel_type": {
+              "type": "string",
+              "description": "Ferry category assigned to the berth",
+              "enum": [
+                "ro_ro",
+                "catamaran",
+                "passenger_ferry",
+                "high_speed"
+              ]
+            }
+          },
+          "required": [
+            "berth_id",
+            "vessel_type"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"calibrate_berth_scheduling_model\",\"description\":\"Call this when tide or traffic shifts require adjusting ferry berth assignment parameters.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"berth_id\":{\"type\":\"integer\",\"description\":\"Numeric identifier of the ferry berth to adjust\"},\"calibration_type\":{\"type\":\"string\",\"description\":\"Environmental factor to model in the schedule\",\"enum\":[\"tide_influence\",\"wind_effect\",\"current_drift\",\"seasonal_variation\"]},\"vessel_type\":{\"type\":\"string\",\"description\":\"Ferry category assigned to the berth\",\"enum\":[\"ro_ro\",\"catamaran\",\"passenger_ferry\",\"high_speed\"]}},\"required\":[\"berth_id\",\"vessel_type\"],\"additionalProperties\":false}}",
+      "closed_vocab": 12,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "cc7d1871c72b",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 571,
+        "completion_tokens": 1218,
+        "raw_sha1": "68a380dec8ec"
+      },
+      "attempts": 1,
+      "catalog_index": 15
+    },
+    {
+      "tool_id": 16,
+      "skeleton": {
+        "tool_id": 16,
+        "domain": "falconry mews management",
+        "verb": "cancel",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "88a3df665e",
+      "mcp": {
+        "name": "cancel_mews_cleaning",
+        "description": "Use this tool when the scheduled mews sanitation must be aborted due to weather.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "confirm_with_vet": {
+              "type": "boolean",
+              "description": "Check if veterinary approval is needed first."
+            },
+            "mews_zone": {
+              "type": "string",
+              "description": "Zone of the mews to exclude from cleaning.",
+              "enum": [
+                "north_mews",
+                "south_mews",
+                "isolation_mews",
+                "hunting_prep_area",
+                "molting_pen"
+              ]
+            }
+          },
+          "required": [
+            "confirm_with_vet"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"cancel_mews_cleaning\",\"description\":\"Use this tool when the scheduled mews sanitation must be aborted due to weather.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"confirm_with_vet\":{\"type\":\"boolean\",\"description\":\"Check if veterinary approval is needed first.\"},\"mews_zone\":{\"type\":\"string\",\"description\":\"Zone of the mews to exclude from cleaning.\",\"enum\":[\"north_mews\",\"south_mews\",\"isolation_mews\",\"hunting_prep_area\",\"molting_pen\"]}},\"required\":[\"confirm_with_vet\"],\"additionalProperties\":false}}",
+      "closed_vocab": 8,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "86965eb19d33",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 554,
+        "completion_tokens": 1362,
+        "raw_sha1": "af85cb02ffc4"
+      },
+      "attempts": 1,
+      "catalog_index": 16
+    },
+    {
+      "tool_id": 17,
+      "skeleton": {
+        "tool_id": 17,
+        "domain": "model railway layout",
+        "verb": "query",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "int",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p5",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "530f5f78eb",
+      "mcp": {
+        "name": "query_track_status",
+        "description": "Call when an agent requires details on a particular track segment in the model railway.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "track_category": {
+              "type": "string",
+              "description": "Type of track being queried",
+              "enum": [
+                "mainline",
+                "siding",
+                "yard",
+                "branch",
+                "industrial"
+              ]
+            },
+            "segment_id": {
+              "type": "integer",
+              "description": "Unique identifier for the track segment"
+            },
+            "check_occupancy": {
+              "type": "boolean",
+              "description": "Whether to verify if the segment is occupied"
+            },
+            "operator_name": {
+              "type": "string",
+              "description": "Name of the model operator querying the data"
+            },
+            "extra_filters": {
+              "type": "string",
+              "description": "Optional additional criteria for the query"
+            }
+          },
+          "required": [
+            "track_category",
+            "segment_id",
+            "check_occupancy",
+            "operator_name"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"query_track_status\",\"description\":\"Call when an agent requires details on a particular track segment in the model railway.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"track_category\":{\"type\":\"string\",\"description\":\"Type of track being queried\",\"enum\":[\"mainline\",\"siding\",\"yard\",\"branch\",\"industrial\"]},\"segment_id\":{\"type\":\"integer\",\"description\":\"Unique identifier for the track segment\"},\"check_occupancy\":{\"type\":\"boolean\",\"description\":\"Whether to verify if the segment is occupied\"},\"operator_name\":{\"type\":\"string\",\"description\":\"Name of the model operator querying the data\"},\"extra_filters\":{\"type\":\"string\",\"description\":\"Optional additional criteria for the query\"}},\"required\":[\"track_category\",\"segment_id\",\"check_occupancy\",\"operator_name\"],\"additionalProperties\":false}}",
+      "closed_vocab": 11,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "6e5a4e4d7ca2",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 581,
+        "completion_tokens": 1040,
+        "raw_sha1": "fb0d57b4df98"
+      },
+      "attempts": 1,
+      "catalog_index": 17
+    },
+    {
+      "tool_id": 18,
+      "skeleton": {
+        "tool_id": 18,
+        "domain": "mushroom cultivation",
+        "verb": "schedule",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": false
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "int",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p5",
+            "type": "int",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "7fca936a36",
+      "mcp": {
+        "name": "schedule_spawn_inoculation",
+        "description": "Call this tool when planning to schedule inoculation of mushroom spawn onto substrate.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "mushroom_variety": {
+              "type": "string",
+              "description": "type of mushroom to cultivate",
+              "enum": [
+                "oyster_mushroom",
+                "shiitake",
+                "maitake",
+                "lion_mane",
+                "reishi"
+              ]
+            },
+            "spawn_source": {
+              "type": "string",
+              "description": "identifier of the spawn culture to use"
+            },
+            "jar_count": {
+              "type": "integer",
+              "description": "number of jars or bags to prepare"
+            },
+            "substrate_type": {
+              "type": "string",
+              "description": "base material for the substrate",
+              "enum": [
+                "rye_grain",
+                "straw_pellets",
+                "sawdust_blend",
+                "coco_coir",
+                "manure_mix"
+              ]
+            },
+            "schedule_delay": {
+              "type": "integer",
+              "description": "number of days to delay the schedule"
+            }
+          },
+          "required": [
+            "spawn_source",
+            "jar_count",
+            "substrate_type",
+            "schedule_delay"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"schedule_spawn_inoculation\",\"description\":\"Call this tool when planning to schedule inoculation of mushroom spawn onto substrate.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"mushroom_variety\":{\"type\":\"string\",\"description\":\"type of mushroom to cultivate\",\"enum\":[\"oyster_mushroom\",\"shiitake\",\"maitake\",\"lion_mane\",\"reishi\"]},\"spawn_source\":{\"type\":\"string\",\"description\":\"identifier of the spawn culture to use\"},\"jar_count\":{\"type\":\"integer\",\"description\":\"number of jars or bags to prepare\"},\"substrate_type\":{\"type\":\"string\",\"description\":\"base material for the substrate\",\"enum\":[\"rye_grain\",\"straw_pellets\",\"sawdust_blend\",\"coco_coir\",\"manure_mix\"]},\"schedule_delay\":{\"type\":\"integer\",\"description\":\"number of days to delay the schedule\"}},\"required\":[\"spawn_source\",\"jar_count\",\"substrate_type\",\"schedule_delay\"],\"additionalProperties\":false}}",
+      "closed_vocab": 16,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "3cb77b5a46a8",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 588,
+        "completion_tokens": 1480,
+        "raw_sha1": "f3abb9d1243e"
+      },
+      "attempts": 1,
+      "catalog_index": 18
+    },
+    {
+      "tool_id": 19,
+      "skeleton": {
+        "tool_id": 19,
+        "domain": "fossil dig site",
+        "verb": "cancel",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "int",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "ab9bd2670a",
+      "mcp": {
+        "name": "cancel_fossil_excavation",
+        "description": "Call when an agent must halt a fossil dig due to site complications or issues.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "cancellation_reason": {
+              "type": "string",
+              "description": "reason for halting the excavation",
+              "enum": [
+                "matrix_collapse",
+                "specimen_damage",
+                "boundary_dispute",
+                "permit_revocation",
+                "erosion_risk"
+              ]
+            },
+            "excavation_code": {
+              "type": "integer",
+              "description": "numeric code assigned to the specific dig site"
+            }
+          },
+          "required": [
+            "cancellation_reason",
+            "excavation_code"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"cancel_fossil_excavation\",\"description\":\"Call when an agent must halt a fossil dig due to site complications or issues.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"cancellation_reason\":{\"type\":\"string\",\"description\":\"reason for halting the excavation\",\"enum\":[\"matrix_collapse\",\"specimen_damage\",\"boundary_dispute\",\"permit_revocation\",\"erosion_risk\"]},\"excavation_code\":{\"type\":\"integer\",\"description\":\"numeric code assigned to the specific dig site\"}},\"required\":[\"cancellation_reason\",\"excavation_code\"],\"additionalProperties\":false}}",
+      "closed_vocab": 8,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "5c4598ce85a4",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 551,
+        "completion_tokens": 1045,
+        "raw_sha1": "9cc2ac86fec3"
+      },
+      "attempts": 1,
+      "catalog_index": 19
+    },
+    {
+      "tool_id": 20,
+      "skeleton": {
+        "tool_id": 20,
+        "domain": "clock tower winding",
+        "verb": "list",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "17c019230d",
+      "mcp": {
+        "name": "list_winding_trains",
+        "description": "Invoke when an agent requires a catalog of winding procedures for clock tower mechanisms.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "mechanism_type": {
+              "type": "string",
+              "description": "Type of clock mechanism to list windings for.",
+              "enum": [
+                "going_train",
+                "striking_train",
+                "chiming_train",
+                "weight_system"
+              ]
+            },
+            "tower_identifier": {
+              "type": "string",
+              "description": "Specific clock tower name or ID if filtering needed."
+            }
+          },
+          "required": [
+            "mechanism_type"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"list_winding_trains\",\"description\":\"Invoke when an agent requires a catalog of winding procedures for clock tower mechanisms.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"mechanism_type\":{\"type\":\"string\",\"description\":\"Type of clock mechanism to list windings for.\",\"enum\":[\"going_train\",\"striking_train\",\"chiming_train\",\"weight_system\"]},\"tower_identifier\":{\"type\":\"string\",\"description\":\"Specific clock tower name or ID if filtering needed.\"}},\"required\":[\"mechanism_type\"],\"additionalProperties\":false}}",
+      "closed_vocab": 7,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "a0d298e181c5",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 552,
+        "completion_tokens": 1151,
+        "raw_sha1": "7be16df0e4be"
+      },
+      "attempts": 1,
+      "catalog_index": 20
+    },
+    {
+      "tool_id": 21,
+      "skeleton": {
+        "tool_id": 21,
+        "domain": "cheese cave aging",
+        "verb": "log",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": false
+          },
+          {
+            "slot": "p2",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "int",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "09a803e000",
+      "mcp": {
+        "name": "log_cheese_cave_entry",
+        "description": "Call this when recording details about cheeses currently aging inside the cave.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "cheese_variety": {
+              "type": "string",
+              "description": "Variety of cheese selected for logging",
+              "enum": [
+                "cheddar",
+                "gouda",
+                "brie",
+                "parmesan",
+                "roquefort",
+                "gruyere"
+              ]
+            },
+            "rind_flipped": {
+              "type": "boolean",
+              "description": "Whether rind was turned during inspection"
+            },
+            "age_in_days": {
+              "type": "integer",
+              "description": "Current age of the cheese batch"
+            },
+            "storage_zone": {
+              "type": "string",
+              "description": "Designated cave location for the batch",
+              "enum": [
+                "north_wall",
+                "south_rack",
+                "center_shelf",
+                "deep_cellar",
+                "entrance_hall",
+                "humidity_nook"
+              ]
+            }
+          },
+          "required": [
+            "rind_flipped",
+            "age_in_days",
+            "storage_zone"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"log_cheese_cave_entry\",\"description\":\"Call this when recording details about cheeses currently aging inside the cave.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"cheese_variety\":{\"type\":\"string\",\"description\":\"Variety of cheese selected for logging\",\"enum\":[\"cheddar\",\"gouda\",\"brie\",\"parmesan\",\"roquefort\",\"gruyere\"]},\"rind_flipped\":{\"type\":\"boolean\",\"description\":\"Whether rind was turned during inspection\"},\"age_in_days\":{\"type\":\"integer\",\"description\":\"Current age of the cheese batch\"},\"storage_zone\":{\"type\":\"string\",\"description\":\"Designated cave location for the batch\",\"enum\":[\"north_wall\",\"south_rack\",\"center_shelf\",\"deep_cellar\",\"entrance_hall\",\"humidity_nook\"]}},\"required\":[\"rind_flipped\",\"age_in_days\",\"storage_zone\"],\"additionalProperties\":false}}",
+      "closed_vocab": 17,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "81f08f80e0a9",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 580,
+        "completion_tokens": 1087,
+        "raw_sha1": "3d11676df356"
+      },
+      "attempts": 1,
+      "catalog_index": 21
+    },
+    {
+      "tool_id": 22,
+      "skeleton": {
+        "tool_id": 22,
+        "domain": "escape room operations",
+        "verb": "allocate",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "string",
+            "required": false
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": false
+          },
+          {
+            "slot": "p3",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "enum",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "ff515c1c22",
+      "mcp": {
+        "name": "allocate_room_to_team",
+        "description": "Call this when assigning an escape room to a booked customer group.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "team_name": {
+              "type": "string",
+              "description": "Name or ID of the arriving team."
+            },
+            "preferred_theme": {
+              "type": "string",
+              "description": "Requested theme like horror or mystery."
+            },
+            "session_time": {
+              "type": "string",
+              "description": "Date and time of the booking."
+            },
+            "room_category": {
+              "type": "string",
+              "description": "Style of room to allocate.",
+              "enum": [
+                "logic_puzzles",
+                "physical_challenges",
+                "riddle_hunt",
+                "story_driven",
+                "timed_pressure"
+              ]
+            }
+          },
+          "required": [
+            "session_time"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"allocate_room_to_team\",\"description\":\"Call this when assigning an escape room to a booked customer group.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"team_name\":{\"type\":\"string\",\"description\":\"Name or ID of the arriving team.\"},\"preferred_theme\":{\"type\":\"string\",\"description\":\"Requested theme like horror or mystery.\"},\"session_time\":{\"type\":\"string\",\"description\":\"Date and time of the booking.\"},\"room_category\":{\"type\":\"string\",\"description\":\"Style of room to allocate.\",\"enum\":[\"logic_puzzles\",\"physical_challenges\",\"riddle_hunt\",\"story_driven\",\"timed_pressure\"]}},\"required\":[\"session_time\"],\"additionalProperties\":false}}",
+      "closed_vocab": 10,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "ac9ecd6c1197",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 572,
+        "completion_tokens": 1408,
+        "raw_sha1": "b6446b0598f5"
+      },
+      "attempts": 1,
+      "catalog_index": 22
+    },
+    {
+      "tool_id": 23,
+      "skeleton": {
+        "tool_id": 23,
+        "domain": "rooftop solar array",
+        "verb": "query",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": false
+          },
+          {
+            "slot": "p4",
+            "type": "bool",
+            "required": false
+          },
+          {
+            "slot": "p5",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "ea59b05737",
+      "mcp": {
+        "name": "query_solar_array_yield",
+        "description": "Call this when assessing energy output from a rooftop solar array under defined conditions.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "array_orientation": {
+              "type": "string",
+              "description": "Direction panels are installed facing",
+              "enum": [
+                "south_facing",
+                "east_facing",
+                "west_facing",
+                "north_facing"
+              ]
+            },
+            "include_shading": {
+              "type": "boolean",
+              "description": "Whether nearby trees or buildings block sun"
+            },
+            "inverter_type": {
+              "type": "string",
+              "description": "Type of inverter used in the system",
+              "enum": [
+                "string_inverter",
+                "microinverter",
+                "power_optimizer",
+                "hybrid_inverter"
+              ]
+            },
+            "account_degradation": {
+              "type": "boolean",
+              "description": "Whether to factor panel efficiency loss over time"
+            },
+            "query_period": {
+              "type": "string",
+              "description": "Timeframe for yield calculation",
+              "enum": [
+                "daily_peak",
+                "monthly_total",
+                "seasonal_average",
+                "annual_estimate"
+              ]
+            }
+          },
+          "required": [
+            "array_orientation",
+            "include_shading",
+            "query_period"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"query_solar_array_yield\",\"description\":\"Call this when assessing energy output from a rooftop solar array under defined conditions.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"array_orientation\":{\"type\":\"string\",\"description\":\"Direction panels are installed facing\",\"enum\":[\"south_facing\",\"east_facing\",\"west_facing\",\"north_facing\"]},\"include_shading\":{\"type\":\"boolean\",\"description\":\"Whether nearby trees or buildings block sun\"},\"inverter_type\":{\"type\":\"string\",\"description\":\"Type of inverter used in the system\",\"enum\":[\"string_inverter\",\"microinverter\",\"power_optimizer\",\"hybrid_inverter\"]},\"account_degradation\":{\"type\":\"boolean\",\"description\":\"Whether to factor panel efficiency loss over time\"},\"query_period\":{\"type\":\"string\",\"description\":\"Timeframe for yield calculation\",\"enum\":[\"daily_peak\",\"monthly_total\",\"seasonal_average\",\"annual_estimate\"]}},\"required\":[\"array_orientation\",\"include_shading\",\"query_period\"],\"additionalProperties\":false}}",
+      "closed_vocab": 18,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "f69995cc52be",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 600,
+        "completion_tokens": 1169,
+        "raw_sha1": "a03cc318314c"
+      },
+      "attempts": 1,
+      "catalog_index": 23
+    },
+    {
+      "tool_id": 24,
+      "skeleton": {
+        "tool_id": 24,
+        "domain": "sled dog kennel",
+        "verb": "adjust",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "69f81f720f",
+      "mcp": {
+        "name": "adjust_dog_harness",
+        "description": "Call this when a sled dog's harness fit must be modified before a training run or race.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "dog_role": {
+              "type": "string",
+              "description": "Position of the dog in the sled team.",
+              "enum": [
+                "lead_dog",
+                "swing_dog",
+                "team_dog",
+                "wheel_dog"
+              ]
+            },
+            "adjustment_type": {
+              "type": "string",
+              "description": "Specific harness modification to perform.",
+              "enum": [
+                "shorten_trace",
+                "lengthen_tug",
+                "tighten_belly",
+                "loosen_neck",
+                "replace_pad"
+              ]
+            }
+          },
+          "required": [
+            "dog_role",
+            "adjustment_type"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"adjust_dog_harness\",\"description\":\"Call this when a sled dog's harness fit must be modified before a training run or race.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"dog_role\":{\"type\":\"string\",\"description\":\"Position of the dog in the sled team.\",\"enum\":[\"lead_dog\",\"swing_dog\",\"team_dog\",\"wheel_dog\"]},\"adjustment_type\":{\"type\":\"string\",\"description\":\"Specific harness modification to perform.\",\"enum\":[\"shorten_trace\",\"lengthen_tug\",\"tighten_belly\",\"loosen_neck\",\"replace_pad\"]}},\"required\":[\"dog_role\",\"adjustment_type\"],\"additionalProperties\":false}}",
+      "closed_vocab": 12,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "791fcf5ff6d5",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 562,
+        "completion_tokens": 1433,
+        "raw_sha1": "b282226f0f88"
+      },
+      "attempts": 1,
+      "catalog_index": 24
+    },
+    {
+      "tool_id": 25,
+      "skeleton": {
+        "tool_id": 25,
+        "domain": "marine buoy telemetry",
+        "verb": "set",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "c4b49bf467",
+      "mcp": {
+        "name": "set_buoy_telemetry_mode",
+        "description": "Call when reconfiguring data collection and uplink settings on marine buoys.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "data_type": {
+              "type": "string",
+              "description": "Oceanographic measurement to configure on the buoy.",
+              "enum": [
+                "wave_spectrum",
+                "wind_vector",
+                "temperature_profile",
+                "salinity_map",
+                "current_field"
+              ]
+            },
+            "enable_compression": {
+              "type": "boolean",
+              "description": "Activate data compression for transmission."
+            },
+            "uplink_method": {
+              "type": "string",
+              "description": "Preferred method for sending buoy data to shore.",
+              "enum": [
+                "iridium_satellite",
+                "cellular_network",
+                "hf_radio",
+                "lora_wan",
+                "acoustic_link"
+              ]
+            }
+          },
+          "required": [
+            "data_type",
+            "enable_compression",
+            "uplink_method"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"set_buoy_telemetry_mode\",\"description\":\"Call when reconfiguring data collection and uplink settings on marine buoys.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"data_type\":{\"type\":\"string\",\"description\":\"Oceanographic measurement to configure on the buoy.\",\"enum\":[\"wave_spectrum\",\"wind_vector\",\"temperature_profile\",\"salinity_map\",\"current_field\"]},\"enable_compression\":{\"type\":\"boolean\",\"description\":\"Activate data compression for transmission.\"},\"uplink_method\":{\"type\":\"string\",\"description\":\"Preferred method for sending buoy data to shore.\",\"enum\":[\"iridium_satellite\",\"cellular_network\",\"hf_radio\",\"lora_wan\",\"acoustic_link\"]}},\"required\":[\"data_type\",\"enable_compression\",\"uplink_method\"],\"additionalProperties\":false}}",
+      "closed_vocab": 14,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "a313eb2127bc",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 571,
+        "completion_tokens": 1095,
+        "raw_sha1": "935a2f37d4b3"
+      },
+      "attempts": 1,
+      "catalog_index": 25
+    },
+    {
+      "tool_id": 26,
+      "skeleton": {
+        "tool_id": 26,
+        "domain": "planetarium show scheduling",
+        "verb": "assign",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "bool",
+            "required": false
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "bool",
+            "required": false
+          },
+          {
+            "slot": "p4",
+            "type": "enum",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "49967d9cc6",
+      "mcp": {
+        "name": "assign_show_to_dome",
+        "description": "Call this when scheduling planetarium shows to specific dome time slots.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "override_conflicts": {
+              "type": "boolean",
+              "description": "Force assignment despite existing bookings"
+            },
+            "show_type": {
+              "type": "string",
+              "description": "Astronomy presentation category to assign",
+              "enum": [
+                "stellar_nursery",
+                "black_hole_tour",
+                "solar_system_walk",
+                "exoplanet_hunt",
+                "constellation_myths"
+              ]
+            },
+            "use_live_narration": {
+              "type": "boolean",
+              "description": "Require live presenter for this slot"
+            },
+            "target_audience": {
+              "type": "string",
+              "description": "Viewer group for the scheduled show",
+              "enum": [
+                "school_groups",
+                "general_public",
+                "astronomy_club",
+                "family_audience"
+              ]
+            }
+          },
+          "required": [
+            "show_type"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"assign_show_to_dome\",\"description\":\"Call this when scheduling planetarium shows to specific dome time slots.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"override_conflicts\":{\"type\":\"boolean\",\"description\":\"Force assignment despite existing bookings\"},\"show_type\":{\"type\":\"string\",\"description\":\"Astronomy presentation category to assign\",\"enum\":[\"stellar_nursery\",\"black_hole_tour\",\"solar_system_walk\",\"exoplanet_hunt\",\"constellation_myths\"]},\"use_live_narration\":{\"type\":\"boolean\",\"description\":\"Require live presenter for this slot\"},\"target_audience\":{\"type\":\"string\",\"description\":\"Viewer group for the scheduled show\",\"enum\":[\"school_groups\",\"general_public\",\"astronomy_club\",\"family_audience\"]}},\"required\":[\"show_type\"],\"additionalProperties\":false}}",
+      "closed_vocab": 14,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "f2dc23eb3fdf",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 582,
+        "completion_tokens": 1270,
+        "raw_sha1": "c9a026d8a30d"
+      },
+      "attempts": 1,
+      "catalog_index": 26
+    },
+    {
+      "tool_id": 27,
+      "skeleton": {
+        "tool_id": 27,
+        "domain": "reef survey dive planning",
+        "verb": "create",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "62e161cf1d",
+      "mcp": {
+        "name": "create_reef_survey_plan",
+        "description": "Call when the agent must generate a customized plan for a reef survey dive operation.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "include_fish_census": {
+              "type": "boolean",
+              "description": "Flag to incorporate fish population counts in the plan."
+            },
+            "survey_protocol": {
+              "type": "string",
+              "description": "Type of survey method to employ during the dive.",
+              "enum": [
+                "belt_transect",
+                "line_intercept",
+                "manta_tow",
+                "roving_diver",
+                "photo_quadrat"
+              ]
+            }
+          },
+          "required": [
+            "include_fish_census",
+            "survey_protocol"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"create_reef_survey_plan\",\"description\":\"Call when the agent must generate a customized plan for a reef survey dive operation.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"include_fish_census\":{\"type\":\"boolean\",\"description\":\"Flag to incorporate fish population counts in the plan.\"},\"survey_protocol\":{\"type\":\"string\",\"description\":\"Type of survey method to employ during the dive.\",\"enum\":[\"belt_transect\",\"line_intercept\",\"manta_tow\",\"roving_diver\",\"photo_quadrat\"]}},\"required\":[\"include_fish_census\",\"survey_protocol\"],\"additionalProperties\":false}}",
+      "closed_vocab": 8,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "71f017d18c6a",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 553,
+        "completion_tokens": 1188,
+        "raw_sha1": "e8242b14eacd"
+      },
+      "attempts": 1,
+      "catalog_index": 27
+    },
+    {
+      "tool_id": 28,
+      "skeleton": {
+        "tool_id": 28,
+        "domain": "bell foundry casting",
+        "verb": "reserve",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "int",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "eb3c5af6b1",
+      "mcp": {
+        "name": "reserve_bell_mold",
+        "description": "Call this to book a mold for casting a specific bell in the foundry.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "mold_id": {
+              "type": "integer",
+              "description": "Unique identifier for the desired mold"
+            },
+            "bell_style": {
+              "type": "string",
+              "description": "Style of bell being cast",
+              "enum": [
+                "church_bell",
+                "carillon_bell",
+                "ship_bell",
+                "clock_bell",
+                "hand_bell",
+                "sleigh_bell"
+              ]
+            },
+            "pour_date": {
+              "type": "string",
+              "description": "Preferred date for the metal pour"
+            }
+          },
+          "required": [
+            "mold_id",
+            "bell_style",
+            "pour_date"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"reserve_bell_mold\",\"description\":\"Call this to book a mold for casting a specific bell in the foundry.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"mold_id\":{\"type\":\"integer\",\"description\":\"Unique identifier for the desired mold\"},\"bell_style\":{\"type\":\"string\",\"description\":\"Style of bell being cast\",\"enum\":[\"church_bell\",\"carillon_bell\",\"ship_bell\",\"clock_bell\",\"hand_bell\",\"sleigh_bell\"]},\"pour_date\":{\"type\":\"string\",\"description\":\"Preferred date for the metal pour\"}},\"required\":[\"mold_id\",\"bell_style\",\"pour_date\"],\"additionalProperties\":false}}",
+      "closed_vocab": 10,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "3fea8f8294d8",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 562,
+        "completion_tokens": 1506,
+        "raw_sha1": "70beb072e821"
+      },
+      "attempts": 1,
+      "catalog_index": 28
+    },
+    {
+      "tool_id": 29,
+      "skeleton": {
+        "tool_id": 29,
+        "domain": "chairlift operations",
+        "verb": "inspect",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "d87faaca6b",
+      "mcp": {
+        "name": "inspect_lift_mechanisms",
+        "description": "Call this to inspect critical chairlift parts during scheduled safety and maintenance reviews.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "component": {
+              "type": "string",
+              "description": "Chairlift component requiring inspection.",
+              "enum": [
+                "bull_wheel",
+                "grip_assembly",
+                "safety_brake",
+                "haul_rope",
+                "tower_sheave",
+                "evacuation_line"
+              ]
+            },
+            "section": {
+              "type": "string",
+              "description": "Section of the lift line for inspection.",
+              "enum": [
+                "lower_terminal",
+                "mid_span",
+                "upper_terminal",
+                "loading_area",
+                "unloading_area"
+              ]
+            }
+          },
+          "required": [
+            "component",
+            "section"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"inspect_lift_mechanisms\",\"description\":\"Call this to inspect critical chairlift parts during scheduled safety and maintenance reviews.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"component\":{\"type\":\"string\",\"description\":\"Chairlift component requiring inspection.\",\"enum\":[\"bull_wheel\",\"grip_assembly\",\"safety_brake\",\"haul_rope\",\"tower_sheave\",\"evacuation_line\"]},\"section\":{\"type\":\"string\",\"description\":\"Section of the lift line for inspection.\",\"enum\":[\"lower_terminal\",\"mid_span\",\"upper_terminal\",\"loading_area\",\"unloading_area\"]}},\"required\":[\"component\",\"section\"],\"additionalProperties\":false}}",
+      "closed_vocab": 14,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "0e71983e9f09",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 561,
+        "completion_tokens": 985,
+        "raw_sha1": "40e99241898c"
+      },
+      "attempts": 1,
+      "catalog_index": 29
+    },
+    {
+      "tool_id": 30,
+      "skeleton": {
+        "tool_id": 30,
+        "domain": "oyster farm",
+        "verb": "flag",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": false
+          },
+          {
+            "slot": "p3",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "dffdba5941",
+      "mcp": {
+        "name": "flag_mortality_event",
+        "description": "Call this when oyster deaths exceed normal thresholds in a bed.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "is_contagious": {
+              "type": "boolean",
+              "description": "Indicates if the condition may spread to other oysters."
+            },
+            "cause_category": {
+              "type": "string",
+              "description": "Classification of the suspected mortality cause.",
+              "enum": [
+                "bacterial_infection",
+                "viral_pathogen",
+                "parasitic_infestation",
+                "environmental_stress",
+                "predator_damage"
+              ]
+            },
+            "bed_location": {
+              "type": "string",
+              "description": "Coordinates or section identifier for the affected area."
+            }
+          },
+          "required": [
+            "is_contagious",
+            "bed_location"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"flag_mortality_event\",\"description\":\"Call this when oyster deaths exceed normal thresholds in a bed.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"is_contagious\":{\"type\":\"boolean\",\"description\":\"Indicates if the condition may spread to other oysters.\"},\"cause_category\":{\"type\":\"string\",\"description\":\"Classification of the suspected mortality cause.\",\"enum\":[\"bacterial_infection\",\"viral_pathogen\",\"parasitic_infestation\",\"environmental_stress\",\"predator_damage\"]},\"bed_location\":{\"type\":\"string\",\"description\":\"Coordinates or section identifier for the affected area.\"}},\"required\":[\"is_contagious\",\"bed_location\"],\"additionalProperties\":false}}",
+      "closed_vocab": 9,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "6cf0455cf2a1",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 561,
+        "completion_tokens": 1025,
+        "raw_sha1": "aec5cc8d48ca"
+      },
+      "attempts": 1,
+      "catalog_index": 30
+    },
+    {
+      "tool_id": 31,
+      "skeleton": {
+        "tool_id": 31,
+        "domain": "letterpress print shop",
+        "verb": "allocate",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "d8cdc86c6c",
+      "mcp": {
+        "name": "allocate_printing_materials",
+        "description": "Call this when assigning letterpress materials to set up a new print job.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "material_category": {
+              "type": "string",
+              "description": "category of letterpress item being allocated",
+              "enum": [
+                "wood_type",
+                "metal_type",
+                "polymer_plate",
+                "engraved_block",
+                "ink_roller"
+              ]
+            },
+            "allocation_notes": {
+              "type": "string",
+              "description": "optional notes for the allocation request"
+            }
+          },
+          "required": [
+            "material_category"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"allocate_printing_materials\",\"description\":\"Call this when assigning letterpress materials to set up a new print job.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"material_category\":{\"type\":\"string\",\"description\":\"category of letterpress item being allocated\",\"enum\":[\"wood_type\",\"metal_type\",\"polymer_plate\",\"engraved_block\",\"ink_roller\"]},\"allocation_notes\":{\"type\":\"string\",\"description\":\"optional notes for the allocation request\"}},\"required\":[\"material_category\"],\"additionalProperties\":false}}",
+      "closed_vocab": 8,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "6953745818c5",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 553,
+        "completion_tokens": 1081,
+        "raw_sha1": "2401fdca97df"
+      },
+      "attempts": 1,
+      "catalog_index": 31
+    },
+    {
+      "tool_id": 32,
+      "skeleton": {
+        "tool_id": 32,
+        "domain": "pottery wheel studio",
+        "verb": "create",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": false
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "7a26db266c",
+      "mcp": {
+        "name": "create_wheel_thrown_vessel",
+        "description": "Call this when an agent needs to start forming a new item on the pottery wheel.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "clay_body": {
+              "type": "string",
+              "description": "Type of clay to center on the wheel.",
+              "enum": [
+                "porcelain",
+                "stoneware",
+                "earthenware",
+                "terracotta",
+                "kaolin"
+              ]
+            },
+            "throwing_step": {
+              "type": "string",
+              "description": "Specific wheel technique to apply next.",
+              "enum": [
+                "centering",
+                "opening",
+                "pulling",
+                "collaring",
+                "trimming"
+              ]
+            },
+            "vessel_form": {
+              "type": "string",
+              "description": "Desired final shape of the pottery piece.",
+              "enum": [
+                "bowl",
+                "mug",
+                "vase",
+                "plate",
+                "cylinder",
+                "pitcher"
+              ]
+            }
+          },
+          "required": [
+            "clay_body",
+            "vessel_form"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"create_wheel_thrown_vessel\",\"description\":\"Call this when an agent needs to start forming a new item on the pottery wheel.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"clay_body\":{\"type\":\"string\",\"description\":\"Type of clay to center on the wheel.\",\"enum\":[\"porcelain\",\"stoneware\",\"earthenware\",\"terracotta\",\"kaolin\"]},\"throwing_step\":{\"type\":\"string\",\"description\":\"Specific wheel technique to apply next.\",\"enum\":[\"centering\",\"opening\",\"pulling\",\"collaring\",\"trimming\"]},\"vessel_form\":{\"type\":\"string\",\"description\":\"Desired final shape of the pottery piece.\",\"enum\":[\"bowl\",\"mug\",\"vase\",\"plate\",\"cylinder\",\"pitcher\"]}},\"required\":[\"clay_body\",\"vessel_form\"],\"additionalProperties\":false}}",
+      "closed_vocab": 20,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "bfedf04bc6ac",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 580,
+        "completion_tokens": 916,
+        "raw_sha1": "3b5361ffb3e4"
+      },
+      "attempts": 1,
+      "catalog_index": 32
+    },
+    {
+      "tool_id": 33,
+      "skeleton": {
+        "tool_id": 33,
+        "domain": "surf break forecasting",
+        "verb": "inspect",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "5cbd5da2cf",
+      "mcp": {
+        "name": "inspect_swell_break_alignment",
+        "description": "Call when evaluating if a swell direction suits a specific surf break type.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "break_type": {
+              "type": "string",
+              "description": "Category of surf break being evaluated.",
+              "enum": [
+                "beach_break",
+                "point_break",
+                "reef_break",
+                "bombora",
+                "wedge"
+              ]
+            },
+            "swell_direction": {
+              "type": "string",
+              "description": "Direction from which the swell is approaching.",
+              "enum": [
+                "nw_swell",
+                "sw_swell",
+                "ne_swell",
+                "se_swell",
+                "s_swell"
+              ]
+            }
+          },
+          "required": [
+            "break_type",
+            "swell_direction"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"inspect_swell_break_alignment\",\"description\":\"Call when evaluating if a swell direction suits a specific surf break type.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"break_type\":{\"type\":\"string\",\"description\":\"Category of surf break being evaluated.\",\"enum\":[\"beach_break\",\"point_break\",\"reef_break\",\"bombora\",\"wedge\"]},\"swell_direction\":{\"type\":\"string\",\"description\":\"Direction from which the swell is approaching.\",\"enum\":[\"nw_swell\",\"sw_swell\",\"ne_swell\",\"se_swell\",\"s_swell\"]}},\"required\":[\"break_type\",\"swell_direction\"],\"additionalProperties\":false}}",
+      "closed_vocab": 13,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "5c19e5f15b22",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 561,
+        "completion_tokens": 1168,
+        "raw_sha1": "b9fc5841ff4d"
+      },
+      "attempts": 1,
+      "catalog_index": 33
+    },
+    {
+      "tool_id": 34,
+      "skeleton": {
+        "tool_id": 34,
+        "domain": "bat colony acoustic monitoring",
+        "verb": "inspect",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "int",
+            "required": false
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "fe8d17d8e3",
+      "mcp": {
+        "name": "inspect_roost_call_patterns",
+        "description": "Call this when analyzing ultrasonic recordings to classify bat colony vocalizations and activity.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "filter_interference": {
+              "type": "boolean",
+              "description": "Flag to remove environmental noise from recordings"
+            },
+            "time_window": {
+              "type": "integer",
+              "description": "Duration in minutes for segment analysis"
+            },
+            "species_focus": {
+              "type": "string",
+              "description": "Target bat species for call classification",
+              "enum": [
+                "myotis_septentrionalis",
+                "pipistrellus_subflavus",
+                "nycticeius_humeralis",
+                "corynorhinus_rafinesquii"
+              ]
+            }
+          },
+          "required": [
+            "filter_interference",
+            "species_focus"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"inspect_roost_call_patterns\",\"description\":\"Call this when analyzing ultrasonic recordings to classify bat colony vocalizations and activity.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"filter_interference\":{\"type\":\"boolean\",\"description\":\"Flag to remove environmental noise from recordings\"},\"time_window\":{\"type\":\"integer\",\"description\":\"Duration in minutes for segment analysis\"},\"species_focus\":{\"type\":\"string\",\"description\":\"Target bat species for call classification\",\"enum\":[\"myotis_septentrionalis\",\"pipistrellus_subflavus\",\"nycticeius_humeralis\",\"corynorhinus_rafinesquii\"]}},\"required\":[\"filter_interference\",\"species_focus\"],\"additionalProperties\":false}}",
+      "closed_vocab": 8,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "3558e587d20a",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 562,
+        "completion_tokens": 1083,
+        "raw_sha1": "cf96e1e939b8"
+      },
+      "attempts": 1,
+      "catalog_index": 34
+    },
+    {
+      "tool_id": 35,
+      "skeleton": {
+        "tool_id": 35,
+        "domain": "tea leaf withering",
+        "verb": "log",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "int",
+            "required": false
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": false
+          },
+          {
+            "slot": "p3",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p5",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "589a471610",
+      "mcp": {
+        "name": "log_wither_progress",
+        "description": "Call this when recording the status of tea leaves during the withering phase.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "batch_number": {
+              "type": "integer",
+              "description": "Unique identifier for the withering batch"
+            },
+            "ambient_humidity": {
+              "type": "string",
+              "description": "Current humidity level reading"
+            },
+            "target_reached": {
+              "type": "boolean",
+              "description": "Whether the desired wither level has been achieved"
+            },
+            "room_identifier": {
+              "type": "string",
+              "description": "Location code of the withering area"
+            },
+            "wither_method": {
+              "type": "string",
+              "description": "Specific technique used for withering",
+              "enum": [
+                "trough_wither",
+                "floor_spread",
+                "rack_system",
+                "basket_turn",
+                "air_blast"
+              ]
+            }
+          },
+          "required": [
+            "target_reached",
+            "room_identifier",
+            "wither_method"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"log_wither_progress\",\"description\":\"Call this when recording the status of tea leaves during the withering phase.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"batch_number\":{\"type\":\"integer\",\"description\":\"Unique identifier for the withering batch\"},\"ambient_humidity\":{\"type\":\"string\",\"description\":\"Current humidity level reading\"},\"target_reached\":{\"type\":\"boolean\",\"description\":\"Whether the desired wither level has been achieved\"},\"room_identifier\":{\"type\":\"string\",\"description\":\"Location code of the withering area\"},\"wither_method\":{\"type\":\"string\",\"description\":\"Specific technique used for withering\",\"enum\":[\"trough_wither\",\"floor_spread\",\"rack_system\",\"basket_turn\",\"air_blast\"]}},\"required\":[\"target_reached\",\"room_identifier\",\"wither_method\"],\"additionalProperties\":false}}",
+      "closed_vocab": 11,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "d69037f948c3",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 582,
+        "completion_tokens": 1302,
+        "raw_sha1": "c39010e38742"
+      },
+      "attempts": 1,
+      "catalog_index": 35
+    },
+    {
+      "tool_id": 36,
+      "skeleton": {
+        "tool_id": 36,
+        "domain": "koi pond water chemistry",
+        "verb": "query",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "int",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "7fe8a24ac4",
+      "mcp": {
+        "name": "query_koi_pond_chemistry",
+        "description": "Call this when assessing koi pond water parameters for fish health risks.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "pond_identifier": {
+              "type": "string",
+              "description": "Unique name or ID of the specific pond."
+            },
+            "parameter_type": {
+              "type": "string",
+              "description": "Water chemistry aspect to evaluate.",
+              "enum": [
+                "ph_level",
+                "ammonia_level",
+                "nitrite_level",
+                "nitrate_level",
+                "oxygen_level"
+              ]
+            },
+            "sample_volume": {
+              "type": "integer",
+              "description": "Water sample volume in milliliters."
+            }
+          },
+          "required": [
+            "pond_identifier",
+            "parameter_type"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"query_koi_pond_chemistry\",\"description\":\"Call this when assessing koi pond water parameters for fish health risks.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"pond_identifier\":{\"type\":\"string\",\"description\":\"Unique name or ID of the specific pond.\"},\"parameter_type\":{\"type\":\"string\",\"description\":\"Water chemistry aspect to evaluate.\",\"enum\":[\"ph_level\",\"ammonia_level\",\"nitrite_level\",\"nitrate_level\",\"oxygen_level\"]},\"sample_volume\":{\"type\":\"integer\",\"description\":\"Water sample volume in milliliters.\"}},\"required\":[\"pond_identifier\",\"parameter_type\"],\"additionalProperties\":false}}",
+      "closed_vocab": 9,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "aeaff6627e1a",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 563,
+        "completion_tokens": 991,
+        "raw_sha1": "f0979f5a6ffa"
+      },
+      "attempts": 1,
+      "catalog_index": 36
+    },
+    {
+      "tool_id": 37,
+      "skeleton": {
+        "tool_id": 37,
+        "domain": "orchard grafting",
+        "verb": "assign",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "a2d4b6e938",
+      "mcp": {
+        "name": "assign_graft_technique",
+        "description": "Call when matching a scion variety to a rootstock during orchard propagation.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "grafting_technique": {
+              "type": "string",
+              "description": "Primary grafting method for the assignment.",
+              "enum": [
+                "whip_and_tongue",
+                "cleft_graft",
+                "bark_inlay",
+                "chip_budding",
+                "side_graft"
+              ]
+            },
+            "rootstock_choice": {
+              "type": "string",
+              "description": "Optional rootstock type to pair with scion.",
+              "enum": [
+                "dwarf_m9",
+                "semi_mm106",
+                "vigorous_mm111",
+                "seedling_root",
+                "quince_a"
+              ]
+            }
+          },
+          "required": [
+            "grafting_technique"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"assign_graft_technique\",\"description\":\"Call when matching a scion variety to a rootstock during orchard propagation.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"grafting_technique\":{\"type\":\"string\",\"description\":\"Primary grafting method for the assignment.\",\"enum\":[\"whip_and_tongue\",\"cleft_graft\",\"bark_inlay\",\"chip_budding\",\"side_graft\"]},\"rootstock_choice\":{\"type\":\"string\",\"description\":\"Optional rootstock type to pair with scion.\",\"enum\":[\"dwarf_m9\",\"semi_mm106\",\"vigorous_mm111\",\"seedling_root\",\"quince_a\"]}},\"required\":[\"grafting_technique\"],\"additionalProperties\":false}}",
+      "closed_vocab": 13,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "af0ac13289fd",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 560,
+        "completion_tokens": 1390,
+        "raw_sha1": "c2985d15012d"
+      },
+      "attempts": 1,
+      "catalog_index": 37
+    },
+    {
+      "tool_id": 38,
+      "skeleton": {
+        "tool_id": 38,
+        "domain": "tattoo studio booking",
+        "verb": "set",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": false
+          },
+          {
+            "slot": "p3",
+            "type": "bool",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "e1d8225b91",
+      "mcp": {
+        "name": "set_tattoo_appointment",
+        "description": "Call when a client finalizes their tattoo studio booking details.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "booking_id": {
+              "type": "string",
+              "description": "Unique identifier of the appointment record"
+            },
+            "tattoo_style": {
+              "type": "string",
+              "description": "Artistic category selected for the tattoo",
+              "enum": [
+                "traditional",
+                "realism",
+                "watercolor",
+                "tribal",
+                "geometric",
+                "blackwork"
+              ]
+            },
+            "is_confirmed": {
+              "type": "boolean",
+              "description": "Whether studio has locked in the booking"
+            }
+          },
+          "required": [
+            "booking_id",
+            "is_confirmed"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"set_tattoo_appointment\",\"description\":\"Call when a client finalizes their tattoo studio booking details.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"booking_id\":{\"type\":\"string\",\"description\":\"Unique identifier of the appointment record\"},\"tattoo_style\":{\"type\":\"string\",\"description\":\"Artistic category selected for the tattoo\",\"enum\":[\"traditional\",\"realism\",\"watercolor\",\"tribal\",\"geometric\",\"blackwork\"]},\"is_confirmed\":{\"type\":\"boolean\",\"description\":\"Whether studio has locked in the booking\"}},\"required\":[\"booking_id\",\"is_confirmed\"],\"additionalProperties\":false}}",
+      "closed_vocab": 10,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "aec304cdc5bd",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 562,
+        "completion_tokens": 1152,
+        "raw_sha1": "6bbda4f49bd9"
+      },
+      "attempts": 1,
+      "catalog_index": 38
+    },
+    {
+      "tool_id": 39,
+      "skeleton": {
+        "tool_id": 39,
+        "domain": "kiln firing schedules",
+        "verb": "calibrate",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "9761bb9a24",
+      "mcp": {
+        "name": "calibrate_firing_schedule",
+        "description": "Call when needing to adjust parameters for a particular kiln firing program.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "firing_stage": {
+              "type": "string",
+              "description": "Stage of the firing process requiring calibration",
+              "enum": [
+                "bisque",
+                "glaze",
+                "raku",
+                "crystalline",
+                "earthenware"
+              ]
+            },
+            "notes": {
+              "type": "string",
+              "description": "Additional details for the calibration process"
+            }
+          },
+          "required": [
+            "firing_stage"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"calibrate_firing_schedule\",\"description\":\"Call when needing to adjust parameters for a particular kiln firing program.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"firing_stage\":{\"type\":\"string\",\"description\":\"Stage of the firing process requiring calibration\",\"enum\":[\"bisque\",\"glaze\",\"raku\",\"crystalline\",\"earthenware\"]},\"notes\":{\"type\":\"string\",\"description\":\"Additional details for the calibration process\"}},\"required\":[\"firing_stage\"],\"additionalProperties\":false}}",
+      "closed_vocab": 8,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "2e8f1926f4ad",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 553,
+        "completion_tokens": 1189,
+        "raw_sha1": "3cc13379fb8f"
+      },
+      "attempts": 1,
+      "catalog_index": 39
+    },
+    {
+      "tool_id": 40,
+      "skeleton": {
+        "tool_id": 40,
+        "domain": "windmill sail maintenance",
+        "verb": "assign",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": false
+          },
+          {
+            "slot": "p3",
+            "type": "int",
+            "required": false
+          },
+          {
+            "slot": "p4",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p5",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "79e7c7fe0d",
+      "mcp": {
+        "name": "assign_sail_maintenance_crew",
+        "description": "Call this when a windmill sail requires damage repair or scheduled upkeep by a specialist team.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "windmill_id": {
+              "type": "string",
+              "description": "Unique identifier of the affected windmill"
+            },
+            "sail_position": {
+              "type": "string",
+              "description": "Sail location such as north east or tail"
+            },
+            "estimated_hours": {
+              "type": "integer",
+              "description": "Planned duration for completing the work"
+            },
+            "maintenance_type": {
+              "type": "string",
+              "description": "Specific type of sail maintenance needed",
+              "enum": [
+                "canvas_repair",
+                "spar_replacement",
+                "rope_tensioning",
+                "fabric_replacement",
+                "bearing_lubrication"
+              ]
+            },
+            "assignment_notes": {
+              "type": "string",
+              "description": "Crew instructions or extra task details"
+            }
+          },
+          "required": [
+            "windmill_id",
+            "maintenance_type",
+            "assignment_notes"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"assign_sail_maintenance_crew\",\"description\":\"Call this when a windmill sail requires damage repair or scheduled upkeep by a specialist team.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"windmill_id\":{\"type\":\"string\",\"description\":\"Unique identifier of the affected windmill\"},\"sail_position\":{\"type\":\"string\",\"description\":\"Sail location such as north east or tail\"},\"estimated_hours\":{\"type\":\"integer\",\"description\":\"Planned duration for completing the work\"},\"maintenance_type\":{\"type\":\"string\",\"description\":\"Specific type of sail maintenance needed\",\"enum\":[\"canvas_repair\",\"spar_replacement\",\"rope_tensioning\",\"fabric_replacement\",\"bearing_lubrication\"]},\"assignment_notes\":{\"type\":\"string\",\"description\":\"Crew instructions or extra task details\"}},\"required\":[\"windmill_id\",\"maintenance_type\",\"assignment_notes\"],\"additionalProperties\":false}}",
+      "closed_vocab": 11,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "392d775901e4",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 582,
+        "completion_tokens": 1109,
+        "raw_sha1": "ceb7806f3f62"
+      },
+      "attempts": 1,
+      "catalog_index": 40
+    },
+    {
+      "tool_id": 41,
+      "skeleton": {
+        "tool_id": 41,
+        "domain": "maple syrup sugarbush",
+        "verb": "archive",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "95f0a9cb57",
+      "mcp": {
+        "name": "archive_sugar_bush_records",
+        "description": "Call this tool to store completed seasonal data from the sugarbush operation.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "include_images": {
+              "type": "boolean",
+              "description": "Whether to include photographic evidence of the sugarbush."
+            },
+            "archive_category": {
+              "type": "string",
+              "description": "Category of records being archived.",
+              "enum": [
+                "tap_records",
+                "evaporator_logs",
+                "syrup_grades",
+                "soil_tests",
+                "pest_reports"
+              ]
+            }
+          },
+          "required": [
+            "include_images"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"archive_sugar_bush_records\",\"description\":\"Call this tool to store completed seasonal data from the sugarbush operation.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"include_images\":{\"type\":\"boolean\",\"description\":\"Whether to include photographic evidence of the sugarbush.\"},\"archive_category\":{\"type\":\"string\",\"description\":\"Category of records being archived.\",\"enum\":[\"tap_records\",\"evaporator_logs\",\"syrup_grades\",\"soil_tests\",\"pest_reports\"]}},\"required\":[\"include_images\"],\"additionalProperties\":false}}",
+      "closed_vocab": 8,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "15991500c018",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 553,
+        "completion_tokens": 1376,
+        "raw_sha1": "eb3546230518"
+      },
+      "attempts": 1,
+      "catalog_index": 41
+    },
+    {
+      "tool_id": 42,
+      "skeleton": {
+        "tool_id": 42,
+        "domain": "curling ice preparation",
+        "verb": "set",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "int",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p5",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "412dff1cb3",
+      "mcp": {
+        "name": "set_ice_pebble_pattern",
+        "description": "Call this when preparing the curling rink surface for optimal stone curl.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "ice_zone": {
+              "type": "string",
+              "description": "Specific area of the ice sheet to prepare",
+              "enum": [
+                "playing_area",
+                "hack_zone",
+                "button_area",
+                "hog_line",
+                "back_line"
+              ]
+            },
+            "target_temperature": {
+              "type": "integer",
+              "description": "Target temperature value for the ice"
+            },
+            "pebble_grain": {
+              "type": "string",
+              "description": "Size of pebbles to apply on ice",
+              "enum": [
+                "fine_grain",
+                "standard_grain",
+                "coarse_grain",
+                "competition_grain"
+              ]
+            },
+            "prep_method": {
+              "type": "string",
+              "description": "Method used for ice preparation",
+              "enum": [
+                "hand_pebbling",
+                "machine_pebbling",
+                "flooding",
+                "nipping",
+                "scraping"
+              ]
+            },
+            "notes": {
+              "type": "string",
+              "description": "Any extra instructions for the task"
+            }
+          },
+          "required": [
+            "ice_zone",
+            "target_temperature",
+            "pebble_grain",
+            "prep_method"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"set_ice_pebble_pattern\",\"description\":\"Call this when preparing the curling rink surface for optimal stone curl.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"ice_zone\":{\"type\":\"string\",\"description\":\"Specific area of the ice sheet to prepare\",\"enum\":[\"playing_area\",\"hack_zone\",\"button_area\",\"hog_line\",\"back_line\"]},\"target_temperature\":{\"type\":\"integer\",\"description\":\"Target temperature value for the ice\"},\"pebble_grain\":{\"type\":\"string\",\"description\":\"Size of pebbles to apply on ice\",\"enum\":[\"fine_grain\",\"standard_grain\",\"coarse_grain\",\"competition_grain\"]},\"prep_method\":{\"type\":\"string\",\"description\":\"Method used for ice preparation\",\"enum\":[\"hand_pebbling\",\"machine_pebbling\",\"flooding\",\"nipping\",\"scraping\"]},\"notes\":{\"type\":\"string\",\"description\":\"Any extra instructions for the task\"}},\"required\":[\"ice_zone\",\"target_temperature\",\"pebble_grain\",\"prep_method\"],\"additionalProperties\":false}}",
+      "closed_vocab": 20,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "ec33a3ffac6c",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 599,
+        "completion_tokens": 1653,
+        "raw_sha1": "e73d95a2b630"
+      },
+      "attempts": 1,
+      "catalog_index": 42
+    },
+    {
+      "tool_id": 43,
+      "skeleton": {
+        "tool_id": 43,
+        "domain": "vineyard canopy management",
+        "verb": "create",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "aadbd943f7",
+      "mcp": {
+        "name": "create_shoot_training_plan",
+        "description": "Invoke when designing the shoot and leaf arrangement for a specific vineyard section to improve grape quality.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "vineyard_block": {
+              "type": "string",
+              "description": "Identifier for the vineyard plot or section"
+            },
+            "training_method": {
+              "type": "string",
+              "description": "Canopy training approach to use",
+              "enum": [
+                "vertical_shoot_positioning",
+                "geneva_double_curtain",
+                "high_wire_cordon",
+                "lyre_trellis",
+                "sprawl_system"
+              ]
+            },
+            "defoliation_strategy": {
+              "type": "string",
+              "description": "Leaf removal technique for light penetration",
+              "enum": [
+                "basal_leaf_removal",
+                "cluster_zone_defoliation",
+                "selective_shoot_thinning",
+                "mechanical_defoliation"
+              ]
+            }
+          },
+          "required": [
+            "vineyard_block",
+            "training_method",
+            "defoliation_strategy"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"create_shoot_training_plan\",\"description\":\"Invoke when designing the shoot and leaf arrangement for a specific vineyard section to improve grape quality.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"vineyard_block\":{\"type\":\"string\",\"description\":\"Identifier for the vineyard plot or section\"},\"training_method\":{\"type\":\"string\",\"description\":\"Canopy training approach to use\",\"enum\":[\"vertical_shoot_positioning\",\"geneva_double_curtain\",\"high_wire_cordon\",\"lyre_trellis\",\"sprawl_system\"]},\"defoliation_strategy\":{\"type\":\"string\",\"description\":\"Leaf removal technique for light penetration\",\"enum\":[\"basal_leaf_removal\",\"cluster_zone_defoliation\",\"selective_shoot_thinning\",\"mechanical_defoliation\"]}},\"required\":[\"vineyard_block\",\"training_method\",\"defoliation_strategy\"],\"additionalProperties\":false}}",
+      "closed_vocab": 13,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "0a9ee186ea27",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 571,
+        "completion_tokens": 1645,
+        "raw_sha1": "275fec8656f9"
+      },
+      "attempts": 1,
+      "catalog_index": 43
+    },
+    {
+      "tool_id": 44,
+      "skeleton": {
+        "tool_id": 44,
+        "domain": "bookbinding workshop",
+        "verb": "adjust",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "int",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "8bcf062b0f",
+      "mcp": {
+        "name": "adjust_press_tension",
+        "description": "Call this when the book press requires tension adjustment during binding.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "component": {
+              "type": "string",
+              "description": "Part of the press needing adjustment.",
+              "enum": [
+                "spine_clamp",
+                "fore_edge",
+                "headband",
+                "tail_edge",
+                "case_seal"
+              ]
+            },
+            "newtons": {
+              "type": "integer",
+              "description": "Tension value measured in newtons."
+            }
+          },
+          "required": [
+            "component",
+            "newtons"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"adjust_press_tension\",\"description\":\"Call this when the book press requires tension adjustment during binding.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"component\":{\"type\":\"string\",\"description\":\"Part of the press needing adjustment.\",\"enum\":[\"spine_clamp\",\"fore_edge\",\"headband\",\"tail_edge\",\"case_seal\"]},\"newtons\":{\"type\":\"integer\",\"description\":\"Tension value measured in newtons.\"}},\"required\":[\"component\",\"newtons\"],\"additionalProperties\":false}}",
+      "closed_vocab": 8,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "4943218d82be",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 551,
+        "completion_tokens": 1166,
+        "raw_sha1": "272f30c14fc5"
+      },
+      "attempts": 1,
+      "catalog_index": 44
+    },
+    {
+      "tool_id": 45,
+      "skeleton": {
+        "tool_id": 45,
+        "domain": "seismograph station",
+        "verb": "list",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "int",
+            "required": false
+          },
+          {
+            "slot": "p3",
+            "type": "int",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "enum",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "f4f282ff84",
+      "mcp": {
+        "name": "list_seismic_events",
+        "description": "Call this to retrieve recorded seismic activity from a seismograph station array.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "event_category": {
+              "type": "string",
+              "description": "Category of seismic event to include",
+              "enum": [
+                "mainshock",
+                "aftershock",
+                "foreshock",
+                "tremor",
+                "blast"
+              ]
+            },
+            "depth_limit": {
+              "type": "integer",
+              "description": "Maximum depth in km for results"
+            },
+            "record_limit": {
+              "type": "integer",
+              "description": "Maximum number of records to return"
+            },
+            "time_window": {
+              "type": "string",
+              "description": "Temporal range to search within",
+              "enum": [
+                "last_hour",
+                "last_day",
+                "last_week",
+                "last_month"
+              ]
+            }
+          },
+          "required": [
+            "event_category",
+            "record_limit"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"list_seismic_events\",\"description\":\"Call this to retrieve recorded seismic activity from a seismograph station array.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"event_category\":{\"type\":\"string\",\"description\":\"Category of seismic event to include\",\"enum\":[\"mainshock\",\"aftershock\",\"foreshock\",\"tremor\",\"blast\"]},\"depth_limit\":{\"type\":\"integer\",\"description\":\"Maximum depth in km for results\"},\"record_limit\":{\"type\":\"integer\",\"description\":\"Maximum number of records to return\"},\"time_window\":{\"type\":\"string\",\"description\":\"Temporal range to search within\",\"enum\":[\"last_hour\",\"last_day\",\"last_week\",\"last_month\"]}},\"required\":[\"event_category\",\"record_limit\"],\"additionalProperties\":false}}",
+      "closed_vocab": 14,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "facc5ef13c13",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 579,
+        "completion_tokens": 1400,
+        "raw_sha1": "09c1f4a1ee46"
+      },
+      "attempts": 1,
+      "catalog_index": 45
+    },
+    {
+      "tool_id": 46,
+      "skeleton": {
+        "tool_id": 46,
+        "domain": "community seed library",
+        "verb": "report",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "int",
+            "required": false
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": false
+          },
+          {
+            "slot": "p3",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "int",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "948ea253c6",
+      "mcp": {
+        "name": "report_seed_contamination",
+        "description": "Call this tool when community members report problems with the quality of shared seeds.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "affected_count": {
+              "type": "integer",
+              "description": "Number of seed packets involved in the report."
+            },
+            "problem_category": {
+              "type": "string",
+              "description": "Category of the seed problem being reported.",
+              "enum": [
+                "low_germination",
+                "mold_growth",
+                "variety_mismatch",
+                "pest_infestation",
+                "label_error"
+              ]
+            },
+            "additional_details": {
+              "type": "string",
+              "description": "Free text description or notes about the issue."
+            },
+            "branch_code": {
+              "type": "integer",
+              "description": "Numeric code identifying the specific library branch."
+            }
+          },
+          "required": [
+            "additional_details"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"report_seed_contamination\",\"description\":\"Call this tool when community members report problems with the quality of shared seeds.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"affected_count\":{\"type\":\"integer\",\"description\":\"Number of seed packets involved in the report.\"},\"problem_category\":{\"type\":\"string\",\"description\":\"Category of the seed problem being reported.\",\"enum\":[\"low_germination\",\"mold_growth\",\"variety_mismatch\",\"pest_infestation\",\"label_error\"]},\"additional_details\":{\"type\":\"string\",\"description\":\"Free text description or notes about the issue.\"},\"branch_code\":{\"type\":\"integer\",\"description\":\"Numeric code identifying the specific library branch.\"}},\"required\":[\"additional_details\"],\"additionalProperties\":false}}",
+      "closed_vocab": 10,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "f954439459f6",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 570,
+        "completion_tokens": 1167,
+        "raw_sha1": "3091bf7e635f"
+      },
+      "attempts": 1,
+      "catalog_index": 46
+    },
+    {
+      "tool_id": 47,
+      "skeleton": {
+        "tool_id": 47,
+        "domain": "bicycle frame brazing",
+        "verb": "query",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "eff23566e6",
+      "mcp": {
+        "name": "query_brazing_filler_choice",
+        "description": "Call this when determining appropriate filler metals and temperatures for bicycle frame joints.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "frame_material": {
+              "type": "string",
+              "description": "Primary material composing the bicycle frame tubes to be brazed.",
+              "enum": [
+                "chromoly_steel",
+                "stainless_steel",
+                "titanium_alloy",
+                "manganese_steel"
+              ]
+            },
+            "joint_type": {
+              "type": "string",
+              "description": "Configuration of the tubes being joined during brazing.",
+              "enum": [
+                "lug_joint",
+                "fillet_joint",
+                "miter_joint",
+                "socket_joint"
+              ]
+            },
+            "heating_source": {
+              "type": "string",
+              "description": "Heat source used to melt the brazing filler.",
+              "enum": [
+                "oxy_acetylene",
+                "propane_torch",
+                "induction_heater",
+                "butane_torch"
+              ]
+            }
+          },
+          "required": [
+            "frame_material",
+            "joint_type",
+            "heating_source"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"query_brazing_filler_choice\",\"description\":\"Call this when determining appropriate filler metals and temperatures for bicycle frame joints.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"frame_material\":{\"type\":\"string\",\"description\":\"Primary material composing the bicycle frame tubes to be brazed.\",\"enum\":[\"chromoly_steel\",\"stainless_steel\",\"titanium_alloy\",\"manganese_steel\"]},\"joint_type\":{\"type\":\"string\",\"description\":\"Configuration of the tubes being joined during brazing.\",\"enum\":[\"lug_joint\",\"fillet_joint\",\"miter_joint\",\"socket_joint\"]},\"heating_source\":{\"type\":\"string\",\"description\":\"Heat source used to melt the brazing filler.\",\"enum\":[\"oxy_acetylene\",\"propane_torch\",\"induction_heater\",\"butane_torch\"]}},\"required\":[\"frame_material\",\"joint_type\",\"heating_source\"],\"additionalProperties\":false}}",
+      "closed_vocab": 16,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "9fb6132e4b71",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 581,
+        "completion_tokens": 1507,
+        "raw_sha1": "7546b7599286"
+      },
+      "attempts": 1,
+      "catalog_index": 47
+    },
+    {
+      "tool_id": 48,
+      "skeleton": {
+        "tool_id": 48,
+        "domain": "ham radio contest logging",
+        "verb": "report",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "e7ab827f36",
+      "mcp": {
+        "name": "report_contest_qso",
+        "description": "Call this when logging a confirmed contact during an active ham radio contest.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "description": "Operating mode of the logged contact.",
+              "enum": [
+                "cw",
+                "ssb",
+                "rtty",
+                "ft8",
+                "psk31"
+              ]
+            },
+            "comment": {
+              "type": "string",
+              "description": "Optional notes on signal or conditions."
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"report_contest_qso\",\"description\":\"Call this when logging a confirmed contact during an active ham radio contest.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"mode\":{\"type\":\"string\",\"description\":\"Operating mode of the logged contact.\",\"enum\":[\"cw\",\"ssb\",\"rtty\",\"ft8\",\"psk31\"]},\"comment\":{\"type\":\"string\",\"description\":\"Optional notes on signal or conditions.\"}},\"required\":[\"mode\"],\"additionalProperties\":false}}",
+      "closed_vocab": 8,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "e9cda6082d41",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 553,
+        "completion_tokens": 1063,
+        "raw_sha1": "55140db387e7"
+      },
+      "attempts": 1,
+      "catalog_index": 48
+    },
+    {
+      "tool_id": 49,
+      "skeleton": {
+        "tool_id": 49,
+        "domain": "cricket pitch groundskeeping",
+        "verb": "schedule",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p5",
+            "type": "bool",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "7fa2dd6bc0",
+      "mcp": {
+        "name": "schedule_pitch_rolling",
+        "description": "Call this when planning maintenance for a cricket pitch before a match.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "is_test_match": {
+              "type": "boolean",
+              "description": "Indicates if preparation targets a test match."
+            },
+            "target_date": {
+              "type": "string",
+              "description": "Scheduled date in YYYY-MM-DD format."
+            },
+            "maintenance_type": {
+              "type": "string",
+              "description": "Specific pitch maintenance operation required.",
+              "enum": [
+                "heavy_rolling",
+                "light_rolling",
+                "scarifying",
+                "top_dressing",
+                "verti_draining"
+              ]
+            },
+            "supervisor_name": {
+              "type": "string",
+              "description": "Assigned groundskeeper for oversight."
+            },
+            "use_irrigation": {
+              "type": "boolean",
+              "description": "Flag to activate automatic watering system."
+            }
+          },
+          "required": [
+            "is_test_match",
+            "target_date",
+            "maintenance_type",
+            "supervisor_name",
+            "use_irrigation"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"schedule_pitch_rolling\",\"description\":\"Call this when planning maintenance for a cricket pitch before a match.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"is_test_match\":{\"type\":\"boolean\",\"description\":\"Indicates if preparation targets a test match.\"},\"target_date\":{\"type\":\"string\",\"description\":\"Scheduled date in YYYY-MM-DD format.\"},\"maintenance_type\":{\"type\":\"string\",\"description\":\"Specific pitch maintenance operation required.\",\"enum\":[\"heavy_rolling\",\"light_rolling\",\"scarifying\",\"top_dressing\",\"verti_draining\"]},\"supervisor_name\":{\"type\":\"string\",\"description\":\"Assigned groundskeeper for oversight.\"},\"use_irrigation\":{\"type\":\"boolean\",\"description\":\"Flag to activate automatic watering system.\"}},\"required\":[\"is_test_match\",\"target_date\",\"maintenance_type\",\"supervisor_name\",\"use_irrigation\"],\"additionalProperties\":false}}",
+      "closed_vocab": 11,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "0ff7980abdc0",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 583,
+        "completion_tokens": 1179,
+        "raw_sha1": "9115341251ab"
+      },
+      "attempts": 1,
+      "catalog_index": 49
+    },
+    {
+      "tool_id": 50,
+      "skeleton": {
+        "tool_id": 50,
+        "domain": "telescope collimation",
+        "verb": "cancel",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p5",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "3f16464edc",
+      "mcp": {
+        "name": "cancel_collimation_session",
+        "description": "Call this when the user wants to abort an active telescope mirror alignment process.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "force_cancel": {
+              "type": "boolean",
+              "description": "Whether to force cancellation without confirmation."
+            },
+            "save_progress": {
+              "type": "boolean",
+              "description": "Indicates if partial collimation data should be saved."
+            },
+            "notify_user": {
+              "type": "boolean",
+              "description": "Determines if the user receives a cancellation notification."
+            },
+            "reason_note": {
+              "type": "string",
+              "description": "Additional text explaining the cancellation reason."
+            },
+            "collimation_stage": {
+              "type": "string",
+              "description": "Current stage of collimation being canceled.",
+              "enum": [
+                "primary_alignment",
+                "secondary_tilt",
+                "focuser_squaring",
+                "star_test",
+                "final_verification"
+              ]
+            }
+          },
+          "required": [
+            "force_cancel",
+            "save_progress",
+            "notify_user",
+            "reason_note",
+            "collimation_stage"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"cancel_collimation_session\",\"description\":\"Call this when the user wants to abort an active telescope mirror alignment process.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"force_cancel\":{\"type\":\"boolean\",\"description\":\"Whether to force cancellation without confirmation.\"},\"save_progress\":{\"type\":\"boolean\",\"description\":\"Indicates if partial collimation data should be saved.\"},\"notify_user\":{\"type\":\"boolean\",\"description\":\"Determines if the user receives a cancellation notification.\"},\"reason_note\":{\"type\":\"string\",\"description\":\"Additional text explaining the cancellation reason.\"},\"collimation_stage\":{\"type\":\"string\",\"description\":\"Current stage of collimation being canceled.\",\"enum\":[\"primary_alignment\",\"secondary_tilt\",\"focuser_squaring\",\"star_test\",\"final_verification\"]}},\"required\":[\"force_cancel\",\"save_progress\",\"notify_user\",\"reason_note\",\"collimation_stage\"],\"additionalProperties\":false}}",
+      "closed_vocab": 11,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "31d0ae0aa546",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 582,
+        "completion_tokens": 937,
+        "raw_sha1": "1075dc7034df"
+      },
+      "attempts": 1,
+      "catalog_index": 50
+    },
+    {
+      "tool_id": 51,
+      "skeleton": {
+        "tool_id": 51,
+        "domain": "steam locomotive shed",
+        "verb": "create",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "38194ae7f7",
+      "mcp": {
+        "name": "create_locomotive_work_order",
+        "description": "Call this when assigning a new maintenance task to a locomotive in the shed.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "locomotive_identifier": {
+              "type": "string",
+              "description": "Identifier for the specific steam locomotive."
+            },
+            "maintenance_type": {
+              "type": "string",
+              "description": "Category of shed maintenance activity.",
+              "enum": [
+                "boiler_washout",
+                "wheel_reprofiling",
+                "firebox_repair",
+                "valve_setting",
+                "tender_painting"
+              ]
+            }
+          },
+          "required": [
+            "locomotive_identifier",
+            "maintenance_type"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"create_locomotive_work_order\",\"description\":\"Call this when assigning a new maintenance task to a locomotive in the shed.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"locomotive_identifier\":{\"type\":\"string\",\"description\":\"Identifier for the specific steam locomotive.\"},\"maintenance_type\":{\"type\":\"string\",\"description\":\"Category of shed maintenance activity.\",\"enum\":[\"boiler_washout\",\"wheel_reprofiling\",\"firebox_repair\",\"valve_setting\",\"tender_painting\"]}},\"required\":[\"locomotive_identifier\",\"maintenance_type\"],\"additionalProperties\":false}}",
+      "closed_vocab": 8,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "c14e37b79daa",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 552,
+        "completion_tokens": 999,
+        "raw_sha1": "904a6757ba14"
+      },
+      "attempts": 1,
+      "catalog_index": 51
+    },
+    {
+      "tool_id": 52,
+      "skeleton": {
+        "tool_id": 52,
+        "domain": "bonsai training",
+        "verb": "schedule",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": false
+          },
+          {
+            "slot": "p2",
+            "type": "int",
+            "required": false
+          },
+          {
+            "slot": "p3",
+            "type": "int",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "12aa883d4c",
+      "mcp": {
+        "name": "schedule_bonsai_defoliation",
+        "description": "Call this when planning a bonsai styling activity for a future date.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "technique": {
+              "type": "string",
+              "description": "Specific bonsai training method to apply.",
+              "enum": [
+                "full_defoliation",
+                "wire_bending",
+                "root_pruning",
+                "apex_reduction",
+                "candle_pruning"
+              ]
+            },
+            "weeks_ahead": {
+              "type": "integer",
+              "description": "Number of weeks until the session occurs."
+            },
+            "duration_minutes": {
+              "type": "integer",
+              "description": "Total length of the scheduled session."
+            }
+          },
+          "required": [
+            "duration_minutes"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"schedule_bonsai_defoliation\",\"description\":\"Call this when planning a bonsai styling activity for a future date.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"technique\":{\"type\":\"string\",\"description\":\"Specific bonsai training method to apply.\",\"enum\":[\"full_defoliation\",\"wire_bending\",\"root_pruning\",\"apex_reduction\",\"candle_pruning\"]},\"weeks_ahead\":{\"type\":\"integer\",\"description\":\"Number of weeks until the session occurs.\"},\"duration_minutes\":{\"type\":\"integer\",\"description\":\"Total length of the scheduled session.\"}},\"required\":[\"duration_minutes\"],\"additionalProperties\":false}}",
+      "closed_vocab": 9,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "f708cd5a31d6",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 560,
+        "completion_tokens": 1091,
+        "raw_sha1": "0ad452367623"
+      },
+      "attempts": 1,
+      "catalog_index": 52
+    },
+    {
+      "tool_id": 53,
+      "skeleton": {
+        "tool_id": 53,
+        "domain": "pipe organ maintenance",
+        "verb": "update",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": false
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "f53cf418dc",
+      "mcp": {
+        "name": "update_pipe_condition",
+        "description": "Call this after inspecting or repairing a pipe organ component to record changes.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "component_id": {
+              "type": "string",
+              "description": "Identifier of the specific pipe or mechanism updated."
+            },
+            "work_performed": {
+              "type": "string",
+              "description": "Type of maintenance task completed on the component.",
+              "enum": [
+                "reed_replacement",
+                "bellows_patch",
+                "tracker_alignment",
+                "windchest_seal",
+                "voicing_adjustment"
+              ]
+            },
+            "resulting_state": {
+              "type": "string",
+              "description": "Current operational condition after the update.",
+              "enum": [
+                "sealed_bellows",
+                "free_tracker",
+                "voiced_pipe",
+                "balanced_manual",
+                "lubricated_action"
+              ]
+            }
+          },
+          "required": [
+            "component_id",
+            "resulting_state"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"update_pipe_condition\",\"description\":\"Call this after inspecting or repairing a pipe organ component to record changes.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"component_id\":{\"type\":\"string\",\"description\":\"Identifier of the specific pipe or mechanism updated.\"},\"work_performed\":{\"type\":\"string\",\"description\":\"Type of maintenance task completed on the component.\",\"enum\":[\"reed_replacement\",\"bellows_patch\",\"tracker_alignment\",\"windchest_seal\",\"voicing_adjustment\"]},\"resulting_state\":{\"type\":\"string\",\"description\":\"Current operational condition after the update.\",\"enum\":[\"sealed_bellows\",\"free_tracker\",\"voiced_pipe\",\"balanced_manual\",\"lubricated_action\"]}},\"required\":[\"component_id\",\"resulting_state\"],\"additionalProperties\":false}}",
+      "closed_vocab": 14,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "8f8dbd58acbc",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 571,
+        "completion_tokens": 1245,
+        "raw_sha1": "f51f76f4ec6a"
+      },
+      "attempts": 1,
+      "catalog_index": 53
+    },
+    {
+      "tool_id": 54,
+      "skeleton": {
+        "tool_id": 54,
+        "domain": "antique typewriter repair",
+        "verb": "adjust",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "f7a99e5d7f",
+      "mcp": {
+        "name": "adjust_typebar_strike",
+        "description": "Call this when type impressions are uneven on an antique typewriter.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "component": {
+              "type": "string",
+              "description": "Typewriter part requiring adjustment.",
+              "enum": [
+                "typebar",
+                "escapement",
+                "carriage",
+                "platen",
+                "ribbon"
+              ]
+            },
+            "current_state": {
+              "type": "string",
+              "description": "Description of the current mechanical state."
+            },
+            "adjustment_action": {
+              "type": "string",
+              "description": "Action to perform on the component.",
+              "enum": [
+                "tighten",
+                "loosen",
+                "align_left",
+                "align_right",
+                "advance"
+              ]
+            },
+            "technician_notes": {
+              "type": "string",
+              "description": "Any additional observations or steps taken."
+            }
+          },
+          "required": [
+            "component",
+            "current_state",
+            "adjustment_action",
+            "technician_notes"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"adjust_typebar_strike\",\"description\":\"Call this when type impressions are uneven on an antique typewriter.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"component\":{\"type\":\"string\",\"description\":\"Typewriter part requiring adjustment.\",\"enum\":[\"typebar\",\"escapement\",\"carriage\",\"platen\",\"ribbon\"]},\"current_state\":{\"type\":\"string\",\"description\":\"Description of the current mechanical state.\"},\"adjustment_action\":{\"type\":\"string\",\"description\":\"Action to perform on the component.\",\"enum\":[\"tighten\",\"loosen\",\"align_left\",\"align_right\",\"advance\"]},\"technician_notes\":{\"type\":\"string\",\"description\":\"Any additional observations or steps taken.\"}},\"required\":[\"component\",\"current_state\",\"adjustment_action\",\"technician_notes\"],\"additionalProperties\":false}}",
+      "closed_vocab": 15,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "b408a829a64e",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 581,
+        "completion_tokens": 1276,
+        "raw_sha1": "747110968e5f"
+      },
+      "attempts": 1,
+      "catalog_index": 54
+    },
+    {
+      "tool_id": 55,
+      "skeleton": {
+        "tool_id": 55,
+        "domain": "hot air balloon launches",
+        "verb": "calibrate",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "string",
+            "required": false
+          },
+          {
+            "slot": "p4",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "f85c5a7a2a",
+      "mcp": {
+        "name": "calibrate_propane_regulator",
+        "description": "Call this before launch to adjust fuel systems for safe burner performance in changing conditions.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "calibration_type": {
+              "type": "string",
+              "description": "Balloon component requiring adjustment",
+              "enum": [
+                "envelope_seam",
+                "burner_ignition",
+                "fuel_flow_rate",
+                "variometer_drift",
+                "gps_lock"
+              ]
+            },
+            "target_value": {
+              "type": "string",
+              "description": "Expected reading after calibration"
+            },
+            "notes": {
+              "type": "string",
+              "description": "Optional conditions or observations"
+            },
+            "operator_id": {
+              "type": "string",
+              "description": "Crew member performing the task"
+            }
+          },
+          "required": [
+            "calibration_type",
+            "target_value",
+            "operator_id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"calibrate_propane_regulator\",\"description\":\"Call this before launch to adjust fuel systems for safe burner performance in changing conditions.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"calibration_type\":{\"type\":\"string\",\"description\":\"Balloon component requiring adjustment\",\"enum\":[\"envelope_seam\",\"burner_ignition\",\"fuel_flow_rate\",\"variometer_drift\",\"gps_lock\"]},\"target_value\":{\"type\":\"string\",\"description\":\"Expected reading after calibration\"},\"notes\":{\"type\":\"string\",\"description\":\"Optional conditions or observations\"},\"operator_id\":{\"type\":\"string\",\"description\":\"Crew member performing the task\"}},\"required\":[\"calibration_type\",\"target_value\",\"operator_id\"],\"additionalProperties\":false}}",
+      "closed_vocab": 10,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "798df51face4",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 574,
+        "completion_tokens": 1085,
+        "raw_sha1": "2a4157ba0090"
+      },
+      "attempts": 1,
+      "catalog_index": 55
+    },
+    {
+      "tool_id": 56,
+      "skeleton": {
+        "tool_id": 56,
+        "domain": "distillery cask warehouse",
+        "verb": "calibrate",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "269cf6d459",
+      "mcp": {
+        "name": "calibrate_cask_hygrometer",
+        "description": "Call when adjusting moisture sensors to maintain ideal conditions for aging whisky casks.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "cask_row_label": {
+              "type": "string",
+              "description": "Identifier for the warehouse row or section of casks."
+            },
+            "calibration_type": {
+              "type": "string",
+              "description": "Specific sensor adjustment mode for cask environment.",
+              "enum": [
+                "angel_share",
+                "stave_swelling",
+                "bung_integrity",
+                "dunnage_damp",
+                "evaporation_rate"
+              ]
+            }
+          },
+          "required": [
+            "cask_row_label",
+            "calibration_type"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"calibrate_cask_hygrometer\",\"description\":\"Call when adjusting moisture sensors to maintain ideal conditions for aging whisky casks.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"cask_row_label\":{\"type\":\"string\",\"description\":\"Identifier for the warehouse row or section of casks.\"},\"calibration_type\":{\"type\":\"string\",\"description\":\"Specific sensor adjustment mode for cask environment.\",\"enum\":[\"angel_share\",\"stave_swelling\",\"bung_integrity\",\"dunnage_damp\",\"evaporation_rate\"]}},\"required\":[\"cask_row_label\",\"calibration_type\"],\"additionalProperties\":false}}",
+      "closed_vocab": 8,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "cf05a950f0e0",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 555,
+        "completion_tokens": 1088,
+        "raw_sha1": "68184ef2ac07"
+      },
+      "attempts": 1,
+      "catalog_index": 56
+    },
+    {
+      "tool_id": 57,
+      "skeleton": {
+        "tool_id": 57,
+        "domain": "ceramic glaze formulation",
+        "verb": "report",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "int",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "bool",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "1bb2ccbf9c",
+      "mcp": {
+        "name": "report_glaze_defects",
+        "description": "Call this tool when an agent completes testing a new glaze formulation batch.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "has_defects": {
+              "type": "boolean",
+              "description": "Indicates if any defects were observed in the glaze."
+            },
+            "defect_count": {
+              "type": "integer",
+              "description": "Number of distinct defect types identified."
+            },
+            "primary_issue": {
+              "type": "string",
+              "description": "Main type of defect observed during firing.",
+              "enum": [
+                "crawling",
+                "pinholing",
+                "shivering",
+                "running",
+                "cracking"
+              ]
+            },
+            "recommend_reformulation": {
+              "type": "boolean",
+              "description": "Whether reformulation of the glaze is advised."
+            }
+          },
+          "required": [
+            "has_defects",
+            "defect_count",
+            "primary_issue",
+            "recommend_reformulation"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"report_glaze_defects\",\"description\":\"Call this tool when an agent completes testing a new glaze formulation batch.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"has_defects\":{\"type\":\"boolean\",\"description\":\"Indicates if any defects were observed in the glaze.\"},\"defect_count\":{\"type\":\"integer\",\"description\":\"Number of distinct defect types identified.\"},\"primary_issue\":{\"type\":\"string\",\"description\":\"Main type of defect observed during firing.\",\"enum\":[\"crawling\",\"pinholing\",\"shivering\",\"running\",\"cracking\"]},\"recommend_reformulation\":{\"type\":\"boolean\",\"description\":\"Whether reformulation of the glaze is advised.\"}},\"required\":[\"has_defects\",\"defect_count\",\"primary_issue\",\"recommend_reformulation\"],\"additionalProperties\":false}}",
+      "closed_vocab": 10,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "3c4c952d016e",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 571,
+        "completion_tokens": 1307,
+        "raw_sha1": "ad9c94ff101e"
+      },
+      "attempts": 1,
+      "catalog_index": 57
+    },
+    {
+      "tool_id": 58,
+      "skeleton": {
+        "tool_id": 58,
+        "domain": "vinyl record pressing",
+        "verb": "allocate",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "7c49e80aaa",
+      "mcp": {
+        "name": "allocate_press_runs",
+        "description": "Call when assigning machine time to fulfill a vinyl pressing order.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "record_format": {
+              "type": "string",
+              "description": "Vinyl size and type for the allocation.",
+              "enum": [
+                "lp_12_inch",
+                "single_7_inch",
+                "ep_10_inch",
+                "picture_disc"
+              ]
+            },
+            "material_type": {
+              "type": "string",
+              "description": "Compound variant to allocate for pressing.",
+              "enum": [
+                "standard_black",
+                "colored_pellets",
+                "translucent_mix",
+                "glow_compound"
+              ]
+            }
+          },
+          "required": [
+            "record_format"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"allocate_press_runs\",\"description\":\"Call when assigning machine time to fulfill a vinyl pressing order.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"record_format\":{\"type\":\"string\",\"description\":\"Vinyl size and type for the allocation.\",\"enum\":[\"lp_12_inch\",\"single_7_inch\",\"ep_10_inch\",\"picture_disc\"]},\"material_type\":{\"type\":\"string\",\"description\":\"Compound variant to allocate for pressing.\",\"enum\":[\"standard_black\",\"colored_pellets\",\"translucent_mix\",\"glow_compound\"]}},\"required\":[\"record_format\"],\"additionalProperties\":false}}",
+      "closed_vocab": 11,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "6de926526435",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 561,
+        "completion_tokens": 1070,
+        "raw_sha1": "947898063e43"
+      },
+      "attempts": 1,
+      "catalog_index": 58
+    },
+    {
+      "tool_id": 59,
+      "skeleton": {
+        "tool_id": 59,
+        "domain": "dry-stone walling",
+        "verb": "create",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "a72f92f71e",
+      "mcp": {
+        "name": "create_dry_stone_wall",
+        "description": "Call this when an agent must construct a new dry stone wall using local materials.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "wall_purpose": {
+              "type": "string",
+              "description": "Intended function or placement of the finished wall.",
+              "enum": [
+                "field_boundary",
+                "retaining_structure",
+                "garden_enclosure",
+                "livestock_pen",
+                "pathway_border"
+              ]
+            },
+            "site_notes": {
+              "type": "string",
+              "description": "Text description of terrain slope and stone supply."
+            },
+            "bonding_style": {
+              "type": "string",
+              "description": "Interlocking pattern chosen for stability and appearance.",
+              "enum": [
+                "random_rubble",
+                "coursed_rubble",
+                "herringbone_pattern",
+                "snecked_masonry",
+                "cyclopean"
+              ]
+            }
+          },
+          "required": [
+            "wall_purpose",
+            "site_notes",
+            "bonding_style"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"create_dry_stone_wall\",\"description\":\"Call this when an agent must construct a new dry stone wall using local materials.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"wall_purpose\":{\"type\":\"string\",\"description\":\"Intended function or placement of the finished wall.\",\"enum\":[\"field_boundary\",\"retaining_structure\",\"garden_enclosure\",\"livestock_pen\",\"pathway_border\"]},\"site_notes\":{\"type\":\"string\",\"description\":\"Text description of terrain slope and stone supply.\"},\"bonding_style\":{\"type\":\"string\",\"description\":\"Interlocking pattern chosen for stability and appearance.\",\"enum\":[\"random_rubble\",\"coursed_rubble\",\"herringbone_pattern\",\"snecked_masonry\",\"cyclopean\"]}},\"required\":[\"wall_purpose\",\"site_notes\",\"bonding_style\"],\"additionalProperties\":false}}",
+      "closed_vocab": 14,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "06ba1e1da4de",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 572,
+        "completion_tokens": 1274,
+        "raw_sha1": "157733fe5eef"
+      },
+      "attempts": 1,
+      "catalog_index": 59
+    },
+    {
+      "tool_id": 60,
+      "skeleton": {
+        "tool_id": 60,
+        "domain": "harpsichord tuning",
+        "verb": "update",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "string",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p5",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "a0d4ae7e9f",
+      "mcp": {
+        "name": "update_harpsichord_tuning",
+        "description": "Call when the harpsichord requires retuning to a different historical temperament.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "note_identifier": {
+              "type": "string",
+              "description": "Specific note or string to adjust."
+            },
+            "target_temperament": {
+              "type": "string",
+              "description": "Historical tuning system to apply.",
+              "enum": [
+                "meantone",
+                "pythagorean",
+                "kirnberger",
+                "werckmeister",
+                "vallotti"
+              ]
+            },
+            "use_a440_reference": {
+              "type": "boolean",
+              "description": "Whether to calibrate against modern pitch standard."
+            },
+            "choir_selection": {
+              "type": "string",
+              "description": "Which set of strings to tune.",
+              "enum": [
+                "eight_foot",
+                "four_foot",
+                "sixteen_foot",
+                "buff"
+              ]
+            },
+            "adjustment_notes": {
+              "type": "string",
+              "description": "Additional instructions for the tuning process."
+            }
+          },
+          "required": [
+            "note_identifier",
+            "target_temperament",
+            "use_a440_reference",
+            "choir_selection",
+            "adjustment_notes"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"update_harpsichord_tuning\",\"description\":\"Call when the harpsichord requires retuning to a different historical temperament.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"note_identifier\":{\"type\":\"string\",\"description\":\"Specific note or string to adjust.\"},\"target_temperament\":{\"type\":\"string\",\"description\":\"Historical tuning system to apply.\",\"enum\":[\"meantone\",\"pythagorean\",\"kirnberger\",\"werckmeister\",\"vallotti\"]},\"use_a440_reference\":{\"type\":\"boolean\",\"description\":\"Whether to calibrate against modern pitch standard.\"},\"choir_selection\":{\"type\":\"string\",\"description\":\"Which set of strings to tune.\",\"enum\":[\"eight_foot\",\"four_foot\",\"sixteen_foot\",\"buff\"]},\"adjustment_notes\":{\"type\":\"string\",\"description\":\"Additional instructions for the tuning process.\"}},\"required\":[\"note_identifier\",\"target_temperament\",\"use_a440_reference\",\"choir_selection\",\"adjustment_notes\"],\"additionalProperties\":false}}",
+      "closed_vocab": 15,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "dd3465bea9e4",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 593,
+        "completion_tokens": 1411,
+        "raw_sha1": "e7ebacdbe28b"
+      },
+      "attempts": 1,
+      "catalog_index": 60
+    },
+    {
+      "tool_id": 61,
+      "skeleton": {
+        "tool_id": 61,
+        "domain": "alpaca shearing",
+        "verb": "create",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "int",
+            "required": false
+          },
+          {
+            "slot": "p3",
+            "type": "int",
+            "required": true
+          },
+          {
+            "slot": "p4",
+            "type": "enum",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "8a9f8698b7",
+      "mcp": {
+        "name": "create_alpaca_shearing_session",
+        "description": "Call this to initiate creation of an alpaca shearing plan with details.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "shear_method": {
+              "type": "string",
+              "description": "Method used for removing the alpaca fiber.",
+              "enum": [
+                "blanket_cut",
+                "full_body",
+                "leg_only",
+                "neck_trim",
+                "belly_clear"
+              ]
+            },
+            "alpaca_count": {
+              "type": "integer",
+              "description": "How many alpacas require shearing this time."
+            },
+            "target_fiber_length": {
+              "type": "integer",
+              "description": "Minimum fiber length desired measured in mm."
+            },
+            "post_shear_care": {
+              "type": "string",
+              "description": "Type of care given to alpacas post shearing.",
+              "enum": [
+                "immediate_release",
+                "shaded_pen",
+                "supplement_feed",
+                "health_check",
+                "fiber_sort"
+              ]
+            }
+          },
+          "required": [
+            "shear_method",
+            "target_fiber_length",
+            "post_shear_care"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"create_alpaca_shearing_session\",\"description\":\"Call this to initiate creation of an alpaca shearing plan with details.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"shear_method\":{\"type\":\"string\",\"description\":\"Method used for removing the alpaca fiber.\",\"enum\":[\"blanket_cut\",\"full_body\",\"leg_only\",\"neck_trim\",\"belly_clear\"]},\"alpaca_count\":{\"type\":\"integer\",\"description\":\"How many alpacas require shearing this time.\"},\"target_fiber_length\":{\"type\":\"integer\",\"description\":\"Minimum fiber length desired measured in mm.\"},\"post_shear_care\":{\"type\":\"string\",\"description\":\"Type of care given to alpacas post shearing.\",\"enum\":[\"immediate_release\",\"shaded_pen\",\"supplement_feed\",\"health_check\",\"fiber_sort\"]}},\"required\":[\"shear_method\",\"target_fiber_length\",\"post_shear_care\"],\"additionalProperties\":false}}",
+      "closed_vocab": 15,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "2e055a5eab3c",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 579,
+        "completion_tokens": 1560,
+        "raw_sha1": "6878e9a76ca2"
+      },
+      "attempts": 1,
+      "catalog_index": 61
+    },
+    {
+      "tool_id": 62,
+      "skeleton": {
+        "tool_id": 62,
+        "domain": "camera obscura tours",
+        "verb": "query",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "int",
+            "required": false
+          },
+          {
+            "slot": "p2",
+            "type": "bool",
+            "required": true
+          },
+          {
+            "slot": "p3",
+            "type": "int",
+            "required": false
+          },
+          {
+            "slot": "p4",
+            "type": "int",
+            "required": true
+          },
+          {
+            "slot": "p5",
+            "type": "enum",
+            "required": false
+          }
+        ]
+      },
+      "skeleton_key": "d59ccdf258",
+      "mcp": {
+        "name": "query_obscura_tour_options",
+        "description": "Invoke when searching for camera obscura tour dates matching specific criteria.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "max_participants": {
+              "type": "integer",
+              "description": "Maximum number of people in the tour group."
+            },
+            "has_live_demo": {
+              "type": "boolean",
+              "description": "Whether the tour includes a live demonstration."
+            },
+            "min_year_built": {
+              "type": "integer",
+              "description": "Earliest construction year for the obscura site."
+            },
+            "tour_duration": {
+              "type": "integer",
+              "description": "Requested length of the tour in minutes."
+            },
+            "obscura_type": {
+              "type": "string",
+              "description": "Specific type of camera obscura experience desired.",
+              "enum": [
+                "pinhole_projection",
+                "lens_based",
+                "portable_device",
+                "permanent_room",
+                "mobile_exhibit"
+              ]
+            }
+          },
+          "required": [
+            "has_live_demo",
+            "tour_duration"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"query_obscura_tour_options\",\"description\":\"Invoke when searching for camera obscura tour dates matching specific criteria.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"max_participants\":{\"type\":\"integer\",\"description\":\"Maximum number of people in the tour group.\"},\"has_live_demo\":{\"type\":\"boolean\",\"description\":\"Whether the tour includes a live demonstration.\"},\"min_year_built\":{\"type\":\"integer\",\"description\":\"Earliest construction year for the obscura site.\"},\"tour_duration\":{\"type\":\"integer\",\"description\":\"Requested length of the tour in minutes.\"},\"obscura_type\":{\"type\":\"string\",\"description\":\"Specific type of camera obscura experience desired.\",\"enum\":[\"pinhole_projection\",\"lens_based\",\"portable_device\",\"permanent_room\",\"mobile_exhibit\"]}},\"required\":[\"has_live_demo\",\"tour_duration\"],\"additionalProperties\":false}}",
+      "closed_vocab": 11,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "babb74062a85",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 580,
+        "completion_tokens": 1162,
+        "raw_sha1": "3ccd3f149f4b"
+      },
+      "attempts": 1,
+      "catalog_index": 62
+    },
+    {
+      "tool_id": 63,
+      "skeleton": {
+        "tool_id": 63,
+        "domain": "lighthouse maintenance",
+        "verb": "list",
+        "params": [
+          {
+            "slot": "p1",
+            "type": "enum",
+            "required": true
+          },
+          {
+            "slot": "p2",
+            "type": "bool",
+            "required": true
+          }
+        ]
+      },
+      "skeleton_key": "440821ddea",
+      "mcp": {
+        "name": "list_tower_components",
+        "description": "Invoke when needing to enumerate lighthouse parts for scheduled upkeep.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "maintenance_category": {
+              "type": "string",
+              "description": "Type of lighthouse element to list.",
+              "enum": [
+                "fresnel_lens",
+                "lantern_room",
+                "tower_structure",
+                "power_generator",
+                "fog_signal",
+                "optic_prisms"
+              ]
+            },
+            "urgent_only": {
+              "type": "boolean",
+              "description": "Filter to show only urgent maintenance needs."
+            }
+          },
+          "required": [
+            "maintenance_category",
+            "urgent_only"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "schema_text": "{\"name\":\"list_tower_components\",\"description\":\"Invoke when needing to enumerate lighthouse parts for scheduled upkeep.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"maintenance_category\":{\"type\":\"string\",\"description\":\"Type of lighthouse element to list.\",\"enum\":[\"fresnel_lens\",\"lantern_room\",\"tower_structure\",\"power_generator\",\"fog_signal\",\"optic_prisms\"]},\"urgent_only\":{\"type\":\"boolean\",\"description\":\"Filter to show only urgent maintenance needs.\"}},\"required\":[\"maintenance_category\",\"urgent_only\"],\"additionalProperties\":false}}",
+      "closed_vocab": 9,
+      "provenance": {
+        "provider": "openrouter",
+        "model": "x-ai/grok-4.3",
+        "temperature": 0.8,
+        "attempt": 0,
+        "prompt_sha1": "a11ff9afaead",
+        "response_model": "x-ai/grok-4.3",
+        "routed_provider": "xAI",
+        "prompt_tokens": 551,
+        "completion_tokens": 1164,
+        "raw_sha1": "9e3649da66fa"
+      },
+      "attempts": 1,
+      "catalog_index": 63
+    }
+  ]
+}

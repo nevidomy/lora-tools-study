@@ -1,0 +1,503 @@
+=== [23:51:37] train cat16_ex100_C_lr2e-4_s1 ===
+1600 training examples (100 natural per tool × 16 tools), arm C
+renderer: gpt_oss_low_reasoning
+tokens: 298237 total, 57718 target (loss-bearing); 186/example, longest 230
+estimated train cost at GPT-OSS-20B rate: ~$0.35
+lr=2.00e-04  steps=300 (100/epoch × 3)  warmup=30
+console: https://tinker.thinkingmachines.ai/training_runs/6418045a-3850-5b9f-b493-3dd7a64d14ea:train:0
+  metrics keys: ['clock_cycle:unique', 'e_frac_oversubscribed:mean', 'e_frac_with_tokens:mean', 'e_max_violation:max', 'e_max_violation:mean', 'e_min_violation:mean', 'loss:sum']
+  step    0/300  epoch 0  lr 6.67e-06  loss/tok 4.2698  (sum 2459.4 over 576 tok)  (14s)
+  step    5/300  epoch 0  lr 4.00e-05  loss/tok 3.0610  (sum 1662.1 over 543 tok)  (30s)
+  step   10/300  epoch 0  lr 7.33e-05  loss/tok 1.6543  (sum 901.6 over 545 tok)  (44s)
+  step   15/300  epoch 0  lr 1.07e-04  loss/tok 1.2502  (sum 712.6 over 570 tok)  (64s)
+  step   20/300  epoch 0  lr 1.40e-04  loss/tok 0.8433  (sum 467.2 over 554 tok)  (81s)
+  step   25/300  epoch 0  lr 1.73e-04  loss/tok 0.6721  (sum 384.4 over 572 tok)  (98s)
+  step   30/300  epoch 0  lr 2.00e-04  loss/tok 0.3352  (sum 189.0 over 564 tok)  (112s)
+  step   35/300  epoch 0  lr 2.00e-04  loss/tok 0.1491  (sum 87.7 over 588 tok)  (130s)
+  step   40/300  epoch 0  lr 2.00e-04  loss/tok 0.1049  (sum 59.4 over 566 tok)  (153s)
+  step   45/300  epoch 0  lr 2.00e-04  loss/tok 0.0946  (sum 54.6 over 577 tok)  (168s)
+  step   50/300  epoch 0  lr 2.00e-04  loss/tok 0.0231  (sum 13.7 over 593 tok)  (185s)
+  step   55/300  epoch 0  lr 2.00e-04  loss/tok 0.0198  (sum 11.4 over 575 tok)  (202s)
+  step   60/300  epoch 0  lr 2.00e-04  loss/tok 0.0163  (sum 8.7 over 537 tok)  (217s)
+  step   65/300  epoch 0  lr 2.00e-04  loss/tok 0.0424  (sum 25.2 over 594 tok)  (234s)
+  step   70/300  epoch 0  lr 2.00e-04  loss/tok 0.0095  (sum 5.2 over 553 tok)  (252s)
+  step   75/300  epoch 0  lr 2.00e-04  loss/tok 0.0272  (sum 15.0 over 551 tok)  (268s)
+  step   80/300  epoch 0  lr 2.00e-04  loss/tok 0.0106  (sum 6.3 over 592 tok)  (286s)
+  step   85/300  epoch 0  lr 2.00e-04  loss/tok 0.0082  (sum 5.0 over 610 tok)  (303s)
+  step   90/300  epoch 0  lr 2.00e-04  loss/tok 0.0019  (sum 1.0 over 528 tok)  (321s)
+  step   95/300  epoch 0  lr 2.00e-04  loss/tok 0.0081  (sum 4.6 over 560 tok)  (340s)
+  step  100/300  epoch 1  lr 2.00e-04  loss/tok 0.0051  (sum 2.7 over 538 tok)  (356s)
+  step  105/300  epoch 1  lr 2.00e-04  loss/tok 0.0018  (sum 1.0 over 583 tok)  (374s)
+  step  110/300  epoch 1  lr 2.00e-04  loss/tok 0.0015  (sum 0.9 over 579 tok)  (389s)
+  step  115/300  epoch 1  lr 2.00e-04  loss/tok 0.0008  (sum 0.4 over 568 tok)  (406s)
+  step  120/300  epoch 1  lr 2.00e-04  loss/tok 0.0206  (sum 12.6 over 610 tok)  (423s)
+  step  125/300  epoch 1  lr 2.00e-04  loss/tok 0.0036  (sum 2.0 over 545 tok)  (442s)
+  step  130/300  epoch 1  lr 2.00e-04  loss/tok 0.0164  (sum 10.3 over 625 tok)  (460s)
+  step  135/300  epoch 1  lr 2.00e-04  loss/tok 0.0056  (sum 3.4 over 608 tok)  (479s)
+  step  140/300  epoch 1  lr 2.00e-04  loss/tok 0.0050  (sum 2.8 over 559 tok)  (493s)
+  step  145/300  epoch 1  lr 2.00e-04  loss/tok 0.0327  (sum 18.4 over 563 tok)  (509s)
+  step  150/300  epoch 1  lr 2.00e-04  loss/tok 0.0026  (sum 1.5 over 572 tok)  (523s)
+  step  155/300  epoch 1  lr 2.00e-04  loss/tok 0.0024  (sum 1.6 over 656 tok)  (541s)
+  step  160/300  epoch 1  lr 2.00e-04  loss/tok 0.0001  (sum 0.1 over 539 tok)  (557s)
+  step  165/300  epoch 1  lr 2.00e-04  loss/tok 0.0001  (sum 0.1 over 585 tok)  (576s)
+  step  170/300  epoch 1  lr 2.00e-04  loss/tok 0.0098  (sum 6.0 over 612 tok)  (591s)
+  step  175/300  epoch 1  lr 2.00e-04  loss/tok 0.0025  (sum 1.4 over 551 tok)  (609s)
+  step  180/300  epoch 1  lr 2.00e-04  loss/tok 0.0038  (sum 2.2 over 595 tok)  (624s)
+  step  185/300  epoch 1  lr 2.00e-04  loss/tok 0.0042  (sum 2.4 over 589 tok)  (648s)
+  step  190/300  epoch 1  lr 2.00e-04  loss/tok 0.0028  (sum 1.6 over 585 tok)  (666s)
+  step  195/300  epoch 1  lr 2.00e-04  loss/tok 0.0119  (sum 6.9 over 581 tok)  (683s)
+  step  200/300  epoch 2  lr 2.00e-04  loss/tok 0.0004  (sum 0.2 over 539 tok)  (702s)
+  step  205/300  epoch 2  lr 2.00e-04  loss/tok 0.0078  (sum 4.5 over 578 tok)  (720s)
+  step  210/300  epoch 2  lr 2.00e-04  loss/tok 0.0024  (sum 1.4 over 594 tok)  (737s)
+  step  215/300  epoch 2  lr 2.00e-04  loss/tok 0.0092  (sum 5.3 over 579 tok)  (752s)
+  step  220/300  epoch 2  lr 2.00e-04  loss/tok 0.0022  (sum 1.3 over 583 tok)  (769s)
+  step  225/300  epoch 2  lr 2.00e-04  loss/tok 0.0016  (sum 1.0 over 627 tok)  (787s)
+  step  230/300  epoch 2  lr 2.00e-04  loss/tok 0.0067  (sum 3.8 over 572 tok)  (803s)
+  step  235/300  epoch 2  lr 2.00e-04  loss/tok 0.0012  (sum 0.8 over 628 tok)  (821s)
+  step  240/300  epoch 2  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 547 tok)  (839s)
+  step  245/300  epoch 2  lr 2.00e-04  loss/tok 0.0057  (sum 3.2 over 554 tok)  (857s)
+  step  250/300  epoch 2  lr 2.00e-04  loss/tok 0.0129  (sum 7.9 over 613 tok)  (879s)
+  step  255/300  epoch 2  lr 2.00e-04  loss/tok 0.0001  (sum 0.1 over 567 tok)  (896s)
+  step  260/300  epoch 2  lr 2.00e-04  loss/tok 0.0034  (sum 1.9 over 552 tok)  (913s)
+  step  265/300  epoch 2  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 590 tok)  (929s)
+  step  270/300  epoch 2  lr 2.00e-04  loss/tok 0.0009  (sum 0.5 over 571 tok)  (945s)
+  step  275/300  epoch 2  lr 2.00e-04  loss/tok 0.0005  (sum 0.3 over 597 tok)  (960s)
+  step  280/300  epoch 2  lr 2.00e-04  loss/tok 0.0004  (sum 0.2 over 550 tok)  (978s)
+  step  285/300  epoch 2  lr 2.00e-04  loss/tok 0.0161  (sum 10.0 over 618 tok)  (996s)
+  step  290/300  epoch 2  lr 2.00e-04  loss/tok 0.0003  (sum 0.2 over 602 tok)  (1015s)
+  step  295/300  epoch 2  lr 2.00e-04  loss/tok 0.0003  (sum 0.2 over 644 tok)  (1030s)
+  step  299/300  epoch 2  lr 2.00e-04  loss/tok 0.0029  (sum 1.6 over 564 tok)  (1041s)
+
+checkpoint: tinker://6418045a-3850-5b9f-b493-3dd7a64d14ea:train:0/sampler_weights/cat16_ex100_C_lr2e-4_s1
+manifest:   runs/cat16_ex100_C_lr2e-4_s1.json
+
+next:
+  python eval_arms.py --catalog tools/catalog_64.json --catalog-size 16 --queries queries_valid --queries-strong queries_strong_valid --model openai/gpt-oss-20b --checkpoint 'tinker://6418045a-3850-5b9f-b493-3dd7a64d14ea:train:0/sampler_weights/cat16_ex100_C_lr2e-4_s1' --arm C --tag cat16_ex100_C_lr2e-4_s1 --out results
+=== [00:09:17] eval cat16_ex100_C_lr2e-4_s1 (seen strong) ===
+natural: 800 queries
+strong: 794 queries
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+
+== arm C / natural ==
+  n=800  parsed=1.000  tool_ok=0.983  schema_valid=0.959  args_exact=0.934  lenient=0.935  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (12.4s)
+
+== arm C / strong ==
+  n=794  parsed=1.000  tool_ok=0.969  schema_valid=0.601  args_exact=0.564  lenient=0.565  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (4.9s)
+
+schema tokens for this model/catalog: 1703  (prompt without schema: 157)
+  C/natural        exact=0.934  recovered=0.934  lenient=0.935  tool_ok=0.983  parsed=1.000  |  prompt/req=151  cache_hit/req=114  completion/req=36
+  C/strong         exact=0.564  recovered=0.564  lenient=0.565  tool_ok=0.969  parsed=1.000  [rewritten-only n=627 exact=0.488]  |  prompt/req=155  cache_hit/req=126  completion/req=37
+  (with-tools minus no-tools prompt/req is the per-request schema cost the adapter would remove)
+wrote results/openai_gpt_oss_20b__cat16__cat16_ex100_C_lr2e-4_s1_pv1.summary.json
+=== [00:09:39] eval cat16_ex100_C_lr2e-4_s1_unseen (unseen strong) ===
+natural: 800 queries
+strong: 795 queries
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+
+== arm C / natural ==
+  n=800  parsed=1.000  tool_ok=0.983  schema_valid=0.959  args_exact=0.935  lenient=0.936  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (5.2s)
+
+== arm C / strong ==
+  n=795  parsed=0.999  tool_ok=0.964  schema_valid=0.494  args_exact=0.440  lenient=0.443  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (4.3s)
+
+schema tokens for this model/catalog: 1703  (prompt without schema: 157)
+  C/natural        exact=0.935  recovered=0.935  lenient=0.936  tool_ok=0.983  parsed=1.000  |  prompt/req=151  cache_hit/req=114  completion/req=36
+  C/strong         exact=0.440  recovered=0.440  lenient=0.443  tool_ok=0.964  parsed=0.999  [rewritten-only n=627 exact=0.325]  |  prompt/req=156  cache_hit/req=126  completion/req=37
+  (with-tools minus no-tools prompt/req is the per-request schema cost the adapter would remove)
+wrote results/openai_gpt_oss_20b__cat16__cat16_ex100_C_lr2e-4_s1_unseen_pv1.summary.json
+=== [00:09:56] train cat16_ex100_D_lr2e-4_s1 ===
+1600 training examples (100 natural per tool × 16 tools), arm D
+renderer: gpt_oss_low_reasoning
+tokens: 3023037 total, 57718 target (loss-bearing); 1889/example, longest 1933
+estimated train cost at GPT-OSS-20B rate: ~$3.59
+lr=2.00e-04  steps=300 (100/epoch × 3)  warmup=30
+console: https://tinker.thinkingmachines.ai/training_runs/93a130c2-bdc5-54c7-9a07-c949523daae8:train:0
+  metrics keys: ['clock_cycle:unique', 'e_frac_oversubscribed:mean', 'e_frac_with_tokens:mean', 'e_max_violation:max', 'e_max_violation:mean', 'e_min_violation:mean', 'loss:sum']
+  step    0/300  epoch 0  lr 6.67e-06  loss/tok 1.6402  (sum 944.7 over 576 tok)  (14s)
+  step    5/300  epoch 0  lr 4.00e-05  loss/tok 0.9280  (sum 503.9 over 543 tok)  (32s)
+  step   10/300  epoch 0  lr 7.33e-05  loss/tok 0.1799  (sum 98.1 over 545 tok)  (50s)
+  step   15/300  epoch 0  lr 1.07e-04  loss/tok 0.0285  (sum 16.2 over 570 tok)  (71s)
+  step   20/300  epoch 0  lr 1.40e-04  loss/tok 0.0114  (sum 6.3 over 554 tok)  (90s)
+  step   25/300  epoch 0  lr 1.73e-04  loss/tok 0.0084  (sum 4.8 over 572 tok)  (110s)
+  step   30/300  epoch 0  lr 2.00e-04  loss/tok 0.0041  (sum 2.3 over 564 tok)  (126s)
+  step   35/300  epoch 0  lr 2.00e-04  loss/tok 0.0096  (sum 5.7 over 588 tok)  (146s)
+  step   40/300  epoch 0  lr 2.00e-04  loss/tok 0.0056  (sum 3.2 over 566 tok)  (163s)
+  step   45/300  epoch 0  lr 2.00e-04  loss/tok 0.0265  (sum 15.3 over 577 tok)  (179s)
+  step   50/300  epoch 0  lr 2.00e-04  loss/tok 0.0012  (sum 0.7 over 593 tok)  (194s)
+  step   55/300  epoch 0  lr 2.00e-04  loss/tok 0.0069  (sum 3.9 over 575 tok)  (210s)
+  step   60/300  epoch 0  lr 2.00e-04  loss/tok 0.0020  (sum 1.1 over 537 tok)  (225s)
+  step   65/300  epoch 0  lr 2.00e-04  loss/tok 0.0036  (sum 2.2 over 594 tok)  (244s)
+  step   70/300  epoch 0  lr 2.00e-04  loss/tok 0.0003  (sum 0.2 over 553 tok)  (263s)
+  step   75/300  epoch 0  lr 2.00e-04  loss/tok 0.0057  (sum 3.2 over 551 tok)  (280s)
+  step   80/300  epoch 0  lr 2.00e-04  loss/tok 0.0011  (sum 0.6 over 592 tok)  (305s)
+  step   85/300  epoch 0  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 610 tok)  (350s)
+  step   90/300  epoch 0  lr 2.00e-04  loss/tok 0.0004  (sum 0.2 over 528 tok)  (368s)
+  step   95/300  epoch 0  lr 2.00e-04  loss/tok 0.0000  (sum 0.0 over 560 tok)  (388s)
+  step  100/300  epoch 1  lr 2.00e-04  loss/tok 0.0004  (sum 0.2 over 538 tok)  (403s)
+  step  105/300  epoch 1  lr 2.00e-04  loss/tok 0.0089  (sum 5.2 over 583 tok)  (423s)
+  step  110/300  epoch 1  lr 2.00e-04  loss/tok 0.0004  (sum 0.2 over 579 tok)  (439s)
+  step  115/300  epoch 1  lr 2.00e-04  loss/tok 0.0025  (sum 1.4 over 568 tok)  (453s)
+  step  120/300  epoch 1  lr 2.00e-04  loss/tok 0.0005  (sum 0.3 over 610 tok)  (470s)
+  step  125/300  epoch 1  lr 2.00e-04  loss/tok 0.0014  (sum 0.8 over 545 tok)  (491s)
+  step  130/300  epoch 1  lr 2.00e-04  loss/tok 0.0004  (sum 0.3 over 625 tok)  (513s)
+  step  135/300  epoch 1  lr 2.00e-04  loss/tok 0.0000  (sum 0.0 over 608 tok)  (533s)
+  step  140/300  epoch 1  lr 2.00e-04  loss/tok 0.0007  (sum 0.4 over 559 tok)  (551s)
+  step  145/300  epoch 1  lr 2.00e-04  loss/tok 0.0021  (sum 1.2 over 563 tok)  (568s)
+  step  150/300  epoch 1  lr 2.00e-04  loss/tok 0.0004  (sum 0.2 over 572 tok)  (586s)
+  step  155/300  epoch 1  lr 2.00e-04  loss/tok 0.0001  (sum 0.1 over 656 tok)  (609s)
+  step  160/300  epoch 1  lr 2.00e-04  loss/tok 0.0001  (sum 0.0 over 539 tok)  (628s)
+  step  165/300  epoch 1  lr 2.00e-04  loss/tok 0.0000  (sum 0.0 over 585 tok)  (646s)
+  step  170/300  epoch 1  lr 2.00e-04  loss/tok 0.0000  (sum 0.0 over 612 tok)  (664s)
+  step  175/300  epoch 1  lr 2.00e-04  loss/tok 0.0007  (sum 0.4 over 551 tok)  (679s)
+  step  180/300  epoch 1  lr 2.00e-04  loss/tok 0.0004  (sum 0.2 over 595 tok)  (696s)
+  step  185/300  epoch 1  lr 2.00e-04  loss/tok 0.0069  (sum 4.1 over 589 tok)  (712s)
+  step  190/300  epoch 1  lr 2.00e-04  loss/tok 0.0001  (sum 0.1 over 585 tok)  (734s)
+  step  195/300  epoch 1  lr 2.00e-04  loss/tok 0.0000  (sum 0.0 over 581 tok)  (753s)
+  step  200/300  epoch 2  lr 2.00e-04  loss/tok 0.0061  (sum 3.3 over 539 tok)  (770s)
+  step  205/300  epoch 2  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 578 tok)  (786s)
+  step  210/300  epoch 2  lr 2.00e-04  loss/tok 0.0225  (sum 13.4 over 594 tok)  (801s)
+  step  215/300  epoch 2  lr 2.00e-04  loss/tok 0.0000  (sum 0.0 over 579 tok)  (818s)
+  step  220/300  epoch 2  lr 2.00e-04  loss/tok 0.0000  (sum 0.0 over 583 tok)  (838s)
+  step  225/300  epoch 2  lr 2.00e-04  loss/tok 0.0000  (sum 0.0 over 627 tok)  (853s)
+  step  230/300  epoch 2  lr 2.00e-04  loss/tok 0.0001  (sum 0.1 over 572 tok)  (869s)
+  step  235/300  epoch 2  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 628 tok)  (888s)
+  step  240/300  epoch 2  lr 2.00e-04  loss/tok 0.0000  (sum 0.0 over 547 tok)  (907s)
+  step  245/300  epoch 2  lr 2.00e-04  loss/tok 0.0000  (sum 0.0 over 554 tok)  (925s)
+  step  250/300  epoch 2  lr 2.00e-04  loss/tok 0.0000  (sum 0.0 over 613 tok)  (947s)
+  step  255/300  epoch 2  lr 2.00e-04  loss/tok 0.0000  (sum 0.0 over 567 tok)  (974s)
+  step  260/300  epoch 2  lr 2.00e-04  loss/tok 0.0154  (sum 8.5 over 552 tok)  (991s)
+  step  265/300  epoch 2  lr 2.00e-04  loss/tok 0.0463  (sum 27.3 over 590 tok)  (1011s)
+  step  270/300  epoch 2  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 571 tok)  (1033s)
+  step  275/300  epoch 2  lr 2.00e-04  loss/tok 0.0003  (sum 0.2 over 597 tok)  (1052s)
+  step  280/300  epoch 2  lr 2.00e-04  loss/tok 0.0020  (sum 1.1 over 550 tok)  (1070s)
+  step  285/300  epoch 2  lr 2.00e-04  loss/tok 0.0014  (sum 0.9 over 618 tok)  (1085s)
+  step  290/300  epoch 2  lr 2.00e-04  loss/tok 0.0001  (sum 0.0 over 602 tok)  (1101s)
+  step  295/300  epoch 2  lr 2.00e-04  loss/tok 0.0000  (sum 0.0 over 644 tok)  (1119s)
+  step  299/300  epoch 2  lr 2.00e-04  loss/tok 0.0006  (sum 0.3 over 564 tok)  (1135s)
+
+checkpoint: tinker://93a130c2-bdc5-54c7-9a07-c949523daae8:train:0/sampler_weights/cat16_ex100_D_lr2e-4_s1
+manifest:   runs/cat16_ex100_D_lr2e-4_s1.json
+
+next:
+  python eval_arms.py --catalog tools/catalog_64.json --catalog-size 16 --queries queries_valid --queries-strong queries_strong_valid --model openai/gpt-oss-20b --checkpoint 'tinker://93a130c2-bdc5-54c7-9a07-c949523daae8:train:0/sampler_weights/cat16_ex100_D_lr2e-4_s1' --arm D --tag cat16_ex100_D_lr2e-4_s1 --out results
+=== [00:29:09] eval cat16_ex100_D_lr2e-4_s1 (seen strong) ===
+natural: 800 queries
+strong: 794 queries
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+
+== arm D / natural ==
+  n=800  parsed=1.000  tool_ok=0.993  schema_valid=0.989  args_exact=0.970  lenient=0.971  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (10.2s)
+
+== arm D / strong ==
+  n=794  parsed=1.000  tool_ok=0.977  schema_valid=0.916  args_exact=0.715  lenient=0.727  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (5.9s)
+
+schema tokens for this model/catalog: 1703  (prompt without schema: 157)
+  D/natural        exact=0.970  recovered=0.970  lenient=0.971  tool_ok=0.993  parsed=1.000  |  prompt/req=1854  cache_hit/req=1790  completion/req=36
+  D/strong         exact=0.715  recovered=0.715  lenient=0.727  tool_ok=0.977  parsed=1.000  [rewritten-only n=627 exact=0.663]  |  prompt/req=1858  cache_hit/req=1792  completion/req=36
+  (with-tools minus no-tools prompt/req is the per-request schema cost the adapter would remove)
+wrote results/openai_gpt_oss_20b__cat16__cat16_ex100_D_lr2e-4_s1_pv1.summary.json
+=== [00:29:30] eval cat16_ex100_D_lr2e-4_s1_unseen (unseen strong) ===
+natural: 800 queries
+strong: 795 queries
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+
+== arm D / natural ==
+  n=800  parsed=1.000  tool_ok=0.993  schema_valid=0.989  args_exact=0.970  lenient=0.971  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (8.0s)
+
+== arm D / strong ==
+  n=795  parsed=1.000  tool_ok=0.966  schema_valid=0.911  args_exact=0.652  lenient=0.662  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (3.6s)
+
+schema tokens for this model/catalog: 1703  (prompt without schema: 157)
+  D/natural        exact=0.970  recovered=0.970  lenient=0.971  tool_ok=0.993  parsed=1.000  |  prompt/req=1854  cache_hit/req=1790  completion/req=36
+  D/strong         exact=0.652  recovered=0.652  lenient=0.662  tool_ok=0.966  parsed=1.000  [rewritten-only n=627 exact=0.581]  |  prompt/req=1859  cache_hit/req=1792  completion/req=36
+  (with-tools minus no-tools prompt/req is the per-request schema cost the adapter would remove)
+wrote results/openai_gpt_oss_20b__cat16__cat16_ex100_D_lr2e-4_s1_unseen_pv1.summary.json
+=== [00:29:47] train cat16_mix50_C_lr2e-4_s1 ===
+1600 training examples (50 natural + 50 strong per tool × 16 tools), arm C
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+tokens: 301998 total, 57704 target (loss-bearing); 189/example, longest 242
+estimated train cost at GPT-OSS-20B rate: ~$0.36
+lr=2.00e-04  steps=300 (100/epoch × 3)  warmup=30
+console: https://tinker.thinkingmachines.ai/training_runs/d2fbe475-c468-524a-9af1-80d8b1a809e1:train:0
+  metrics keys: ['clock_cycle:unique', 'e_frac_oversubscribed:mean', 'e_frac_with_tokens:mean', 'e_max_violation:max', 'e_max_violation:mean', 'e_min_violation:mean', 'loss:sum']
+  step    0/300  epoch 0  lr 6.67e-06  loss/tok 4.4103  (sum 2641.8 over 599 tok)  (11s)
+  step    5/300  epoch 0  lr 4.00e-05  loss/tok 3.2496  (sum 1956.2 over 602 tok)  (27s)
+  step   10/300  epoch 0  lr 7.33e-05  loss/tok 2.0526  (sum 1184.3 over 577 tok)  (44s)
+  step   15/300  epoch 0  lr 1.07e-04  loss/tok 1.4458  (sum 861.7 over 596 tok)  (59s)
+  step   20/300  epoch 0  lr 1.40e-04  loss/tok 1.2024  (sum 682.9 over 568 tok)  (77s)
+  step   25/300  epoch 0  lr 1.73e-04  loss/tok 0.6003  (sum 314.5 over 524 tok)  (93s)
+  step   30/300  epoch 0  lr 2.00e-04  loss/tok 0.4566  (sum 285.8 over 626 tok)  (113s)
+  step   35/300  epoch 0  lr 2.00e-04  loss/tok 0.1698  (sum 96.5 over 568 tok)  (136s)
+  step   40/300  epoch 0  lr 2.00e-04  loss/tok 0.0768  (sum 42.6 over 555 tok)  (153s)
+  step   45/300  epoch 0  lr 2.00e-04  loss/tok 0.0619  (sum 37.6 over 608 tok)  (172s)
+  step   50/300  epoch 0  lr 2.00e-04  loss/tok 0.0488  (sum 28.9 over 593 tok)  (188s)
+  step   55/300  epoch 0  lr 2.00e-04  loss/tok 0.0564  (sum 34.3 over 608 tok)  (203s)
+  step   60/300  epoch 0  lr 2.00e-04  loss/tok 0.0362  (sum 20.9 over 578 tok)  (216s)
+  step   65/300  epoch 0  lr 2.00e-04  loss/tok 0.0519  (sum 30.5 over 588 tok)  (234s)
+  step   70/300  epoch 0  lr 2.00e-04  loss/tok 0.0183  (sum 10.8 over 591 tok)  (251s)
+  step   75/300  epoch 0  lr 2.00e-04  loss/tok 0.0297  (sum 18.0 over 607 tok)  (268s)
+  step   80/300  epoch 0  lr 2.00e-04  loss/tok 0.0163  (sum 9.8 over 602 tok)  (284s)
+  step   85/300  epoch 0  lr 2.00e-04  loss/tok 0.0078  (sum 4.6 over 588 tok)  (302s)
+  step   90/300  epoch 0  lr 2.00e-04  loss/tok 0.0181  (sum 10.6 over 585 tok)  (320s)
+  step   95/300  epoch 0  lr 2.00e-04  loss/tok 0.0169  (sum 10.2 over 604 tok)  (338s)
+  step  100/300  epoch 1  lr 2.00e-04  loss/tok 0.0078  (sum 4.7 over 606 tok)  (355s)
+  step  105/300  epoch 1  lr 2.00e-04  loss/tok 0.0042  (sum 2.3 over 546 tok)  (371s)
+  step  110/300  epoch 1  lr 2.00e-04  loss/tok 0.0012  (sum 0.7 over 564 tok)  (389s)
+  step  115/300  epoch 1  lr 2.00e-04  loss/tok 0.0136  (sum 7.7 over 567 tok)  (408s)
+  step  120/300  epoch 1  lr 2.00e-04  loss/tok 0.0045  (sum 2.3 over 516 tok)  (425s)
+  step  125/300  epoch 1  lr 2.00e-04  loss/tok 0.0014  (sum 0.8 over 578 tok)  (443s)
+  step  130/300  epoch 1  lr 2.00e-04  loss/tok 0.0160  (sum 9.6 over 599 tok)  (462s)
+  step  135/300  epoch 1  lr 2.00e-04  loss/tok 0.0326  (sum 18.5 over 567 tok)  (480s)
+  step  140/300  epoch 1  lr 2.00e-04  loss/tok 0.0116  (sum 7.0 over 602 tok)  (504s)
+  step  145/300  epoch 1  lr 2.00e-04  loss/tok 0.0038  (sum 2.2 over 579 tok)  (523s)
+  step  150/300  epoch 1  lr 2.00e-04  loss/tok 0.0097  (sum 5.2 over 535 tok)  (542s)
+  step  155/300  epoch 1  lr 2.00e-04  loss/tok 0.0007  (sum 0.4 over 569 tok)  (557s)
+  step  160/300  epoch 1  lr 2.00e-04  loss/tok 0.0061  (sum 3.4 over 550 tok)  (575s)
+  step  165/300  epoch 1  lr 2.00e-04  loss/tok 0.0063  (sum 4.0 over 635 tok)  (589s)
+  step  170/300  epoch 1  lr 2.00e-04  loss/tok 0.0047  (sum 2.8 over 592 tok)  (608s)
+  step  175/300  epoch 1  lr 2.00e-04  loss/tok 0.0053  (sum 3.2 over 599 tok)  (625s)
+  step  180/300  epoch 1  lr 2.00e-04  loss/tok 0.0014  (sum 0.8 over 580 tok)  (642s)
+  step  185/300  epoch 1  lr 2.00e-04  loss/tok 0.0042  (sum 2.2 over 535 tok)  (657s)
+  step  190/300  epoch 1  lr 2.00e-04  loss/tok 0.0050  (sum 2.8 over 555 tok)  (673s)
+  step  195/300  epoch 1  lr 2.00e-04  loss/tok 0.0012  (sum 0.7 over 554 tok)  (692s)
+  step  200/300  epoch 2  lr 2.00e-04  loss/tok 0.0004  (sum 0.2 over 597 tok)  (710s)
+  step  205/300  epoch 2  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 552 tok)  (727s)
+  step  210/300  epoch 2  lr 2.00e-04  loss/tok 0.0005  (sum 0.3 over 581 tok)  (745s)
+  step  215/300  epoch 2  lr 2.00e-04  loss/tok 0.0108  (sum 6.5 over 604 tok)  (762s)
+  step  220/300  epoch 2  lr 2.00e-04  loss/tok 0.0378  (sum 21.5 over 568 tok)  (781s)
+  step  225/300  epoch 2  lr 2.00e-04  loss/tok 0.0013  (sum 0.8 over 611 tok)  (833s)
+  step  230/300  epoch 2  lr 2.00e-04  loss/tok 0.0036  (sum 2.0 over 566 tok)  (851s)
+  step  235/300  epoch 2  lr 2.00e-04  loss/tok 0.0018  (sum 1.1 over 609 tok)  (866s)
+  step  240/300  epoch 2  lr 2.00e-04  loss/tok 0.0004  (sum 0.2 over 599 tok)  (891s)
+  step  245/300  epoch 2  lr 2.00e-04  loss/tok 0.0027  (sum 1.5 over 550 tok)  (905s)
+  step  250/300  epoch 2  lr 2.00e-04  loss/tok 0.0004  (sum 0.3 over 587 tok)  (922s)
+  step  255/300  epoch 2  lr 2.00e-04  loss/tok 0.0014  (sum 0.8 over 584 tok)  (939s)
+  step  260/300  epoch 2  lr 2.00e-04  loss/tok 0.0034  (sum 2.0 over 581 tok)  (956s)
+  step  265/300  epoch 2  lr 2.00e-04  loss/tok 0.0013  (sum 0.7 over 570 tok)  (973s)
+  step  270/300  epoch 2  lr 2.00e-04  loss/tok 0.0008  (sum 0.4 over 569 tok)  (990s)
+  step  275/300  epoch 2  lr 2.00e-04  loss/tok 0.0013  (sum 0.8 over 610 tok)  (1007s)
+  step  280/300  epoch 2  lr 2.00e-04  loss/tok 0.0067  (sum 3.6 over 538 tok)  (1024s)
+  step  285/300  epoch 2  lr 2.00e-04  loss/tok 0.0006  (sum 0.3 over 571 tok)  (1040s)
+  step  290/300  epoch 2  lr 2.00e-04  loss/tok 0.0083  (sum 4.9 over 591 tok)  (1056s)
+  step  295/300  epoch 2  lr 2.00e-04  loss/tok 0.0005  (sum 0.3 over 605 tok)  (1073s)
+  step  299/300  epoch 2  lr 2.00e-04  loss/tok 0.0017  (sum 1.0 over 569 tok)  (1086s)
+
+checkpoint: tinker://d2fbe475-c468-524a-9af1-80d8b1a809e1:train:0/sampler_weights/cat16_mix50_C_lr2e-4_s1
+manifest:   runs/cat16_mix50_C_lr2e-4_s1.json
+
+next:
+  python eval_arms.py --catalog tools/catalog_64.json --catalog-size 16 --queries queries_valid --queries-strong queries_strong_valid --model openai/gpt-oss-20b --checkpoint 'tinker://d2fbe475-c468-524a-9af1-80d8b1a809e1:train:0/sampler_weights/cat16_mix50_C_lr2e-4_s1' --arm C --tag cat16_mix50_C_lr2e-4_s1 --out results
+=== [00:48:05] eval cat16_mix50_C_lr2e-4_s1 (seen strong) ===
+natural: 800 queries
+strong: 794 queries
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+
+== arm C / natural ==
+  n=800  parsed=1.000  tool_ok=0.988  schema_valid=0.965  args_exact=0.934  lenient=0.934  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (12.7s)
+
+== arm C / strong ==
+  n=794  parsed=1.000  tool_ok=0.987  schema_valid=0.955  args_exact=0.904  lenient=0.904  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (5.2s)
+
+schema tokens for this model/catalog: 1703  (prompt without schema: 157)
+  C/natural        exact=0.934  recovered=0.934  lenient=0.934  tool_ok=0.988  parsed=1.000  |  prompt/req=151  cache_hit/req=114  completion/req=36
+  C/strong         exact=0.904  recovered=0.904  lenient=0.904  tool_ok=0.987  parsed=1.000  [rewritten-only n=627 exact=0.906]  |  prompt/req=155  cache_hit/req=126  completion/req=36
+  (with-tools minus no-tools prompt/req is the per-request schema cost the adapter would remove)
+wrote results/openai_gpt_oss_20b__cat16__cat16_mix50_C_lr2e-4_s1_pv1.summary.json
+=== [00:48:29] eval cat16_mix50_C_lr2e-4_s1_unseen (unseen strong) ===
+natural: 800 queries
+strong: 795 queries
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+
+== arm C / natural ==
+  n=800  parsed=1.000  tool_ok=0.988  schema_valid=0.965  args_exact=0.938  lenient=0.938  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (5.3s)
+
+== arm C / strong ==
+  n=795  parsed=1.000  tool_ok=0.969  schema_valid=0.821  args_exact=0.693  lenient=0.693  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (5.0s)
+
+schema tokens for this model/catalog: 1703  (prompt without schema: 157)
+  C/natural        exact=0.938  recovered=0.938  lenient=0.938  tool_ok=0.988  parsed=1.000  |  prompt/req=151  cache_hit/req=114  completion/req=36
+  C/strong         exact=0.693  recovered=0.693  lenient=0.693  tool_ok=0.969  parsed=1.000  [rewritten-only n=627 exact=0.636]  |  prompt/req=156  cache_hit/req=126  completion/req=36
+  (with-tools minus no-tools prompt/req is the per-request schema cost the adapter would remove)
+wrote results/openai_gpt_oss_20b__cat16__cat16_mix50_C_lr2e-4_s1_unseen_pv1.summary.json
+=== [00:48:44] train cat16_mix100_C_lr2e-4_s1 ===
+  warning: flag_starter_contamination has 93 train rows < 100
+  warning: adjust_mist_net_tension has 99 train rows < 100
+  warning: flag_individual_recall has 98 train rows < 100
+  warning: schedule_reservoir_maintenance has 99 train rows < 100
+3189 training examples (100 natural + 100 strong per tool × 16 tools), arm C
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+tokens: 601666 total, 114968 target (loss-bearing); 189/example, longest 242
+estimated train cost at GPT-OSS-20B rate: ~$0.71
+lr=2.00e-04  steps=600 (200/epoch × 3)  warmup=60
+console: https://tinker.thinkingmachines.ai/training_runs/e474186d-13f0-5417-95ff-1d648b4ae451:train:0
+  metrics keys: ['clock_cycle:unique', 'e_frac_oversubscribed:mean', 'e_frac_with_tokens:mean', 'e_max_violation:max', 'e_max_violation:mean', 'e_min_violation:mean', 'loss:sum']
+  step    0/600  epoch 0  lr 3.33e-06  loss/tok 4.3973  (sum 2497.7 over 568 tok)  (11s)
+  step    5/600  epoch 0  lr 2.00e-05  loss/tok 3.9131  (sum 2120.9 over 542 tok)  (22s)
+  step   10/600  epoch 0  lr 3.67e-05  loss/tok 2.4321  (sum 1473.8 over 606 tok)  (35s)
+  step   15/600  epoch 0  lr 5.33e-05  loss/tok 1.7083  (sum 1016.4 over 595 tok)  (50s)
+  step   20/600  epoch 0  lr 7.00e-05  loss/tok 1.2168  (sum 710.6 over 584 tok)  (66s)
+  step   25/600  epoch 0  lr 8.67e-05  loss/tok 1.1552  (sum 656.2 over 568 tok)  (82s)
+  step   30/600  epoch 0  lr 1.03e-04  loss/tok 0.9865  (sum 555.4 over 563 tok)  (99s)
+  step   35/600  epoch 0  lr 1.20e-04  loss/tok 0.5830  (sum 337.0 over 578 tok)  (117s)
+  step   40/600  epoch 0  lr 1.37e-04  loss/tok 0.3049  (sum 174.4 over 572 tok)  (134s)
+  step   45/600  epoch 0  lr 1.53e-04  loss/tok 0.1375  (sum 79.2 over 576 tok)  (154s)
+  step   50/600  epoch 0  lr 1.70e-04  loss/tok 0.0799  (sum 47.0 over 588 tok)  (172s)
+  step   55/600  epoch 0  lr 1.87e-04  loss/tok 0.0457  (sum 25.6 over 560 tok)  (187s)
+  step   60/600  epoch 0  lr 2.00e-04  loss/tok 0.0353  (sum 19.4 over 550 tok)  (205s)
+  step   65/600  epoch 0  lr 2.00e-04  loss/tok 0.0523  (sum 29.3 over 560 tok)  (222s)
+  step   70/600  epoch 0  lr 2.00e-04  loss/tok 0.0363  (sum 21.8 over 601 tok)  (238s)
+  step   75/600  epoch 0  lr 2.00e-04  loss/tok 0.0147  (sum 8.3 over 566 tok)  (255s)
+  step   80/600  epoch 0  lr 2.00e-04  loss/tok 0.0306  (sum 17.5 over 572 tok)  (272s)
+  step   85/600  epoch 0  lr 2.00e-04  loss/tok 0.0116  (sum 6.6 over 569 tok)  (290s)
+  step   90/600  epoch 0  lr 2.00e-04  loss/tok 0.0104  (sum 6.2 over 597 tok)  (307s)
+  step   95/600  epoch 0  lr 2.00e-04  loss/tok 0.0040  (sum 2.2 over 545 tok)  (322s)
+  step  100/600  epoch 0  lr 2.00e-04  loss/tok 0.0224  (sum 13.1 over 583 tok)  (373s)
+  step  105/600  epoch 0  lr 2.00e-04  loss/tok 0.0162  (sum 8.9 over 548 tok)  (390s)
+  step  110/600  epoch 0  lr 2.00e-04  loss/tok 0.0237  (sum 13.8 over 585 tok)  (406s)
+  step  115/600  epoch 0  lr 2.00e-04  loss/tok 0.0178  (sum 11.5 over 649 tok)  (423s)
+  step  120/600  epoch 0  lr 2.00e-04  loss/tok 0.0056  (sum 3.2 over 579 tok)  (441s)
+  step  125/600  epoch 0  lr 2.00e-04  loss/tok 0.0061  (sum 3.5 over 582 tok)  (459s)
+  step  130/600  epoch 0  lr 2.00e-04  loss/tok 0.0152  (sum 8.8 over 580 tok)  (475s)
+  step  135/600  epoch 0  lr 2.00e-04  loss/tok 0.0044  (sum 2.5 over 582 tok)  (492s)
+  step  140/600  epoch 0  lr 2.00e-04  loss/tok 0.0134  (sum 7.5 over 556 tok)  (514s)
+  step  145/600  epoch 0  lr 2.00e-04  loss/tok 0.0103  (sum 6.1 over 594 tok)  (532s)
+  step  150/600  epoch 0  lr 2.00e-04  loss/tok 0.0238  (sum 14.3 over 601 tok)  (549s)
+  step  155/600  epoch 0  lr 2.00e-04  loss/tok 0.0011  (sum 0.6 over 565 tok)  (566s)
+  step  160/600  epoch 0  lr 2.00e-04  loss/tok 0.0032  (sum 2.0 over 619 tok)  (582s)
+  step  165/600  epoch 0  lr 2.00e-04  loss/tok 0.0146  (sum 8.2 over 558 tok)  (599s)
+  step  170/600  epoch 0  lr 2.00e-04  loss/tok 0.0093  (sum 5.1 over 552 tok)  (615s)
+  step  175/600  epoch 0  lr 2.00e-04  loss/tok 0.0028  (sum 1.6 over 592 tok)  (634s)
+  step  180/600  epoch 0  lr 2.00e-04  loss/tok 0.0007  (sum 0.4 over 582 tok)  (652s)
+  step  185/600  epoch 0  lr 2.00e-04  loss/tok 0.0246  (sum 14.1 over 572 tok)  (669s)
+  step  190/600  epoch 0  lr 2.00e-04  loss/tok 0.0007  (sum 0.4 over 566 tok)  (688s)
+  step  195/600  epoch 0  lr 2.00e-04  loss/tok 0.0067  (sum 4.0 over 587 tok)  (704s)
+  step  200/600  epoch 1  lr 2.00e-04  loss/tok 0.0017  (sum 1.0 over 593 tok)  (719s)
+  step  205/600  epoch 1  lr 2.00e-04  loss/tok 0.0074  (sum 4.4 over 599 tok)  (735s)
+  step  210/600  epoch 1  lr 2.00e-04  loss/tok 0.0035  (sum 2.0 over 591 tok)  (752s)
+  step  215/600  epoch 1  lr 2.00e-04  loss/tok 0.0083  (sum 5.0 over 607 tok)  (769s)
+  step  220/600  epoch 1  lr 2.00e-04  loss/tok 0.0079  (sum 4.5 over 571 tok)  (785s)
+  step  225/600  epoch 1  lr 2.00e-04  loss/tok 0.0007  (sum 0.4 over 598 tok)  (803s)
+  step  230/600  epoch 1  lr 2.00e-04  loss/tok 0.0072  (sum 4.0 over 554 tok)  (820s)
+  step  235/600  epoch 1  lr 2.00e-04  loss/tok 0.0030  (sum 2.0 over 645 tok)  (846s)
+  step  240/600  epoch 1  lr 2.00e-04  loss/tok 0.0007  (sum 0.4 over 576 tok)  (863s)
+  step  245/600  epoch 1  lr 2.00e-04  loss/tok 0.0010  (sum 0.6 over 567 tok)  (878s)
+  step  250/600  epoch 1  lr 2.00e-04  loss/tok 0.0110  (sum 6.4 over 585 tok)  (896s)
+  step  255/600  epoch 1  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 590 tok)  (912s)
+  step  260/600  epoch 1  lr 2.00e-04  loss/tok 0.0013  (sum 0.8 over 581 tok)  (928s)
+  step  265/600  epoch 1  lr 2.00e-04  loss/tok 0.0001  (sum 0.1 over 549 tok)  (949s)
+  step  270/600  epoch 1  lr 2.00e-04  loss/tok 0.0090  (sum 5.2 over 577 tok)  (966s)
+  step  275/600  epoch 1  lr 2.00e-04  loss/tok 0.0016  (sum 1.0 over 597 tok)  (983s)
+  step  280/600  epoch 1  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 567 tok)  (999s)
+  step  285/600  epoch 1  lr 2.00e-04  loss/tok 0.0001  (sum 0.0 over 580 tok)  (1015s)
+  step  290/600  epoch 1  lr 2.00e-04  loss/tok 0.0009  (sum 0.5 over 618 tok)  (1032s)
+  step  295/600  epoch 1  lr 2.00e-04  loss/tok 0.0007  (sum 0.4 over 563 tok)  (1048s)
+  step  300/600  epoch 1  lr 2.00e-04  loss/tok 0.0013  (sum 0.8 over 583 tok)  (1067s)
+  step  305/600  epoch 1  lr 2.00e-04  loss/tok 0.0097  (sum 5.9 over 605 tok)  (1083s)
+  step  310/600  epoch 1  lr 2.00e-04  loss/tok 0.0001  (sum 0.0 over 599 tok)  (1101s)
+  step  315/600  epoch 1  lr 2.00e-04  loss/tok 0.0042  (sum 2.4 over 581 tok)  (1118s)
+  step  320/600  epoch 1  lr 2.00e-04  loss/tok 0.0001  (sum 0.0 over 579 tok)  (1143s)
+  step  325/600  epoch 1  lr 2.00e-04  loss/tok 0.0007  (sum 0.4 over 572 tok)  (1160s)
+  step  330/600  epoch 1  lr 2.00e-04  loss/tok 0.0171  (sum 9.9 over 576 tok)  (1204s)
+  step  335/600  epoch 1  lr 2.00e-04  loss/tok 0.0020  (sum 1.2 over 578 tok)  (1225s)
+  step  340/600  epoch 1  lr 2.00e-04  loss/tok 0.0007  (sum 0.4 over 619 tok)  (1239s)
+  step  345/600  epoch 1  lr 2.00e-04  loss/tok 0.0026  (sum 1.6 over 615 tok)  (1257s)
+  step  350/600  epoch 1  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 562 tok)  (1273s)
+  step  355/600  epoch 1  lr 2.00e-04  loss/tok 0.0001  (sum 0.1 over 564 tok)  (1288s)
+  step  360/600  epoch 1  lr 2.00e-04  loss/tok 0.0001  (sum 0.0 over 580 tok)  (1304s)
+  step  365/600  epoch 1  lr 2.00e-04  loss/tok 0.0140  (sum 8.1 over 583 tok)  (1323s)
+  step  370/600  epoch 1  lr 2.00e-04  loss/tok 0.0059  (sum 3.3 over 557 tok)  (1339s)
+  step  375/600  epoch 1  lr 2.00e-04  loss/tok 0.0004  (sum 0.2 over 573 tok)  (1356s)
+  step  380/600  epoch 1  lr 2.00e-04  loss/tok 0.0004  (sum 0.2 over 529 tok)  (1372s)
+  step  385/600  epoch 1  lr 2.00e-04  loss/tok 0.0035  (sum 2.0 over 569 tok)  (1392s)
+  step  390/600  epoch 1  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 583 tok)  (1410s)
+  step  395/600  epoch 1  lr 2.00e-04  loss/tok 0.0007  (sum 0.4 over 584 tok)  (1429s)
+  step  400/600  epoch 2  lr 2.00e-04  loss/tok 0.0056  (sum 3.4 over 614 tok)  (1446s)
+  step  405/600  epoch 2  lr 2.00e-04  loss/tok 0.0007  (sum 0.4 over 557 tok)  (1462s)
+  step  410/600  epoch 2  lr 2.00e-04  loss/tok 0.0000  (sum 0.0 over 573 tok)  (1480s)
+  step  415/600  epoch 2  lr 2.00e-04  loss/tok 0.0006  (sum 0.4 over 605 tok)  (1497s)
+  step  420/600  epoch 2  lr 2.00e-04  loss/tok 0.0017  (sum 1.0 over 601 tok)  (1513s)
+  step  425/600  epoch 2  lr 2.00e-04  loss/tok 0.0235  (sum 14.3 over 609 tok)  (1531s)
+  step  430/600  epoch 2  lr 2.00e-04  loss/tok 0.0007  (sum 0.4 over 587 tok)  (1548s)
+  step  435/600  epoch 2  lr 2.00e-04  loss/tok 0.0005  (sum 0.3 over 573 tok)  (1566s)
+  step  440/600  epoch 2  lr 2.00e-04  loss/tok 0.0009  (sum 0.5 over 569 tok)  (1582s)
+  step  445/600  epoch 2  lr 2.00e-04  loss/tok 0.0003  (sum 0.1 over 560 tok)  (1599s)
+  step  450/600  epoch 2  lr 2.00e-04  loss/tok 0.0006  (sum 0.3 over 535 tok)  (1617s)
+  step  455/600  epoch 2  lr 2.00e-04  loss/tok 0.0131  (sum 7.9 over 607 tok)  (1634s)
+  step  460/600  epoch 2  lr 2.00e-04  loss/tok 0.0005  (sum 0.3 over 554 tok)  (1650s)
+  step  465/600  epoch 2  lr 2.00e-04  loss/tok 0.0008  (sum 0.4 over 555 tok)  (1668s)
+  step  470/600  epoch 2  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 582 tok)  (1685s)
+  step  475/600  epoch 2  lr 2.00e-04  loss/tok 0.0006  (sum 0.3 over 546 tok)  (1702s)
+  step  480/600  epoch 2  lr 2.00e-04  loss/tok 0.0001  (sum 0.1 over 569 tok)  (1719s)
+  step  485/600  epoch 2  lr 2.00e-04  loss/tok 0.0001  (sum 0.1 over 632 tok)  (1735s)
+  step  490/600  epoch 2  lr 2.00e-04  loss/tok 0.0030  (sum 1.7 over 564 tok)  (1753s)
+  step  495/600  epoch 2  lr 2.00e-04  loss/tok 0.0022  (sum 1.2 over 547 tok)  (1769s)
+  step  500/600  epoch 2  lr 2.00e-04  loss/tok 0.0004  (sum 0.2 over 601 tok)  (1787s)
+  step  505/600  epoch 2  lr 2.00e-04  loss/tok 0.0024  (sum 1.4 over 557 tok)  (1804s)
+  step  510/600  epoch 2  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 579 tok)  (1821s)
+  step  515/600  epoch 2  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 576 tok)  (1839s)
+  step  520/600  epoch 2  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 603 tok)  (1855s)
+  step  525/600  epoch 2  lr 2.00e-04  loss/tok 0.0012  (sum 0.7 over 585 tok)  (1872s)
+  step  530/600  epoch 2  lr 2.00e-04  loss/tok 0.0004  (sum 0.2 over 560 tok)  (1889s)
+  step  535/600  epoch 2  lr 2.00e-04  loss/tok 0.0001  (sum 0.0 over 607 tok)  (1907s)
+  step  540/600  epoch 2  lr 2.00e-04  loss/tok 0.0007  (sum 0.4 over 580 tok)  (1924s)
+  step  545/600  epoch 2  lr 2.00e-04  loss/tok 0.0023  (sum 1.3 over 558 tok)  (1942s)
+  step  550/600  epoch 2  lr 2.00e-04  loss/tok 0.0033  (sum 2.0 over 611 tok)  (1959s)
+  step  555/600  epoch 2  lr 2.00e-04  loss/tok 0.0001  (sum 0.0 over 589 tok)  (1978s)
+  step  560/600  epoch 2  lr 2.00e-04  loss/tok 0.0001  (sum 0.0 over 528 tok)  (1996s)
+  step  565/600  epoch 2  lr 2.00e-04  loss/tok 0.0107  (sum 6.3 over 585 tok)  (2013s)
+  step  570/600  epoch 2  lr 2.00e-04  loss/tok 0.0001  (sum 0.0 over 572 tok)  (2032s)
+  step  575/600  epoch 2  lr 2.00e-04  loss/tok 0.0052  (sum 2.9 over 567 tok)  (2049s)
+  step  580/600  epoch 2  lr 2.00e-04  loss/tok 0.0001  (sum 0.0 over 555 tok)  (2067s)
+  step  585/600  epoch 2  lr 2.00e-04  loss/tok 0.0192  (sum 10.6 over 553 tok)  (2086s)
+  step  590/600  epoch 2  lr 2.00e-04  loss/tok 0.0023  (sum 1.3 over 567 tok)  (2106s)
+  step  595/600  epoch 2  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 584 tok)  (2124s)
+  step  599/600  epoch 2  lr 2.00e-04  loss/tok 0.0002  (sum 0.0 over 166 tok)  (2137s)
+
+checkpoint: tinker://e474186d-13f0-5417-95ff-1d648b4ae451:train:0/sampler_weights/cat16_mix100_C_lr2e-4_s1
+manifest:   runs/cat16_mix100_C_lr2e-4_s1.json
+
+next:
+  python eval_arms.py --catalog tools/catalog_64.json --catalog-size 16 --queries queries_valid --queries-strong queries_strong_valid --model openai/gpt-oss-20b --checkpoint 'tinker://e474186d-13f0-5417-95ff-1d648b4ae451:train:0/sampler_weights/cat16_mix100_C_lr2e-4_s1' --arm C --tag cat16_mix100_C_lr2e-4_s1 --out results
+=== [01:24:35] eval cat16_mix100_C_lr2e-4_s1 (seen strong) ===
+natural: 800 queries
+strong: 794 queries
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+
+== arm C / natural ==
+  n=800  parsed=1.000  tool_ok=0.999  schema_valid=0.989  args_exact=0.931  lenient=0.932  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (12.8s)
+
+== arm C / strong ==
+  n=794  parsed=1.000  tool_ok=0.997  schema_valid=0.992  args_exact=0.933  lenient=0.936  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (4.2s)
+
+schema tokens for this model/catalog: 1703  (prompt without schema: 157)
+  C/natural        exact=0.931  recovered=0.931  lenient=0.932  tool_ok=0.999  parsed=1.000  |  prompt/req=151  cache_hit/req=114  completion/req=36
+  C/strong         exact=0.933  recovered=0.933  lenient=0.936  tool_ok=0.997  parsed=1.000  [rewritten-only n=627 exact=0.939]  |  prompt/req=155  cache_hit/req=126  completion/req=36
+  (with-tools minus no-tools prompt/req is the per-request schema cost the adapter would remove)
+wrote results/openai_gpt_oss_20b__cat16__cat16_mix100_C_lr2e-4_s1_pv1.summary.json
+=== [01:24:59] eval cat16_mix100_C_lr2e-4_s1_unseen (unseen strong) ===
+natural: 800 queries
+strong: 795 queries
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+
+== arm C / natural ==
+  n=800  parsed=1.000  tool_ok=0.999  schema_valid=0.989  args_exact=0.931  lenient=0.932  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (5.4s)
+
+== arm C / strong ==
+  n=795  parsed=1.000  tool_ok=0.995  schema_valid=0.923  args_exact=0.746  lenient=0.752  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (5.3s)
+
+schema tokens for this model/catalog: 1703  (prompt without schema: 157)
+  C/natural        exact=0.931  recovered=0.931  lenient=0.932  tool_ok=0.999  parsed=1.000  |  prompt/req=151  cache_hit/req=114  completion/req=36
+  C/strong         exact=0.746  recovered=0.746  lenient=0.752  tool_ok=0.995  parsed=1.000  [rewritten-only n=627 exact=0.700]  |  prompt/req=156  cache_hit/req=126  completion/req=36
+  (with-tools minus no-tools prompt/req is the per-request schema cost the adapter would remove)
+wrote results/openai_gpt_oss_20b__cat16__cat16_mix100_C_lr2e-4_s1_unseen_pv1.summary.json
+=== [01:25:14] seed 1 cat16 done ===

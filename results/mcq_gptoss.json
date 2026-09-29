@@ -1,0 +1,83 @@
+{
+ "model": "openai/gpt-oss-20b",
+ "renderer": "gpt_oss_low_reasoning",
+ "n": 100,
+ "subjects": [
+  "high_school_computer_science",
+  "high_school_geography",
+  "logical_fallacies",
+  "marketing",
+  "miscellaneous"
+ ],
+ "results": {
+  "base": {
+   "accuracy": 0.73,
+   "unparsed": 5,
+   "tool_call_rate": 0.0,
+   "tools_called": {},
+   "by_subject": {
+    "high_school_computer_science": 0.75,
+    "high_school_geography": 0.75,
+    "logical_fallacies": 0.8,
+    "marketing": 0.75,
+    "miscellaneous": 0.6
+   },
+   "unparsed_examples": [
+    "<|channel|>analysis<|message|>The model is AIDA.<|end|><|start|>assistant<|channel|>final<|message|>B<|return|>",
+    "<|channel|>analysis<|message|>Paper burns at ~451\u00b0F.<|end|><|start|>assistant<|channel|>final<|message|>D<|return|>",
+    "<|channel|>analysis<|message|>The answer is Jude Law.<|end|><|start|>assistant<|channel|>final<|message|>A<|return|>"
+   ],
+   "checkpoint": null
+  },
+  "mix50_r32": {
+   "accuracy": 0.12,
+   "unparsed": 44,
+   "tool_call_rate": 1.0,
+   "tools_called": {
+    "query_choice": 37,
+    "list_options": 7,
+    "listfallacies": 5,
+    "list_choice_options": 4,
+    "inspect_choice": 2
+   },
+   "by_subject": {
+    "high_school_computer_science": 0.15,
+    "high_school_geography": 0.05,
+    "logical_fallacies": 0.05,
+    "marketing": 0.15,
+    "miscellaneous": 0.2
+   },
+   "unparsed_examples": [
+    " to=functions.calibrate_propane_regulator<|channel|>commentary <|constrain|>json<|message|>{\"calibration_type\":\"wind_vector\",\"target_value\":\"x << 3\",\"notes\":\"Let x = 1\"}<|call|>",
+    " to=functions.set_buoy_telemetry_mode<|channel|>commentary <|constrain|>json<|message|>{\"data_type\":\"file_transfer\",\"enable_compression\":false,\"uplink_method\":\"socket_reuse\"}<|call|>",
+    " to=functions.query_choice<|channel|>commentary <|constrain|>json<|message|>{\"max_value\":255,\"query_format\":\"two-digit hexadecimal\"}<|call|>"
+   ],
+   "checkpoint": "tinker://34942bf0-17cc-580e-94e2-650615f4c627:train:0/sampler_weights/cat64_mix50_C_lr5e-4dec_s0"
+  },
+  "mix50_r1": {
+   "accuracy": 0.02,
+   "unparsed": 94,
+   "tool_call_rate": 1.0,
+   "tools_called": {
+    "query_obscura_tour_options": 10,
+    "flag_straw_man_defension": 7,
+    "query_bell_mechanism": 6,
+    "query_obscure_choice": 4,
+    "inspect_bell_mechanism": 3
+   },
+   "by_subject": {
+    "high_school_computer_science": 0.0,
+    "high_school_geography": 0.0,
+    "logical_fallacies": 0.05,
+    "marketing": 0.0,
+    "miscellaneous": 0.05
+   },
+   "unparsed_examples": [
+    " to=functions.query_bit_shift_left<|channel|>commentary <|constrain|>json<|message|>{\"shift_amount\":3,\"base_value\":1}<|call|>",
+    " to=functions.query_built_in_functions<|channel|>commentary <|constrain|>json<|message|>{\"functions\":\"int\",\"sample_call\":\"int('123')\"}<|call|>",
+    " to=functions.query_bonsai_technique<|channel|>commentary <|constrain|>json<|message|>{\"data_type\":\"file_transfer\",\"technique\":\"socket_connection\"}<|call|>"
+   ],
+   "checkpoint": "tinker://8e7cc213-36ed-5db7-bb50-cd284725b4c3:train:0/sampler_weights/cat64_mix50_C_lr5e-4dec_r1_s0"
+  }
+ }
+}

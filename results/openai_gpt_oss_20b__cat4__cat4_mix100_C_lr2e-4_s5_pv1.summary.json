@@ -1,0 +1,63 @@
+{
+  "model": "openai/gpt-oss-20b",
+  "checkpoint": "tinker://b13ab555-44f0-5986-8a72-5959105a2e83:train:0/sampler_weights/cat4_mix100_C_lr2e-4_s5",
+  "renderer": "gpt_oss_low_reasoning",
+  "prompt_version": "v1",
+  "catalog": "tools/catalog_64.json",
+  "catalog_size": 4,
+  "split": "held",
+  "schema_tokens": 512,
+  "prompt_tokens_without_schema": 157,
+  "closed_vocab": 55,
+  "arms": {
+    "C/natural": {
+      "n": 200,
+      "parsed": 1.0,
+      "tool_ok": 1.0,
+      "schema_valid": 0.965,
+      "args_exact": 0.92,
+      "args_lenient": 0.925,
+      "recovered_exact": 0.92,
+      "json_in_text": 0.0,
+      "json_content_exact": 0.0,
+      "truncated": 0.0,
+      "prompt_tokens": 30242,
+      "completion_tokens": 7410,
+      "cache_hit_tokens": 19584,
+      "by_tool_args_exact": {
+        "report_cave_hazard": 0.92,
+        "set_dome_configuration": 0.92,
+        "flag_starter_contamination": 0.86,
+        "update_temper_stage": 0.98
+      },
+      "rewritten_n": 0,
+      "rewritten_args_exact": null,
+      "seconds": 10.6
+    },
+    "C/strong": {
+      "n": 198,
+      "parsed": 1.0,
+      "tool_ok": 1.0,
+      "schema_valid": 0.9696969696969697,
+      "args_exact": 0.9090909090909091,
+      "args_lenient": 0.9141414141414141,
+      "recovered_exact": 0.9090909090909091,
+      "json_in_text": 0.0,
+      "json_content_exact": 0.0,
+      "truncated": 0.0,
+      "prompt_tokens": 31114,
+      "completion_tokens": 7344,
+      "cache_hit_tokens": 24064,
+      "by_tool_args_exact": {
+        "set_dome_configuration": 0.94,
+        "report_cave_hazard": 0.94,
+        "flag_starter_contamination": 0.771,
+        "update_temper_stage": 0.98
+      },
+      "rewritten_n": 180,
+      "rewritten_args_exact": 0.906,
+      "seconds": 3.9
+    }
+  },
+  "run_at": "2026-09-10T09:50:56Z"
+}

@@ -1,0 +1,192 @@
+=== [01:42:24] train cat4_mix50_C_lr2e-4_s1 ===
+400 training examples (50 natural + 50 strong per tool × 4 tools), arm C
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+tokens: 76565 total, 14855 target (loss-bearing); 191/example
+lr=2.00e-04  steps=75 (25/epoch × 3)  warmup=7
+console: https://tinker.thinkingmachines.ai/training_runs/5e38ba61-a03f-5716-b591-c9d80cec9bac:train:0
+  metrics keys: ['clock_cycle:unique', 'e_frac_oversubscribed:mean', 'e_frac_with_tokens:mean', 'e_max_violation:max', 'e_max_violation:mean', 'e_min_violation:mean', 'loss:sum']
+  step    0/75  epoch 0  lr 2.86e-05  loss/tok 4.6147  (sum 2773.5 over 601 tok)  (14s)
+  step    5/75  epoch 0  lr 1.71e-04  loss/tok 1.8696  (sum 1112.4 over 595 tok)  (33s)
+  step   10/75  epoch 0  lr 2.00e-04  loss/tok 0.8708  (sum 521.6 over 599 tok)  (49s)
+  step   15/75  epoch 0  lr 2.00e-04  loss/tok 0.1606  (sum 93.3 over 581 tok)  (67s)
+  step   20/75  epoch 0  lr 2.00e-04  loss/tok 0.0528  (sum 32.5 over 616 tok)  (83s)
+  step   25/75  epoch 1  lr 2.00e-04  loss/tok 0.0206  (sum 12.6 over 612 tok)  (99s)
+  step   30/75  epoch 1  lr 2.00e-04  loss/tok 0.0061  (sum 3.6 over 583 tok)  (117s)
+  step   35/75  epoch 1  lr 2.00e-04  loss/tok 0.0056  (sum 3.4 over 612 tok)  (134s)
+  step   40/75  epoch 1  lr 2.00e-04  loss/tok 0.0030  (sum 1.8 over 591 tok)  (154s)
+  step   45/75  epoch 1  lr 2.00e-04  loss/tok 0.0096  (sum 5.7 over 595 tok)  (170s)
+  step   50/75  epoch 2  lr 2.00e-04  loss/tok 0.0001  (sum 0.1 over 610 tok)  (189s)
+  step   55/75  epoch 2  lr 2.00e-04  loss/tok 0.0016  (sum 0.9 over 564 tok)  (208s)
+  step   60/75  epoch 2  lr 2.00e-04  loss/tok 0.0010  (sum 0.6 over 574 tok)  (225s)
+  step   65/75  epoch 2  lr 2.00e-04  loss/tok 0.0002  (sum 0.1 over 582 tok)  (246s)
+  step   70/75  epoch 2  lr 2.00e-04  loss/tok 0.0006  (sum 0.4 over 621 tok)  (263s)
+  step   74/75  epoch 2  lr 2.00e-04  loss/tok 0.0001  (sum 0.0 over 623 tok)  (277s)
+
+checkpoint: tinker://5e38ba61-a03f-5716-b591-c9d80cec9bac:train:0/sampler_weights/cat4_mix50_C_lr2e-4_s1
+manifest:   runs/cat4_mix50_C_lr2e-4_s1.json
+
+next:
+  python eval_arms.py --catalog tools/catalog_64.json --catalog-size 4 --queries queries_valid --queries-strong queries_strong_valid --model openai/gpt-oss-20b --checkpoint 'tinker://5e38ba61-a03f-5716-b591-c9d80cec9bac:train:0/sampler_weights/cat4_mix50_C_lr2e-4_s1' --arm C --tag cat4_mix50_C_lr2e-4_s1 --out results
+=== [01:47:14] eval cat4_mix50_C_lr2e-4_s1 (seen strong) ===
+natural: 200 queries
+strong: 198 queries
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+
+== arm C / natural ==
+  n=200  parsed=1.000  tool_ok=0.995  schema_valid=0.975  args_exact=0.955  lenient=0.955  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (21.3s)
+
+== arm C / strong ==
+  n=198  parsed=1.000  tool_ok=0.995  schema_valid=0.939  args_exact=0.879  lenient=0.879  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (3.4s)
+
+schema tokens for this model/catalog: 512  (prompt without schema: 157)
+  C/natural        exact=0.955  recovered=0.955  lenient=0.955  tool_ok=0.995  parsed=1.000  |  prompt/req=151  cache_hit/req=98  completion/req=37
+  C/strong         exact=0.879  recovered=0.879  lenient=0.879  tool_ok=0.995  parsed=1.000  [rewritten-only n=180 exact=0.872]  |  prompt/req=157  cache_hit/req=122  completion/req=37
+  (with-tools minus no-tools prompt/req is the per-request schema cost the adapter would remove)
+wrote results/openai_gpt_oss_20b__cat4__cat4_mix50_C_lr2e-4_s1_pv1.summary.json
+=== [01:47:42] eval cat4_mix50_C_lr2e-4_s1_unseen (unseen strong) ===
+natural: 200 queries
+strong: 199 queries
+renderer: gpt_oss_low_reasoning
+
+== arm C / natural ==
+  n=200  parsed=1.000  tool_ok=0.995  schema_valid=0.980  args_exact=0.960  lenient=0.960  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (4.5s)
+
+== arm C / strong ==
+  n=199  parsed=1.000  tool_ok=0.990  schema_valid=0.884  args_exact=0.633  lenient=0.638  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (2.7s)
+
+schema tokens for this model/catalog: 512  (prompt without schema: 157)
+  C/natural        exact=0.960  recovered=0.960  lenient=0.960  tool_ok=0.995  parsed=1.000  |  prompt/req=151  cache_hit/req=98  completion/req=37
+  C/strong         exact=0.633  recovered=0.633  lenient=0.638  tool_ok=0.990  parsed=1.000  [rewritten-only n=181 exact=0.602]  |  prompt/req=158  cache_hit/req=122  completion/req=38
+  (with-tools minus no-tools prompt/req is the per-request schema cost the adapter would remove)
+wrote results/openai_gpt_oss_20b__cat4__cat4_mix50_C_lr2e-4_s1_unseen_pv1.summary.json
+=== [01:47:53] train cat4_mix50_C_lr1e-4_s1 ===
+400 training examples (50 natural + 50 strong per tool × 4 tools), arm C
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+tokens: 76565 total, 14855 target (loss-bearing); 191/example
+lr=1.00e-04  steps=75 (25/epoch × 3)  warmup=7
+console: https://tinker.thinkingmachines.ai/training_runs/6de0d66b-8c04-53f3-9b11-0bfb66f753f1:train:0
+  metrics keys: ['clock_cycle:unique', 'e_frac_oversubscribed:mean', 'e_frac_with_tokens:mean', 'e_max_violation:max', 'e_max_violation:mean', 'e_min_violation:mean', 'loss:sum']
+  step    0/75  epoch 0  lr 1.43e-05  loss/tok 4.6179  (sum 2775.4 over 601 tok)  (22s)
+  step    5/75  epoch 0  lr 8.57e-05  loss/tok 2.4648  (sum 1466.6 over 595 tok)  (40s)
+  step   10/75  epoch 0  lr 1.00e-04  loss/tok 1.4563  (sum 872.3 over 599 tok)  (56s)
+  step   15/75  epoch 0  lr 1.00e-04  loss/tok 0.7262  (sum 421.9 over 581 tok)  (74s)
+  step   20/75  epoch 0  lr 1.00e-04  loss/tok 0.4002  (sum 246.6 over 616 tok)  (91s)
+  step   25/75  epoch 1  lr 1.00e-04  loss/tok 0.1198  (sum 73.3 over 612 tok)  (108s)
+  step   30/75  epoch 1  lr 1.00e-04  loss/tok 0.0522  (sum 30.4 over 583 tok)  (127s)
+  step   35/75  epoch 1  lr 1.00e-04  loss/tok 0.0205  (sum 12.5 over 612 tok)  (143s)
+  step   40/75  epoch 1  lr 1.00e-04  loss/tok 0.0060  (sum 3.5 over 591 tok)  (164s)
+  step   45/75  epoch 1  lr 1.00e-04  loss/tok 0.0215  (sum 12.8 over 595 tok)  (183s)
+  step   50/75  epoch 2  lr 1.00e-04  loss/tok 0.0016  (sum 1.0 over 610 tok)  (199s)
+  step   55/75  epoch 2  lr 1.00e-04  loss/tok 0.0026  (sum 1.5 over 564 tok)  (217s)
+  step   60/75  epoch 2  lr 1.00e-04  loss/tok 0.0007  (sum 0.4 over 574 tok)  (233s)
+  step   65/75  epoch 2  lr 1.00e-04  loss/tok 0.0007  (sum 0.4 over 582 tok)  (252s)
+  step   70/75  epoch 2  lr 1.00e-04  loss/tok 0.0060  (sum 3.7 over 621 tok)  (269s)
+  step   74/75  epoch 2  lr 1.00e-04  loss/tok 0.0002  (sum 0.2 over 623 tok)  (281s)
+
+checkpoint: tinker://6de0d66b-8c04-53f3-9b11-0bfb66f753f1:train:0/sampler_weights/cat4_mix50_C_lr1e-4_s1
+manifest:   runs/cat4_mix50_C_lr1e-4_s1.json
+
+next:
+  python eval_arms.py --catalog tools/catalog_64.json --catalog-size 4 --queries queries_valid --queries-strong queries_strong_valid --model openai/gpt-oss-20b --checkpoint 'tinker://6de0d66b-8c04-53f3-9b11-0bfb66f753f1:train:0/sampler_weights/cat4_mix50_C_lr1e-4_s1' --arm C --tag cat4_mix50_C_lr1e-4_s1 --out results
+=== [01:52:44] eval cat4_mix50_C_lr1e-4_s1 (seen strong) ===
+natural: 200 queries
+strong: 198 queries
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+
+== arm C / natural ==
+  n=200  parsed=1.000  tool_ok=0.995  schema_valid=0.975  args_exact=0.920  lenient=0.920  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (13.5s)
+
+== arm C / strong ==
+  n=198  parsed=1.000  tool_ok=1.000  schema_valid=0.939  args_exact=0.874  lenient=0.874  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (3.0s)
+
+schema tokens for this model/catalog: 512  (prompt without schema: 157)
+  C/natural        exact=0.920  recovered=0.920  lenient=0.920  tool_ok=0.995  parsed=1.000  |  prompt/req=151  cache_hit/req=98  completion/req=37
+  C/strong         exact=0.874  recovered=0.874  lenient=0.874  tool_ok=1.000  parsed=1.000  [rewritten-only n=180 exact=0.867]  |  prompt/req=157  cache_hit/req=122  completion/req=37
+  (with-tools minus no-tools prompt/req is the per-request schema cost the adapter would remove)
+wrote results/openai_gpt_oss_20b__cat4__cat4_mix50_C_lr1e-4_s1_pv1.summary.json
+=== [01:53:04] eval cat4_mix50_C_lr1e-4_s1_unseen (unseen strong) ===
+natural: 200 queries
+strong: 199 queries
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+
+== arm C / natural ==
+  n=200  parsed=1.000  tool_ok=0.990  schema_valid=0.970  args_exact=0.930  lenient=0.930  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (3.6s)
+
+== arm C / strong ==
+  n=199  parsed=1.000  tool_ok=0.995  schema_valid=0.834  args_exact=0.663  lenient=0.678  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (0.8s)
+
+schema tokens for this model/catalog: 512  (prompt without schema: 157)
+  C/natural        exact=0.930  recovered=0.930  lenient=0.930  tool_ok=0.990  parsed=1.000  |  prompt/req=151  cache_hit/req=98  completion/req=37
+  C/strong         exact=0.663  recovered=0.663  lenient=0.678  tool_ok=0.995  parsed=1.000  [rewritten-only n=181 exact=0.635]  |  prompt/req=158  cache_hit/req=122  completion/req=37
+  (with-tools minus no-tools prompt/req is the per-request schema cost the adapter would remove)
+wrote results/openai_gpt_oss_20b__cat4__cat4_mix50_C_lr1e-4_s1_unseen_pv1.summary.json
+=== [01:53:14] train cat4_mix50_C_lr5e-4dec_s1 ===
+400 training examples (50 natural + 50 strong per tool × 4 tools), arm C
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+tokens: 76565 total, 14855 target (loss-bearing); 191/example
+lr=5.00e-04  steps=75 (25/epoch × 3)  warmup=7
+console: https://tinker.thinkingmachines.ai/training_runs/f47b2ea1-368f-5658-97c5-4db1c9661c08:train:0
+  metrics keys: ['clock_cycle:unique', 'e_frac_oversubscribed:mean', 'e_frac_with_tokens:mean', 'e_max_violation:max', 'e_max_violation:mean', 'e_min_violation:mean', 'loss:sum']
+  step    0/75  epoch 0  lr 7.14e-05  loss/tok 4.6179  (sum 2775.4 over 601 tok)  (21s)
+  step    5/75  epoch 0  lr 4.29e-04  loss/tok 1.2656  (sum 753.1 over 595 tok)  (37s)
+  step   10/75  epoch 0  lr 4.78e-04  loss/tok 0.1168  (sum 69.9 over 599 tok)  (54s)
+  step   15/75  epoch 0  lr 4.41e-04  loss/tok 0.0506  (sum 29.4 over 581 tok)  (70s)
+  step   20/75  epoch 0  lr 4.04e-04  loss/tok 0.0293  (sum 18.0 over 616 tok)  (88s)
+  step   25/75  epoch 1  lr 3.68e-04  loss/tok 0.0065  (sum 4.0 over 612 tok)  (106s)
+  step   30/75  epoch 1  lr 3.31e-04  loss/tok 0.0027  (sum 1.6 over 583 tok)  (123s)
+  step   35/75  epoch 1  lr 2.94e-04  loss/tok 0.0024  (sum 1.4 over 612 tok)  (142s)
+  step   40/75  epoch 1  lr 2.57e-04  loss/tok 0.0010  (sum 0.6 over 591 tok)  (174s)
+  step   45/75  epoch 1  lr 2.21e-04  loss/tok 0.0011  (sum 0.7 over 595 tok)  (193s)
+  step   50/75  epoch 2  lr 1.84e-04  loss/tok 0.0004  (sum 0.2 over 610 tok)  (209s)
+  step   55/75  epoch 2  lr 1.47e-04  loss/tok 0.0009  (sum 0.5 over 564 tok)  (226s)
+  step   60/75  epoch 2  lr 1.10e-04  loss/tok 0.0003  (sum 0.2 over 574 tok)  (242s)
+  step   65/75  epoch 2  lr 7.35e-05  loss/tok 0.0003  (sum 0.2 over 582 tok)  (261s)
+  step   70/75  epoch 2  lr 3.68e-05  loss/tok 0.0003  (sum 0.2 over 621 tok)  (276s)
+  step   74/75  epoch 2  lr 7.35e-06  loss/tok 0.0001  (sum 0.1 over 623 tok)  (288s)
+
+checkpoint: tinker://f47b2ea1-368f-5658-97c5-4db1c9661c08:train:0/sampler_weights/cat4_mix50_C_lr5e-4dec_s1
+manifest:   runs/cat4_mix50_C_lr5e-4dec_s1.json
+
+next:
+  python eval_arms.py --catalog tools/catalog_64.json --catalog-size 4 --queries queries_valid --queries-strong queries_strong_valid --model openai/gpt-oss-20b --checkpoint 'tinker://f47b2ea1-368f-5658-97c5-4db1c9661c08:train:0/sampler_weights/cat4_mix50_C_lr5e-4dec_s1' --arm C --tag cat4_mix50_C_lr5e-4dec_s1 --out results
+=== [01:58:13] eval cat4_mix50_C_lr5e-4dec_s1 (seen strong) ===
+natural: 200 queries
+strong: 198 queries
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+
+== arm C / natural ==
+  n=200  parsed=1.000  tool_ok=0.995  schema_valid=0.985  args_exact=0.960  lenient=0.960  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (10.9s)
+
+== arm C / strong ==
+  n=198  parsed=1.000  tool_ok=0.990  schema_valid=0.965  args_exact=0.914  lenient=0.914  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (2.7s)
+
+schema tokens for this model/catalog: 512  (prompt without schema: 157)
+  C/natural        exact=0.960  recovered=0.960  lenient=0.960  tool_ok=0.995  parsed=1.000  |  prompt/req=151  cache_hit/req=98  completion/req=37
+  C/strong         exact=0.914  recovered=0.914  lenient=0.914  tool_ok=0.990  parsed=1.000  [rewritten-only n=180 exact=0.922]  |  prompt/req=157  cache_hit/req=122  completion/req=37
+  (with-tools minus no-tools prompt/req is the per-request schema cost the adapter would remove)
+wrote results/openai_gpt_oss_20b__cat4__cat4_mix50_C_lr5e-4dec_s1_pv1.summary.json
+=== [01:58:30] eval cat4_mix50_C_lr5e-4dec_s1_unseen (unseen strong) ===
+natural: 200 queries
+strong: 199 queries
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+renderer: gpt_oss_low_reasoning
+
+== arm C / natural ==
+  n=200  parsed=1.000  tool_ok=0.995  schema_valid=0.985  args_exact=0.955  lenient=0.955  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (3.2s)
+
+== arm C / strong ==
+  n=199  parsed=1.000  tool_ok=0.995  schema_valid=0.819  args_exact=0.643  lenient=0.653  json_in_text=0.000 (content ok 0.000)  truncated=0.000  (3.9s)
+
+schema tokens for this model/catalog: 512  (prompt without schema: 157)
+  C/natural        exact=0.955  recovered=0.955  lenient=0.955  tool_ok=0.995  parsed=1.000  |  prompt/req=151  cache_hit/req=98  completion/req=37
+  C/strong         exact=0.643  recovered=0.643  lenient=0.653  tool_ok=0.995  parsed=1.000  [rewritten-only n=181 exact=0.619]  |  prompt/req=158  cache_hit/req=122  completion/req=37
+  (with-tools minus no-tools prompt/req is the per-request schema cost the adapter would remove)
+wrote results/openai_gpt_oss_20b__cat4__cat4_mix50_C_lr5e-4dec_s1_unseen_pv1.summary.json
+=== [01:58:44] seed 1 cat4 done ===
