@@ -65,3 +65,14 @@ Code: MIT. Catalog, queries, glossaries and result rows (`tools/`, `queries*/`, 
 - [Cookbook issue #947](https://github.com/thinking-machines-lab/tinker-cookbook/issues/947): the recommended GPT-OSS renderer emits malformed tool-call headers
 on ~8% of requests — found while building the harness.
 
+## Citation
+
+```bibtex
+@misc{nevidomyi2026llmua,
+  title       = {In-Context vs. LoRA-Adapter Tool Calling as the Catalog Grows},
+  author      = {Nevidomyi, Vitalii},
+  year        = {2026},
+  note        = {Technical report},
+  url         = {https://github.com/nevidomy/llmua_v1}
+}
+```
