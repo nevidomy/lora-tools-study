@@ -31,7 +31,7 @@ Details, methods, and all tables: [docs/report.md](docs/report.md) —
 in particular [§3.1 the full-catalog penalty](docs/report.md#31-the-full-catalog-penalty)
 and [§3.3 with vs. without the schema on the same data](docs/report.md#33-fine-tuning-with-the-schema-vs-without-on-the-same-data).
 
-[Report doc] (docs/report.pdf)
+[Report doc](docs/report.pdf)
 
 ## Repository layout
 
